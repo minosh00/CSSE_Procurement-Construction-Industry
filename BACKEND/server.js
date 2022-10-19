@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
 const user = require("./Routes/userRoutes");
-
+const order = require("./Routes/Order.Routes");
 
 
 
@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 //use Routes
 app.use("/user",user);
-
+app.use("/order",order);
 
 //DB connection
 
