@@ -95,7 +95,7 @@ const RegisterUser = () => {
                               <br></br>
                                   <div class="form-floating mb-3">
                                       <input class="form-control"  onChange={handleName} value={name}  placeholder="Enter Full Name "  />
-                                      <label for="floatingInput">Email </label>
+                                      <label for="floatingInput">name  </label>
                                   </div>
 
                                   <div class="form-floating mb-3">
