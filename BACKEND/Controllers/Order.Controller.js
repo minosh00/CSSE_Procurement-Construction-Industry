@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const Orders = require("../Model/Order");
 
-
-
-
 const GetAllOrders = async (req, res) => { 
     let id = req.params;
     console.log("orderID",id.id);
@@ -16,8 +13,15 @@ const GetAllOrders = async (req, res) => {
     }
 }
 
-
-
+const getOneOrder = async(req,res) => {
+    let id = req.params;
+    try{
+        const Order = await Orders.findById(id);
+        res.status(200).json(Order);
+    } catch(error) {
+        res.status(500).json({message: error.message});
+    }
+}
 
 const AllOrderStatus = async (req, res) => { 
     try {
@@ -29,33 +33,29 @@ const AllOrderStatus = async (req, res) => {
     }
 }
 
-
-
-
-
 const UpdateOrderById = async (req, res) => {
 
     const { id } = req.params;
-    const {  OrderID, DeliveryAddress,Price,Description,status ,supervisorID,QTY} = req.body;
+    const {  OrderID, DeliveryAddress,Price,Description,status ,QTY} = req.body;
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No  with id: ${id}`);
 
-    const updatedSupervisor = {  OrderID, DeliveryAddress,Price,Description,status ,supervisorID,QTY, _id:id};
+    const updatedSupervisor = {  OrderID, DeliveryAddress,Price,Description,status ,QTY, _id:id};
 
     await Orders.findByIdAndUpdate(id, updatedSupervisor, { new: true });
 
     res.json(updatedSupervisor);
 }
 
-
-
-
 const CreateOrder = async (req, res) => {
 
     const Supervisors = req.body;
+    const status = req.body.QTY > 100000? "Pending": "OK";
+
+    console.log(status);
     
 
-    const newSupervisors = new Orders({ ...Supervisors, creator: req.userId })
+    const newSupervisors = new Orders({ ...Supervisors, status: status, creator: req.userId })
 
     try {
         await newSupervisors.save();
@@ -66,7 +66,4 @@ const CreateOrder = async (req, res) => {
     }
 }
 
-
-
-
-module.exports ={CreateOrder ,UpdateOrderById ,GetAllOrders , AllOrderStatus};
+module.exports ={CreateOrder ,UpdateOrderById ,GetAllOrders , AllOrderStatus, getOneOrder};

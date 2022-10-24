@@ -14,15 +14,15 @@ var jwtSecret = "mysecrettoken";
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { supplierName, email, password , userRole ,companyName,supplierAddress } = req.body;
+    const { name, email, password , userRole ,companyName,supplierAddress } = req.body;
 
     
-    if(!supplierName || !email  || !password   || !supplierAddress ||!companyName)
+    if(!name || !email  || !password   || !supplierAddress ||!companyName)
     return res
     .status(400)
     .json({errorMessage : "plz all fill"});
 
-    if(supplierName.length<9)
+    if(name.length<9)
     return res.status(400).json({
         errorMessage: "Please enter a first name of at least 3 characters.",
     });
@@ -43,7 +43,7 @@ var jwtSecret = "mysecrettoken";
             res.status(400).json({ errors: [{ msg: "User already exists" }] });
         }
         user = new User({
-            supplierName,
+            name,
             email,
             companyName,
             password,
@@ -124,7 +124,7 @@ const loginUser = async (req, res) => {
 
         jwt.sign(payload, jwtSecret, { expiresIn: "1 days" }, (err, token) => {
             if (err) throw err;
-            res.json({ token , user: user.name , userRole: user.userRole });
+            res.json({ token , user: user.name , userRole: user.userRole , user:user.companyName ,  user:user.supplierAddress });
         });
     } catch (err) {
         console.error(err.message);
@@ -181,7 +181,7 @@ const createUser = async (req, res) => {
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No user with id: ${id}`);
 
-    const updatedUser = { supplierName,  email, password ,supplierAddress,companyName, userRole , _id:id};
+    const updatedUser = { name,  email, password ,supplierAddress,companyName, userRole , _id:id};
 
     await User.findByIdAndUpdate(id, updatedUser, { new: true });
 

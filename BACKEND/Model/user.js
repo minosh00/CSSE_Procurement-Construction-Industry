@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-	supplierName: {
+	name: {
 		type: String,
 		required: true,
 	},
@@ -13,13 +13,13 @@ const UserSchema = new mongoose.Schema({
     companyName: {
 		type: String,
 		required: true,
-		unique: true,
+		default:null
 	},
 
 supplierAddress: {
 		type: String,
 		required: true,
-		unique: true,
+		default:null
 	},
 
 	password: {
