@@ -17,7 +17,7 @@ export async function RegisterSupplier(data) {
         password:data.password,
         supplierAddress:data.supplierAddress,
         companyName:data.companyName,
-        userRole:"supplier"
+        userRole:"site"
     };
 
     return await axios.post(RegisterURL,alldata);

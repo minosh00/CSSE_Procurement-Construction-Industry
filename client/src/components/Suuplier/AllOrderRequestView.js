@@ -8,14 +8,33 @@ import {AuthUser} from "../../Services/AuthServices"
 
 function AllOrderRequestView() {
 
-  const [users, setusers] = useState();
+    const [users, setusers] = useState();
+   const [CurrentUser, setCurrentUser] = useState({});
+   const [UserRole, setUserRole] = useState(false);
+   const [loading , setLoading]  = useState();
 
+
+  
 
    const getAuthUser = async () => {
+     try {
+       setLoading(true);
        let token = localStorage.getItem("token");
-       let data =  await AuthUser(token);
-       GetRequests(data?.data?._id);
-   }
+       let data = await AuthUser(token);
+       setUserRole(data?.data?.userRole);
+       setCurrentUser(data?.data);
+       console.log(data);
+       if (data?.data?.userRole == "supplier") {
+        GetRequests(data?.data?._id);
+       }
+      
+       setLoading(false);
+     } catch (error) {
+       console.log(error);
+       setLoading(false);
+     }
+   };
+
 
 
   const GetRequests = async (id) => {
@@ -38,7 +57,7 @@ function AllOrderRequestView() {
   }
 
   useEffect(() => {
-   getAuthUser();
+    getAuthUser();
   }, []);
 
 

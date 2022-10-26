@@ -28,9 +28,11 @@ const Login = () => {
         {
             localStorage.setItem("token",data.data.token);
             localStorage.setItem("userRole",data.data.userRole);
+            localStorage.setItem("user", data.data.user);
+            localStorage.setItem("userId", data.data.userId);
 			{   Swal.fire('Congrats' , 'Successfully login Your Account ' , 'success')
 			navigate("/StudentProfile");
-			  }
+			}
 
         }
         else

@@ -5,6 +5,7 @@ let createSupervisorURL = "http://localhost:5000/order/CreateOrder";
 let AllSuplierURL = "http://localhost:5000/order/AllOrderStatus";
 let GetAllOrdersURL = "http://localhost:5000/order/GetAllOrders/";
 
+let GetOneOrderURL = "http://localhost:5000/order/GetOrder/";
 
 export async function createorder(data) {
     const alldata = {
@@ -15,7 +16,7 @@ export async function createorder(data) {
         QTY:data.QTY,
         Price:data.Price,
         Description:data.Description,
-  
+        userId:data?.userId
     };
 
 
@@ -33,7 +34,7 @@ export async function AllSupplier() {
 
 export async function GetIDoRDER(id) { 
     console.log(id);
-    return await axios.get(GetAllOrdersURL+id);
+    return await axios.get(GetOneOrderURL+id);
 }
 
 

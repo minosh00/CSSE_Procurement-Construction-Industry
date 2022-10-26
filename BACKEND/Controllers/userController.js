@@ -124,7 +124,7 @@ const loginUser = async (req, res) => {
 
         jwt.sign(payload, jwtSecret, { expiresIn: "1 days" }, (err, token) => {
             if (err) throw err;
-            res.json({ token , user: user.name , userRole: user.userRole , user:user.companyName ,  user:user.supplierAddress });
+            res.json({ token , user: user.name , userRole: user.userRole , userId:user.id, });
         });
     } catch (err) {
         console.error(err.message);

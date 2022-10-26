@@ -4,7 +4,7 @@ const OrderSchema = mongoose.Schema({
 
     OrderID:{type:String, required:true},
     DeliveryAddress:{type:String , required:true},
-  
+    creator :{type:String},
     QTY:{type:Number , required:true},
     Price:{type:Number, required:true},
     Description:{type:String, required:true},

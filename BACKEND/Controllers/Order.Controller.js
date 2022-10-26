@@ -14,9 +14,9 @@ const GetAllOrders = async (req, res) => {
 }
 
 const getOneOrder = async(req,res) => {
-    let id = req.params;
+    let id = req.params.id;
     try{
-        const Order = await Orders.findById(id);
+        const Order = await Orders.find({"creator":id});
         res.status(200).json(Order);
     } catch(error) {
         res.status(500).json({message: error.message});
@@ -53,10 +53,10 @@ const CreateOrder = async (req, res) => {
     const status = req.body.QTY > 100000? "Pending": "OK";
 
     console.log(status);
-    
+    console.log("creator " , Supervisors.userId);
 
-    const newSupervisors = new Orders({ ...Supervisors, status: status, creator: req.userId })
-
+    const newSupervisors = new Orders({ ...Supervisors, status: status, creator: Supervisors.userId == undefined ? "no creator" : Supervisors.userId })
+    console.log("created order" , newSupervisors);
     try {
         await newSupervisors.save();
 

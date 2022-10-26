@@ -74,6 +74,7 @@ const RequestSupervisor = () => {
 	const [loading,setLoading] = useState(false);
 	const [openModal , setopenModal] = useState(false);
 	const [cosuperData,setstaffData] = useState({});
+	const[SupplierID,setSupplierID]=useState("");
 
 	const requestCoSupervisor = async (e) => {
 
@@ -83,8 +84,8 @@ const RequestSupervisor = () => {
 			DeliveryAddress: DeliveryAddress,
             QTY:QTY,
             Price:Price,
-            Description:Description
-
+            Description:Description,
+			userId:SupplierID
 		}
 
 		let response = await createorder(data);
@@ -128,7 +129,7 @@ const RequestSupervisor = () => {
 						 supplierAddress:item?.supplierAddress,
 						password:item?.password,
 						userRole:item?.userRole,
-						OrderID:item?._id	
+						supplierID:item?._id	
 				}
 			})
 
@@ -145,7 +146,7 @@ const RequestSupervisor = () => {
 	},[])
 
 	const assignStaff = (data) => {
-		setGroupID("");
+		setSupplierID(data?.supplierID);
 		setGruopLeaderEmail("");
 		setstaffData(data);
 		setopenModal(true);
