@@ -12,6 +12,11 @@ import EvaluateOrder from "./components/procurementStaff/EvaluateOrder";
 import TransportOrder from "./components/Suuplier/TransportOrder";
 import Dashborad from "./components/SiteManager/Dashborad";
 import DisplayOrderDeliverdStatus from "./components/SiteManager/DisplayOrderDeliverdStatus";
+import DisplayAllOrders from "./components/Suuplier/DisplayAllOrders";
+
+import ViewOneOrder from "./components/Suuplier/ViewOneOrder";
+
+
 
 import React, { useEffect, useState } from "react";
 
@@ -50,7 +55,8 @@ function App() {
 
             <Route path="/Dashborad"element={<Dashborad />}/>
             <Route path="/DisplayOrderDeliverdStatus"element={<DisplayOrderDeliverdStatus />}/>
-
+            <Route path="/DisplayAllOrders"element={<DisplayAllOrders />}/>
+            <Route path="/ViewOrderssById/:id"element={<ViewOneOrder />}/>
             
 
           </Routes>

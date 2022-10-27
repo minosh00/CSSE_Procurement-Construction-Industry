@@ -113,12 +113,12 @@ function DisplayApprovedOrderList() {
             <thead className="bs">
               <tr>
                 <th  style={{color:"white" , backgroundColor:"black"}} >OrderID </th>
-                <th  style={{color:"white" , backgroundColor:"black"}} >Topic</th>
+                <th  style={{color:"white" , backgroundColor:"black"}} >Delivery Address</th>
                 <th  style={{color:"white" , backgroundColor:"black"}} >creator  </th>
-                <th  style={{color:"white" , backgroundColor:"black"}} >Urls</th>
-                <th  style={{color:"white" , backgroundColor:"black"}} >Evaluate Topic Message</th>
+                <th  style={{color:"white" , backgroundColor:"black"}} >qty</th>
+                <th  style={{color:"white" , backgroundColor:"black"}} >Price</th>
                 <th  style={{color:"white" , backgroundColor:"black"}} >status</th>
-             
+                <th  style={{color:"white" , backgroundColor:"black"}} >Action</th>
               </tr>
             </thead>
   
@@ -144,6 +144,16 @@ function DisplayApprovedOrderList() {
                       <td>{users.Price}</td>
                       <td>  	 <Badge color="success" style={{fontSize:"15px"}} disabled >{users.status} </Badge>  </td>
                     
+                    <td>    <Link to="">
+                    <button
+                      type="submit"
+                      style={{ fontSize: "10px" }}
+                      className="btn btn-success"
+                      onClick={() => window.location.href = `/ViewOrderssById/${users?._id}`}
+                    >
+                      View Order Details{" "}
+                    </button>
+                  </Link></td>
                     </tr>
                   );
                 })}

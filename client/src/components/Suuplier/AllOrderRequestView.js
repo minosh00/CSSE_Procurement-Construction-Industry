@@ -7,6 +7,23 @@ import {  GetIDoRDER} from "../../Services/SupplierServices";
 import {AuthUser} from "../../Services/AuthServices" 
 import { Button } from "reactstrap";
 import Loader from "../procurementStaff/Loader";
+
+import { 
+	Badge,
+	Card,
+	CardHeader,
+	CardTitle,
+	CardBody,
+    Form,
+    Input,
+	Label,
+
+	Modal,
+	ModalHeader,
+	ModalBody,
+   } from "reactstrap";
+
+
 function AllOrderRequestView() {
 
     const [users, setusers] = useState();
@@ -120,11 +137,13 @@ function AllOrderRequestView() {
                     <td >{users.Deadline}</td>
                     <td >{users.Material}</td>
 
-                    <td>{users.status === "OK"? <button onClick={() => window.location.href = `/ViewOrderTransportById/${users?._id}`} className="btn btn-success">Order Approved  </button>: "Pending"}</td>
+               
+                    <td>{users.status === "OK"? <Badge onClick={() => window.location.href = `/ViewOrderTransportById/${users?._id}`} className="btn btn-success">Order Approved  </Badge>: "Pending"}</td>
          
                   </tr>
         
                 );
+             
               })}
           </tbody>
         </table>

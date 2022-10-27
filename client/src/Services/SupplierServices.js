@@ -8,8 +8,7 @@ let GetOneOrderURL = "http://localhost:5000/order/GetOrder/";
 let UpdateOrderURL = "http://localhost:5000/order/UpdateOrderById/";
 let GetOneURL = "http://localhost:5000/order/OrderByID/";
 let ViewOrderTransportByIdURL = "http://localhost:5000/order/ViewOrderTransportById/"
-
-
+let  ViewOrderssByIdURLS= "http://localhost:5000/order/ViewOrderssById/"
 export async function createorder(data) {
     const alldata = {
       
@@ -69,9 +68,30 @@ export async function UpdateOrderById(id,data) {
     };
 
 
+
     return await axios.patch(UpdateOrderURL + id,alldata);
 }
 
+
+export async function ViewOrderssById(id,data) {
+    const alldata = {
+      
+        OrderID:data.OrderID,
+        DeliveryAddress:data.DeliveryAddress,
+        QTY:data.QTY,
+        Price:data.Price,
+        Description:data.Description,
+        status:data.status,
+        Deadline:data.Deadline,
+        Material:data.Material,
+        note:data.note,
+        userId:data.userId,
+    };
+
+
+
+    return await axios.patch(ViewOrderssByIdURLS + id,alldata);
+}
 
 
 

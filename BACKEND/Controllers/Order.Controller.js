@@ -35,6 +35,8 @@ const AllOrderStatus = async (req, res) => {
 
 
 
+
+
 const OrderByID = async (req, res) => { 
     const { id } = req.params;
 
@@ -47,6 +49,23 @@ const OrderByID = async (req, res) => {
     }
 }
 
+
+
+const RemoveOrder = async (request,response) => {
+
+    await Orders.findByIdAndRemove(request.params.id,(error,order) => {
+        if(error){
+            response.status(500).json({ error: error.message });
+        }
+        else{
+            response.status(200).
+            json({
+                success: true,
+                order: order
+            })
+        }
+    })
+}
 
 
 
@@ -69,7 +88,7 @@ const UpdateOrderById = async (req, res) => {
 const ViewOrderTransportById = async (req, res) => {
 
     const { id } = req.params;
-    const {  OrderID, DeliveryAddress,Price,Description,status ,note,QTY} = req.body;
+    const {  OrderID, DeliveryAddress,Price,Description,status ,note,QTY,Deadline,Material} = req.body;
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No  with id: ${id}`);
 
@@ -79,6 +98,23 @@ const ViewOrderTransportById = async (req, res) => {
 
     res.json(updatedSupervisor);
 }
+
+
+
+const ViewOrderssById = async (req, res) => {
+
+    const { id } = req.params;
+    const {  OrderID, DeliveryAddress,Price,Description,status ,note,QTY,Deadline,Material} = req.body;
+    
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No  with id: ${id}`);
+
+    const updatedSupervisor = {  OrderID, DeliveryAddress,Price,Description,status ,QTY, note,Deadline,Material,_id:id};
+
+    await Orders.findByIdAndUpdate(id, updatedSupervisor, { new: true });
+
+    res.json(updatedSupervisor);
+}
+
 
 
 
@@ -106,6 +142,6 @@ const CreateOrder = async (req, res) => {
     }
 }
 
-module.exports ={CreateOrder ,UpdateOrderById ,GetAllOrders , AllOrderStatus, getOneOrder,OrderByID,ViewOrderTransportById};
+module.exports ={CreateOrder ,UpdateOrderById ,GetAllOrders , AllOrderStatus, getOneOrder,OrderByID,ViewOrderTransportById,RemoveOrder,ViewOrderssById};
 
 
