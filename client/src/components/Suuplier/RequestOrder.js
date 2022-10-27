@@ -34,6 +34,9 @@ const RequestSupervisor = () => {
   const[QTY,setQTY]=useState("");
   const[Price,setPrice]=useState("");
   const[Description,setDescription]=useState("");
+  const[Deadline,setDeadline]=useState("");
+  const[Material,setMaterial]=useState("");
+
 
 
 
@@ -68,6 +71,22 @@ const RequestSupervisor = () => {
 
 
 
+  const handleDealine = (e) => {
+    e.preventDefault();
+    setDeadline(e.target.value)
+  }
+
+
+  
+  const handleMaterial = (e) => {
+    e.preventDefault();
+    setMaterial(e.target.value)
+  }
+
+
+
+
+
 
 
 	const [staffDetails , setstaffDetails] = useState({});
@@ -83,6 +102,8 @@ const RequestSupervisor = () => {
 			OrderID: OrderID,
 			DeliveryAddress: DeliveryAddress,
             QTY:QTY,
+			Material:Material,
+			Deadline:Deadline,
             Price:Price,
             Description:Description,
 			userId:SupplierID
@@ -126,6 +147,8 @@ const RequestSupervisor = () => {
                          name:item?.name,
                          email:item?.email,
 						 companyName:item?.companyName,
+						 Deadline:item?.Deadline,
+						 Material:item?.Material,
 						 supplierAddress:item?.supplierAddress,
 						password:item?.password,
 						userRole:item?.userRole,
@@ -179,6 +202,12 @@ const RequestSupervisor = () => {
 			  </div>
 			),
 		  },
+
+		
+
+		
+
+
 
 		{
 			name: (<Badge color="success" style={{fontSize:"15px"}} >Supplier Address </Badge>),
@@ -262,9 +291,21 @@ backdrop={true}>
                     <Input type="text" className="input" placeholder="Enter Qty of Item " value={QTY} onChange={(e)=>handleQTY(e)}/>
                 
                 
-
+				
                     <Label>Price </Label>
                     <Input type="text" className="input" placeholder="Enter price" value={Price} onChange={(e)=>HANDLEPRICE(e)}/>
+
+					
+                    <Label>Material </Label>
+                    <Input type="textarea" className="input" placeholder="select Material " row-="6" value={Material} onChange={(e)=>handleMaterial(e)}/>
+
+
+
+
+
+
+                    <Label>Deadline </Label>
+                    <Input type="date" className="input"  value={Deadline} onChange={(e)=>handleDealine(e)}/>
 
                     <Label>Note </Label>
                     <Input type="textarea" className="input" placeholder="Enter Note " value={Description} onChange={(e)=>handledescription(e)}/>

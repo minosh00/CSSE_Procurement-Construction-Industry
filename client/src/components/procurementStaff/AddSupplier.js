@@ -1,12 +1,13 @@
+
 import React , {useState} from 'react';
 import { Link , useNavigate } from "react-router-dom";
 import {RegisterSupplier} from '../../Services/AuthServices';
 import Swal from "sweetalert2";
-import logo from '../images/Easier-task-assignment.png'
-import './ClientLogin.css'
+import logo from '../images/test.png'
+import '../Auth/ClientLogin.css'
 
 
-const RegisterUser = () => {
+const AddSupplier = () => {
 
 
     const navigate = useNavigate();
@@ -66,22 +67,20 @@ const RegisterUser = () => {
       }
     };
 
-const onChange={
-  value:"not supplier" 
-}
+
 
 	return (
 		<div>
 			     <center>
-      <div style={{marginTop:"30px"}}>
-          <center><h1 style={{"font-family": 'Chilanka'}} ><b>Welcome to   Sankens Constructions Industry</b></h1></center> 
-        </div>
+   
         <br/>
-        
+        <h1> Add New Supplier </h1>
         </center>
 		<br/>
 		<div className="container">
+            
 <div className="container mt-5">
+    
               <div className="card card0 border-0">
                   <div className="row d-flex">
                       <div className="col-lg-6">
@@ -92,15 +91,18 @@ const onChange={
                       </div>
                       <div className="col-lg-6">
                       <form className="form" >
-                              <div className="card2 card border-0 px-4 py-5">
-                              <h1> SIGN UP</h1>
+                              <div className="card2 card border-0 px-4 ">
+                          
                               <br></br>
                                   <div class="form-floating mb-3">
                                       <input class="form-control"  onChange={handleName} value={name}  placeholder="Enter Full Name "  />
-                                      <label for="floatingInput">name  </label>
+                                      <label for="floatingInput"> Full Name  </label>
                                   </div>
 
-                             
+                                  <div class="form-floating mb-3">
+                                      <input class="form-control" type="text"   onChange={handlesetsupplierAddress}  value={supplierAddress}  placeholder="Enter supplier Address "	minLength="4" required />
+                                      <label for="floatingPassword"> Supplier Address</label>
+                                  </div>
 
 
                                   <div class="form-floating mb-3">
@@ -132,11 +134,11 @@ const onChange={
                                   </label>
                               </div>
                                   <div className="row mb-3 px-3">
-                                  <a ><button  type="submit" onClick={handleSubmit} className="btn btn-danger">Register</button></a>
+                                  <a ><button  type="submit" onClick={handleSubmit} className="btn btn-danger">Add new Supplier</button></a>
                                   </div>
                                   <div>
                                 
-                                  <b><small>Have an Account? <a href="/login" className="text-danger "><b>Login</b></a></small></b>
+                    
                                 
                             </div>
                               </div>
@@ -156,4 +158,4 @@ const onChange={
 	);
 };
 
-export default RegisterUser;
+export default AddSupplier;

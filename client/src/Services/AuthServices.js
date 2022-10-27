@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-
+let RegisterSupURL = "http://localhost:5000/user/signup";
 let RegisterURL = "http://localhost:5000/user/signup";
 let LoginURL = "http://localhost:5000/user/signin";
 let AuthURL = "http://localhost:5000/user/auth";
@@ -9,7 +9,7 @@ let UpdateHotelAdmin = "http://localhost:5000/user/updateuserById/";
 let DeleteHotelAdmin = "http://localhost:5000/user/deleteUser/";
 
 
-export async function RegisterSupplier(data) {
+export async function RegisterSiteManager(data) {
     const alldata = {
 
         name:data.name,
@@ -17,11 +17,29 @@ export async function RegisterSupplier(data) {
         password:data.password,
         supplierAddress:data.supplierAddress,
         companyName:data.companyName,
-        userRole:"site"
+        userRole:"siteManager"
     };
 
-    return await axios.post(RegisterURL,alldata);
+    return await axios.post(RegisterSupURL,alldata);
 }
+
+
+
+
+export async function RegisterSupplier(data) {
+  const alldata = {
+
+      name:data.name,
+      email:data.email,
+      password:data.password,
+      supplierAddress:data.supplierAddress,
+      companyName:data.companyName,
+      userRole:"supplier"
+  };
+
+  return await axios.post(RegisterURL,alldata);
+}
+
 
 
 export async function LoginSupplier(data) {

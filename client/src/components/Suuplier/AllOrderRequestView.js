@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import {  GetIDoRDER} from "../../Services/SupplierServices";
 import {AuthUser} from "../../Services/AuthServices" 
+import { Button } from "reactstrap";
 
 function AllOrderRequestView() {
 
@@ -88,6 +89,8 @@ function AllOrderRequestView() {
               <th  style={{color:"black" , backgroundColor:"yellow"}}  > DeliveryAddress </th>
               <th  style={{color:"black" , backgroundColor:"yellow"}}  >qty </th>
               <th  style={{color:"black" , backgroundColor:"yellow"}}  >price</th>
+              <th  style={{color:"black" , backgroundColor:"yellow"}}  >deadline </th>
+              <th  style={{color:"black" , backgroundColor:"yellow"}}  >Material</th>
               <th  style={{color:"black" , backgroundColor:"yellow"}}  >status</th>
 
            
@@ -104,7 +107,10 @@ function AllOrderRequestView() {
                     <td >{users.DeliveryAddress}</td>
                     <td >{users.QTY}</td>
                     <td >{users.Price}</td>
-                    <td>{users.status === "OK"? <button onClick={() => window.location.href = `/ViewOrder/${users._id}`} className="btn btn-danger">View Order</button>: "Pending"}</td>
+                    <td >{users.Deadline}</td>
+                    <td >{users.Material}</td>
+
+                    <td>{users.status === "OK"? <button onClick={() => window.location.href = `/ViewOrderTransportById/${users?._id}`} className="btn btn-success">Order Approved  </button>: "Pending"}</td>
                   </tr>
                 );
               })}

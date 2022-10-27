@@ -41,18 +41,29 @@ const NavBar = () => {
 
             
                 <li class="nav-item">
-                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/RequestOrder" aria-current="page">Request Order</a>
+                  <a style={{ display: userRole == "" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/RequestOrder" aria-current="page">Request Order</a>
                 </li>
                 <li class="nav-item">
                   <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/AllOrderRequestView" aria-current="page"> All Order Request View</a>
                 </li>
                 <li class="nav-item">
-                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/" aria-current="page">Edit Restaurants</a>
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayPendingOrderList" aria-current="page">Pending Orders </a>
                 </li>
                 <li class="nav-item">
-                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/" aria-current="page">Edit Employee</a>
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/AddSupplier" aria-current="page">Add New Supplier  </a>
+                </li>
+                <li class="nav-item">
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/RequestOrder" aria-current="page">Request Order    </a>
+                </li>
+
+                
+
+                <li class="nav-item">
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayApprovedOrderList" aria-current="page">Approved Orders  </a>
                 </li>
          
+                
+
            
               </div>
             </div>

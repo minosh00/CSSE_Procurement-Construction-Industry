@@ -33,19 +33,59 @@ const AllOrderStatus = async (req, res) => {
     }
 }
 
+
+
+const OrderByID = async (req, res) => { 
+    const { id } = req.params;
+
+    try {
+        const TopicRequests = await Orders.findById(id);
+        
+        res.status(200).json(TopicRequests);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+
+
+
 const UpdateOrderById = async (req, res) => {
 
     const { id } = req.params;
-    const {  OrderID, DeliveryAddress,Price,Description,status ,QTY} = req.body;
+    const {  OrderID, DeliveryAddress,Price,Description,status ,note,QTY} = req.body;
     
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No  with id: ${id}`);
 
-    const updatedSupervisor = {  OrderID, DeliveryAddress,Price,Description,status ,QTY, _id:id};
+    const updatedSupervisor = {  OrderID, DeliveryAddress,Price,Description,status ,QTY, note,Deadline,Material,_id:id};
 
     await Orders.findByIdAndUpdate(id, updatedSupervisor, { new: true });
 
     res.json(updatedSupervisor);
 }
+
+
+
+const ViewOrderTransportById = async (req, res) => {
+
+    const { id } = req.params;
+    const {  OrderID, DeliveryAddress,Price,Description,status ,note,QTY} = req.body;
+    
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No  with id: ${id}`);
+
+    const updatedSupervisor = {  OrderID, DeliveryAddress,Price,Description,status ,QTY, note,Deadline,Material,_id:id};
+
+    await Orders.findByIdAndUpdate(id, updatedSupervisor, { new: true });
+
+    res.json(updatedSupervisor);
+}
+
+
+
+
+
+
+
 
 const CreateOrder = async (req, res) => {
 
@@ -66,4 +106,6 @@ const CreateOrder = async (req, res) => {
     }
 }
 
-module.exports ={CreateOrder ,UpdateOrderById ,GetAllOrders , AllOrderStatus, getOneOrder};
+module.exports ={CreateOrder ,UpdateOrderById ,GetAllOrders , AllOrderStatus, getOneOrder,OrderByID,ViewOrderTransportById};
+
+
