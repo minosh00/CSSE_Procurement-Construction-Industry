@@ -10,7 +10,8 @@ import DisplayPendingOrderList from "./components/procurementStaff/DisplayPendin
 import DisplayApprovedOrderList from "./components/procurementStaff/DisplayApprovedOrderList";
 import EvaluateOrder from "./components/procurementStaff/EvaluateOrder";
 import TransportOrder from "./components/Suuplier/TransportOrder";
-
+import Dashborad from "./components/SiteManager/Dashborad";
+import DisplayOrderDeliverdStatus from "./components/SiteManager/DisplayOrderDeliverdStatus";
 
 import React, { useEffect, useState } from "react";
 
@@ -47,8 +48,10 @@ function App() {
             <Route path="/UpdateOrderById/:id"element={<EvaluateOrder />}/>
             <Route path="/ViewOrderTransportById/:id"element={<TransportOrder />}/>
 
-            
+            <Route path="/Dashborad"element={<Dashborad />}/>
+            <Route path="/DisplayOrderDeliverdStatus"element={<DisplayOrderDeliverdStatus />}/>
 
+            
 
           </Routes>
 

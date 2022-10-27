@@ -6,13 +6,18 @@ import { Link } from "react-router-dom";
 import {  GetIDoRDER} from "../../Services/SupplierServices";
 import {AuthUser} from "../../Services/AuthServices" 
 import { Button } from "reactstrap";
-
+import Loader from "../procurementStaff/Loader";
 function AllOrderRequestView() {
 
     const [users, setusers] = useState();
    const [CurrentUser, setCurrentUser] = useState({});
    const [UserRole, setUserRole] = useState(false);
    const [loading , setLoading]  = useState();
+
+
+
+   
+   
 
 
   
@@ -35,6 +40,11 @@ function AllOrderRequestView() {
        setLoading(false);
      }
    };
+
+
+
+
+
 
 
 
@@ -92,7 +102,7 @@ function AllOrderRequestView() {
               <th  style={{color:"black" , backgroundColor:"yellow"}}  >deadline </th>
               <th  style={{color:"black" , backgroundColor:"yellow"}}  >Material</th>
               <th  style={{color:"black" , backgroundColor:"yellow"}}  >status</th>
-
+          
            
             </tr>
           </thead>
@@ -111,7 +121,9 @@ function AllOrderRequestView() {
                     <td >{users.Material}</td>
 
                     <td>{users.status === "OK"? <button onClick={() => window.location.href = `/ViewOrderTransportById/${users?._id}`} className="btn btn-success">Order Approved  </button>: "Pending"}</td>
+         
                   </tr>
+        
                 );
               })}
           </tbody>

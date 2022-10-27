@@ -4,7 +4,24 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { OrderByID, ViewOrderTransportById } from "../../Services/SupplierServices";
+import DataTable from "react-data-table-component";
+import { 
+	Badge,
+	Card,
+	CardHeader,
+	CardTitle,
+	CardBody,
+    Form,
+    Input,
+	Label,
+	Button,
+	Modal,
+	ModalHeader,
+	ModalBody,
+   } from "reactstrap";
+import axios from "axios";
 
+   
 
 
 const TransportOrder = () => {
@@ -59,6 +76,35 @@ const TransportOrder = () => {
         setstatus(e.target.value);
     };
 
+    const [transportID, setTransportID] = useState('');
+    const [location, setLocationD] = useState('');
+    const [vehiNo, setVehiNo] = useState('');
+    const[TransportStatus,setTransportStatus]= useState('');
+
+    const createTransport = () => {
+      const payload = {
+       OrderID: OrderID,
+       TransportID: transportID,
+       location: location,
+       VehicleNumber: vehiNo,
+       TransportStatus: TransportStatus
+      }
+
+
+      console.log(payload)
+
+      axios.post("http://localhost:5000/Transport/CreateTransport/", payload).then((res) => {
+        Swal.fire("success", " success ", "success"); {
+
+          navigate("");
+
+      }
+        console.log(res.data)
+      }).catch(
+        (error) => console.log(error)
+      )
+    }
+
 
 
   
@@ -91,7 +137,6 @@ const TransportOrder = () => {
             Price: Price,
             Description: Description,
             status: status,
-       
             DeliveryAddress: DeliveryAddress,
 
         };
@@ -121,7 +166,7 @@ const TransportOrder = () => {
       <div>
         <div className="container shadow my-5 mx-auto w-50">
           <div className="col p-3">
-            <h3 className=" fw-bolder mb-4"><center>Add New Employee</center></h3>
+            <h3 className=" fw-bolder mb-4"><center>ID:&nbsp;&nbsp; {OrderID} :&nbsp;&nbsp;&nbsp;Order Delivery  Status  </center></h3>
             <form >
               <div className='row py-3'>
                   <div class="col-md-6">
@@ -185,13 +230,113 @@ const TransportOrder = () => {
                         value={status}
                       />
                   </div>
+
+                
               </div>
+             
       </div>
+      
             </form>
+            <Link to="">
+                    <button
+                      type="submit"
+                      style={{ fontSize: "10px" }}
+                      className="btn btn-success"
+                    >
+                      transpot{" "}
+                    </button>
+                  </Link>
           </div>
+      
         </div>
+      
       </div>
+
     </div>
+
+
+    <br></br>
+
+  
+
+<div>
+      <div>
+        <div className="container shadow my-5 mx-auto w-50">
+          <div className="col p-3">
+            <h3 className=" fw-bolder mb-4"><center> OrderID ID:&nbsp;&nbsp; {OrderID} :&nbsp;&nbsp;&nbsp;Transport Details   </center></h3>
+            <form >
+              <div className='row py-3'>
+            
+                  <div class="col-md-6">
+                      <label for="" class="form-label">{" "}Transport ID{" "}</label>
+                      <input type="text"
+                        class="form-control"
+                        id="floatingInput"
+                        value={transportID} onChange={(e) => setTransportID(e.target.value)}
+                      />
+                  </div>
+                  <div class="col-md-6">
+                      <label for="" class="form-label">{" "}Location   {" "}</label>
+                      <input type="text"
+                        class="form-control"
+                        id="floatingPassword"
+                        value={location} onChange={(e) => setLocationD(e.target.value)} 
+                      />
+                  </div>
+           
+              
+                <div className='row py-3'>
+                  <div class="col-md-6">
+                  <label for="" class="form-label">{" "}Vehicle Number  {" "}</label>
+
+                      <input type="text"
+                      class="form-control"
+                      id="exampleFormControlTextarea3"
+                      value={vehiNo} onChange={(e) => setVehiNo(e.target.value)} 
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                      <label for="" class="form-label">{" "}Transport Status   {" "}</label>
+                
+
+             <select
+         class="form-control"
+         id="floatingInput"
+         value={TransportStatus}
+         style={{ width: "200px" }}
+         onChange={(e) => setTransportStatus(e.target.value)} 
+       >
+         <option value=""></option>
+         <option value="delivered">delivered</option>
+         <option value="notDelivered">Not Delivered</option>
+
+       </select>
+                  </div>
+              </div>
+              
+         
+             
+      </div>
+      
+            </form>
+            <Link to="">
+                    <button
+                      type="submit"
+                      onClick={() => createTransport()}
+                      className="btn btn-success"
+                    >
+                      Transport Order{" "}
+                    </button>
+                  </Link>
+          </div>
+      
+        </div>
+      
+      </div>
+
+    </div>
+   
     </div>
 
 

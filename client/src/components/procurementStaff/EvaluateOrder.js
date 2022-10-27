@@ -31,6 +31,9 @@ const EvaluateOrder = () => {
   const [Description, setDescription] = useState("");
   const [status, setstatus] = useState("");
   const [note, setMessage] = useState("");
+  const [Deadline, setDeadline] = useState("");
+  const [Material, setMaterial] = useState("");
+  
 
 
 
@@ -82,7 +85,8 @@ const EvaluateOrder = () => {
     setstatus(data?.data?.status);
     setDeliveryAddress(data?.data?.DeliveryAddress);
     setMessage(data?.data?.note);
-
+    setMaterial(data?.data?.Material);
+    setDeadline(data?.data?.Deadline);
   };
 
   useEffect(() => {
@@ -98,13 +102,15 @@ const EvaluateOrder = () => {
       Description: Description,
       status: status,
       note:note,
+      Deadline:Deadline,
+      Material:Material,
       DeliveryAddress: DeliveryAddress,
 
     };
 
     let data = await UpdateOrderById(id, newdata);
     console.log("Update success ", data);
-    if (!data?.data?.GroupID) {
+    if (!data?.data?.OrderID) {
         Swal.fire("error", " please  check again ", "error");{
 
             navigate("");

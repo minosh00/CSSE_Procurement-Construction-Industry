@@ -10,6 +10,22 @@ import { Link } from "react-router-dom";
 import autoTable from 'jspdf-autotable'
 import { jsPDF } from "jspdf";
 
+import { 
+	Badge,
+	Card,
+	CardHeader,
+	CardTitle,
+	CardBody,
+    Form,
+    Input,
+	Label,
+	Button,
+	Modal,
+	ModalHeader,
+	ModalBody,
+   } from "reactstrap";
+
+   
 function DisplayApprovedOrderList() {
 
     const [users, setusers] = useState();
@@ -126,7 +142,7 @@ function DisplayApprovedOrderList() {
                       <td>{users.createdAt}</td>
                       <td>{users.QTY}</td>
                       <td>{users.Price}</td>
-                      <td>     <button className="btn btn-success" disabled   >{users.status} </button></td>
+                      <td>  	 <Badge color="success" style={{fontSize:"15px"}} disabled >{users.status} </Badge>  </td>
                     
                     </tr>
                   );

@@ -6,7 +6,7 @@ const OrderSchema = mongoose.Schema({
     DeliveryAddress:{type:String , required:true},
     Material:{type:String , required:true},
     creator :{type:String},
-    Deadline:{type:Date , required:true},
+    Deadline:{type:String },
     QTY:{type:Number , required:true},
     Price:{type:Number, required:true},
     Description:{type:String, required:true},
