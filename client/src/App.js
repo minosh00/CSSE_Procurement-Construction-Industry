@@ -1,4 +1,7 @@
+import React, { useEffect, useState } from "react";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/RegisterUser";
 import Landingscreen from "./components/Auth/Landingscreen";
@@ -12,32 +15,27 @@ import EvaluateOrder from "./components/procurementStaff/EvaluateOrder";
 import TransportOrder from "./components/Suuplier/TransportOrder";
 import Dashborad from "./components/SiteManager/Dashborad";
 import DisplayOrderDeliverdStatus from "./components/SiteManager/DisplayOrderDeliverdStatus";
-
-import React, { useEffect, useState } from "react";
-
+import DisplayAllOrders from "./components/Suuplier/DisplayAllOrders";
+import ViewOneOrder from "./components/Suuplier/ViewOneOrder";
+import DisplayRejectOrderList from "./components/procurementStaff/DisplayRejectOrderList";
 
 let isauth = localStorage.getItem('user');
 
-
 function App() {
-  
-  const [user, setUser] = useState("");
 
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     setUser(localStorage.getItem("userRole"));
   }, []);
 
-
-
-
   return (
     <>
       <div >
         <Router>
-        <NavBar/>
+          <NavBar />
           <Routes>
-            <Route  exact path="/" element={<Landingscreen />} />
+            <Route exact path="/" element={<Landingscreen />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/RequestOrder" element={<RequestOrder />} />
@@ -45,19 +43,15 @@ function App() {
             <Route path="/AddSupplier" element={<AddSupplier />} />
             <Route path="/DisplayPendingOrderList" element={<DisplayPendingOrderList />} />
             <Route path="/DisplayApprovedOrderList" element={<DisplayApprovedOrderList />} />
-            <Route path="/UpdateOrderById/:id"element={<EvaluateOrder />}/>
-            <Route path="/ViewOrderTransportById/:id"element={<TransportOrder />}/>
-
-            <Route path="/Dashborad"element={<Dashborad />}/>
-            <Route path="/DisplayOrderDeliverdStatus"element={<DisplayOrderDeliverdStatus />}/>
-
-            
-
+            <Route path="/UpdateOrderById/:id" element={<EvaluateOrder />} />
+            <Route path="/ViewOrderTransportById/:id" element={<TransportOrder />} />
+            <Route path="/Dashborad" element={<Dashborad />} />
+            <Route path="/DisplayOrderDeliverdStatus" element={<DisplayOrderDeliverdStatus />} />
+            <Route path="/DisplayAllOrders" element={<DisplayAllOrders />} />
+            <Route path="/ViewOrderssById/:id" element={<ViewOneOrder />} />
+            <Route path="/DisplayRejectOrderList" element={<DisplayRejectOrderList />} />
           </Routes>
-
-       
         </Router>
-
       </div>
     </>
   );
