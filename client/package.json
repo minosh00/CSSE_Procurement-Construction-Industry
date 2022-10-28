@@ -12,6 +12,7 @@
     "axios": "^0.21.4",
     "bootstrap": "^5.2.0",
     "cdbreact": "^1.5.3",
+    "emailjs-com": "^3.2.0",
     "font-awesome": "^4.7.0",
     "formik": "^2.2.9",
     "jspdf": "^2.5.1",
