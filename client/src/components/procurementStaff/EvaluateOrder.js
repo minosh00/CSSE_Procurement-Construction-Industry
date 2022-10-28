@@ -54,11 +54,11 @@ const EvaluateOrder = () => {
     console.log("Update success ", data);
     if (!data?.data?.OrderID) {
       Swal.fire("error", "Please Check Again", "error"); {
-        navigate("");
+        navigate("/DisplayApprovedOrderList");
       }
     } else {
-      Swal.fire("success", "Successfully Evaluate Topic", "success"); {
-        navigate("");
+      Swal.fire("success", "Order Status Successfully Updated", "success"); {
+        navigate("/DisplayApprovedOrderList");
       }
     }
   };

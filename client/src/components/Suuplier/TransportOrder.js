@@ -99,82 +99,83 @@ const TransportOrder = () => {
                   </div> <br />
                   <div class="col">
                     <center>
-                      <h3 className=" fw-bolder mb-4">{OrderID} Order Delivery Status  </h3>
+                      <h3 className=" fw-bolder mb-4">{OrderID} Order Delivery Status </h3>
                     </center>
-                    <form>
-                      <div className='row py-3'>
-                        <div class="col-md-6">
-                          <label for="" class="form-label">{" "}Order ID{" "}</label>
-                          <input type="text"
-                            class="form-control"
-                            id="floatingInput"
-                            readOnly={true}
-                            value={OrderID}
-                          />
-                        </div>
-                        <div class="col-md-6">
-                          <label for="" class="form-label">{" "}Quantity   {" "}</label>
-                          <input type="text"
-                            class="form-control"
-                            id="floatingPassword"
-                            readOnly={true}
-                            value={QTY}
-                          />
-                        </div>
 
-                        <div className='row py-3'>
-                          <div class="col-md-6">
-                            <label for="" class="form-label">{" "}Total Price {" "}</label>
-                            <input type="text"
-                              class="form-control"
-                              id="exampleFormControlTextarea3"
-                              readOnly={true}
-                              value={Price}
-                            />
-                          </div>
-                          <div class="col-md-6">
-                            <label for="" class="form-label">{" "}Description  {" "}</label>
-                            <input type="text"
-                              class="form-control"
-                              id="exampleFormControlTextarea3"
-                              readOnly={true}
-                              value={Description}
-                            />
-                          </div>
-                        </div>
-
-                        <div className='row py-3'>
-                          <div class="col-md-6">
-                            <label for="" class="form-label">{" "}DeliveryAddress{" "}</label>
-                            <input type="email"
-                              class="form-control"
-                              id="exampleFormControlTextarea3"
-                              readOnly={true}
-                              value={DeliveryAddress}
-                            />
-                          </div>
-                          <div class="col-md-6">
-                            <label for="" class="form-label">{" "}Order status {" "}</label>
-                            <input type="text"
-                              class="form-control"
-                              id="exampleFormControlTextarea3"
-                              readOnly={true}
-                              value={status}
-                            />
-                          </div>
-                        </div>
+                    <div className='row py-3'>
+                      <div class="col-md-6">
+                        <label for="" class="form-label">Order ID</label>
+                        <input type="text"
+                          class="form-control"
+                          id="floatingInput"
+                          readOnly={true}
+                          value={OrderID}
+                        />
                       </div>
-                    </form>
-                    <Link to="">
-                      <button
-                        type="submit"
-                        style={{ fontSize: "10px" }}
-                        className="btn btn-success"
-                      >
-                        transpot{" "}
-                      </button>
-                    </Link>
+                      <div class="col-md-6">
+                        <label for="" class="form-label">{" "}Quantity   {" "}</label>
+                        <input type="text"
+                          class="form-control"
+                          id="floatingPassword"
+                          readOnly={true}
+                          value={QTY}
+                        />
+                      </div>
+                    </div>
+
+                    <div className='row py-3'>
+                      <div class="col-md-4">
+                        <label for="" class="form-label">{" "}Total Price {" "}</label>
+                        <input type="text"
+                          class="form-control"
+                          id="exampleFormControlTextarea3"
+                          readOnly={true}
+                          value={Price}/>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="" class="form-label">Delivery Address</label>
+                        <input type="email"
+                          class="form-control"
+                          id="exampleFormControlTextarea3"
+                          readOnly={true}
+                          value={DeliveryAddress}
+                        />
+
+                      </div>
+                      <div class="col-md-4">
+                        <label for="" class="form-label">Order status </label>
+                        <input type="text"
+                          class="form-control"
+                          id="exampleFormControlTextarea3"
+                          readOnly={true}
+                          value={status}
+                        />
+                      </div>
+                    </div>
+
+                    <div className='row py-3'>
+                      <div class="col-md-12">
+                        <label for="" class="form-label">{" "}Description  {" "}</label>
+                        <textarea type="text"
+                          class="form-control"
+                          id="exampleFormControlTextarea3"
+                          readOnly={true}
+                          value={Description} rows="4"
+                        />
+                      </div>
+
+
+                    </div>
                   </div>
+                  <Link to="">
+                    <button
+                      type="submit"
+                      style={{ fontSize: "10px" }}
+                      className="btn btn-success"
+                    >
+                      transpot{" "}
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -189,7 +190,7 @@ const TransportOrder = () => {
                       <center>
                         <h3 className="fw-bolder">Transport Order</h3>
                       </center>
-                    </div> 
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col">
@@ -213,21 +214,17 @@ const TransportOrder = () => {
                           </div>
 
 
-                          <div className='row py-4'>
-                            <div class="col-md-6">
+                          <div className='py-3'>
+                            <div class="col-md-12">
                               <label for="" class="form-label">{" "}Vehicle Number  {" "}</label>
-
                               <input type="text"
                                 class="form-control"
                                 id="exampleFormControlTextarea3"
                                 value={vehiNo} onChange={(e) => setVehiNo(e.target.value)}
                               />
                             </div>
-
-                            <div class="col-md-6">
+                            <div class="py-3 col-md-12">
                               <label for="" class="form-label">{" "}Transport Status   {" "}</label>
-
-
                               <select
                                 class="form-control"
                                 id="floatingInput"
@@ -235,17 +232,12 @@ const TransportOrder = () => {
                                 onChange={(e) => setTransportStatus(e.target.value)}
                               >
                                 <option value=""></option>
-                                <option value="delivered">delivered</option>
+                                <option value="delivered">Delivered</option>
                                 <option value="notDelivered">Not Delivered</option>
-
                               </select>
                             </div>
                           </div>
-
-
-
                         </div>
-
                       </form>
                       <Link to="">
                         <button
@@ -253,7 +245,7 @@ const TransportOrder = () => {
                           onClick={() => createTransport()}
                           className="btn btn-success"
                         >
-                          Transport Order{" "}
+                          Transport Order
                         </button>
                       </Link>
                     </div>
@@ -263,9 +255,11 @@ const TransportOrder = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
 export default TransportOrder;
+
+{/*  */ }

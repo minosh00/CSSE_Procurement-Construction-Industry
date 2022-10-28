@@ -95,16 +95,11 @@ const ViewOrderTransportById = async (req, res) => {
 
 
 const ViewOrderssById = async (req, res) => {
-
     const { id } = req.params;
     const { OrderID, DeliveryAddress, Price, Description, status, note, QTY, Deadline, Material } = req.body;
-
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No  with id: ${id}`);
-
     const updatedSupervisor = { OrderID, DeliveryAddress, Price, Description, status, QTY, note, Deadline, Material, _id: id };
-
     await Orders.findByIdAndUpdate(id, updatedSupervisor, { new: true });
-
     res.json(updatedSupervisor);
 }
 
@@ -128,13 +123,21 @@ const CreateOrder = async (req, res) => {
     console.log("created order", newSupervisors);
     try {
         await newSupervisors.save();
-
         res.status(201).json(newSupervisors);
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
 }
 
-module.exports = { CreateOrder, UpdateOrderById, GetAllOrders, AllOrderStatus, getOneOrder, OrderByID, ViewOrderTransportById, RemoveOrder, ViewOrderssById };
+const RejectOrder = async (req, res) => {
+    try {
+        const orderss = await Orders.find({ status: 'decline' });
+        res.status(200).json(orderss);
+    } catch (err) {
+        res.json(err);
+    }
+}
+
+module.exports = { CreateOrder, UpdateOrderById, GetAllOrders, AllOrderStatus, getOneOrder, OrderByID, ViewOrderTransportById, RemoveOrder, ViewOrderssById, RejectOrder };
 
 

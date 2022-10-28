@@ -17,6 +17,7 @@ import Dashborad from "./components/SiteManager/Dashborad";
 import DisplayOrderDeliverdStatus from "./components/SiteManager/DisplayOrderDeliverdStatus";
 import DisplayAllOrders from "./components/Suuplier/DisplayAllOrders";
 import ViewOneOrder from "./components/Suuplier/ViewOneOrder";
+import DisplayRejectOrderList from "./components/procurementStaff/DisplayRejectOrderList";
 
 let isauth = localStorage.getItem('user');
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="/DisplayOrderDeliverdStatus" element={<DisplayOrderDeliverdStatus />} />
             <Route path="/DisplayAllOrders" element={<DisplayAllOrders />} />
             <Route path="/ViewOrderssById/:id" element={<ViewOneOrder />} />
+            <Route path="/DisplayRejectOrderList" element={<DisplayRejectOrderList />} />
           </Routes>
         </Router>
       </div>
