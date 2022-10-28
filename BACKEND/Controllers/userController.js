@@ -124,7 +124,7 @@ const loginUser = async (req, res) => {
 
         jwt.sign(payload, jwtSecret, { expiresIn: "1 days" }, (err, token) => {
             if (err) throw err;
-            res.json(user);
+            res.json({ token , name: user.name , userRole: user.userRole ,companyName:user.companyName, userId:user.id, supplierAddress:user.supplierAddress});
         });
     } catch (err) {
         console.error(err.message);
@@ -138,7 +138,7 @@ const loginUser = async (req, res) => {
 
 const getUsers = async (req, res) => { 
     try {
-        const users = await User.find(!!req.query.role ?{userRole: req.query.role}: {});
+        const users = await User.find();
                  
         res.status(200).json(users);
     } catch (error) {
