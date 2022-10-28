@@ -45,7 +45,7 @@ const RegisterUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (name === '' || email === '' || password === '') {
+    if (name === '' || email === '' ) {
       {
         Swal.fire('error', 'Fill The All Data ', 'error')
         navigate("/register");
