@@ -138,7 +138,7 @@ const loginUser = async (req, res) => {
 
 const getUsers = async (req, res) => { 
     try {
-        const users = await User.find();
+        const users = await User.find(!!req.query.role ?{userRole: req.query.role}: {});
                  
         res.status(200).json(users);
     } catch (error) {
