@@ -1,30 +1,19 @@
-
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { OrderByID, ViewOrderssById } from "../../Services/SupplierServices";
 
-
-import autoTable from 'jspdf-autotable'
-import { jsPDF } from "jspdf";
-
-
 const ViewOneOrder = () => {
 
   const navigate = useNavigate();
-
-
   const { id } = useParams();
-
 
   const handleSubmit = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userRole");
     navigate("/Login");
   };
-
-
 
   const [OrderID, setOrderID] = useState("");
   const [DeliveryAddress, setDeliveryAddress] = useState("");
@@ -35,11 +24,6 @@ const ViewOneOrder = () => {
   const [note, setMessage] = useState("");
   const [Deadline, setDeadline] = useState("");
   const [Material, setMaterial] = useState("");
-  
-
-
-
-
 
   const handleOrderid = (e) => {
     setOrderID(e.target.value);
@@ -49,8 +33,6 @@ const ViewOneOrder = () => {
     setDeliveryAddress(e.target.value);
   };
 
-
-
   const handleQTY = (e) => {
     setQTY(e.target.value);
   };
@@ -59,7 +41,6 @@ const ViewOneOrder = () => {
     setPrice(e.target.value);
   };
 
-
   const handlegruopleaderitnum = (e) => {
     setDescription(e.target.value);
   };
@@ -67,15 +48,9 @@ const ViewOneOrder = () => {
     setstatus(e.target.value);
   };
 
-
-
   const handlesetMessage = (e) => {
     setMessage(e.target.value);
   };
-
-
-
-
 
   const GetTopicData = async () => {
     let data = await OrderByID(id);
@@ -98,172 +73,133 @@ const ViewOneOrder = () => {
   const updateorderData = async (e) => {
     e.preventDefault();
     let newdata = {
-        OrderID: OrderID,
-        QTY: QTY,
-        Price: Price,
+      OrderID: OrderID,
+      QTY: QTY,
+      Price: Price,
       Description: Description,
       status: status,
-      note:note,
-      Deadline:Deadline,
-      Material:Material,
+      note: note,
+      Deadline: Deadline,
+      Material: Material,
       DeliveryAddress: DeliveryAddress,
-
     };
 
     let data = await ViewOrderssById(id, newdata);
     console.log("Update success ", data);
     if (!data?.data?.OrderID) {
-        Swal.fire("error", " please  check again ", "error");{
-
-            navigate("");
-
-        }
-    
+      Swal.fire("error", " please  check again ", "error"); {
+        navigate("");
+      }
     } else {
-        Swal.fire("success", " successfully  Evaluate  Topic", "success");{
-
-            navigate("");
-
-        }
+      Swal.fire("success", "Successfully Evaluate  Topic", "success"); {
+        navigate("");
+      }
     }
   };
 
-
-  function pdfGenerat(){
-    var doc = new jsPDF('landscape', 'px', 'a4', 'false');
-    
-    doc.autoTable({
-           
-            body: [
-                [{ content: '  ', colSpan: 2, rowSpan: 2, styles: { halign: 'center' } }],
-              ],
-            })
-        autoTable(doc, { html: '#cusdet' })
-       doc.save('TopicRegister.pdf')
-  
-          }
-
-
-
   return (
-    <div >
-  
-  <div>
+    <div>
       <div>
-        <div className="container shadow my-5 mx-auto w-50"  id="cusdet">
-        <button className="btn btn-danger btn-sm"  style={{marginTop:"-100px" , marginLeft:"100px"}} >Download PDF</button>
-          <div className="col p-3">
-            <h3 className=" fw-bolder mb-4"><center>ID:&nbsp;&nbsp; {OrderID} :&nbsp;&nbsp;&nbsp;Order   Details  </center></h3>
-            <form >
-              <div className='row py-3'>
-                  <div class="col-md-6">
-                      <label for="" class="form-label">{" "}Order ID{" "}</label>
-                      <input type="text"
-                        class="form-control"
-                        id="floatingInput"
-                        readOnly={true}
-                          value={OrderID}
-                      />
-                  </div>
-                  <div class="col-md-6">
-                      <label for="" class="form-label">{" "}Quantity   {" "}</label>
-                      <input type="text"
-                        class="form-control"
-                        id="floatingPassword"
-                        readOnly={true}
-                        value={QTY}
-                      />
-                  </div>
-           
-              
+        <div>
+          <div className="container shadow my-5 mx-auto w-50" id="cusdet">
+            <div className="col p-3">
+              <h3 className=" fw-bolder mb-4"><center>{OrderID} Order Details  </center></h3> <hr />
+              <form>
                 <div className='row py-3'>
                   <div class="col-md-6">
-                  <label for="" class="form-label">{" "}Total Price {" "}</label>
-
-                      <input type="text"
+                    <label for="" class="form-label">Order ID</label>
+                    <input type="text"
                       class="form-control"
-                      id="exampleFormControlTextarea3"
+                      id="floatingInput"
                       readOnly={true}
-                      value={Price}
+                      value={OrderID}
                     />
                   </div>
                   <div class="col-md-6">
-                      <label for="" class="form-label">{" "}Description  {" "}</label>
+                    <label for="" class="form-label">Quantity</label>
+                    <input type="text"
+                      class="form-control"
+                      id="floatingPassword"
+                      readOnly={true}
+                      value={QTY}
+                    />
+                  </div>
+
+                  <div className='row py-3'>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Total Price</label>
+                      <input type="text"
+                        class="form-control"
+                        id="exampleFormControlTextarea3"
+                        readOnly={true}
+                        value={Price}
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Description</label>
                       <input type="text"
                         class="form-control"
                         id="exampleFormControlTextarea3"
                         readOnly={true}
                         value={Description}
                       />
+                    </div>
                   </div>
-              </div>
-              
-              <div className='row py-3'>
-                  <div class="col-md-6">
-                      <label for="" class="form-label">{" "}DeliveryAddress{" "}</label>
+
+                  <div className='row py-3'>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Delivery Address</label>
                       <input type="text"
                         class="form-control"
                         id="exampleFormControlTextarea3"
                         readOnly={true}
                         value={DeliveryAddress}
                       />
-                  </div>
-                  <div class="col-md-6">
-                      <label for="" class="form-label">{" "}Order status {" "}</label>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Order Status </label>
                       <input type="text"
                         class="form-control"
                         id="exampleFormControlTextarea3"
                         readOnly={true}
                         value={status}
                       />
-                  </div>
+                    </div>
 
-                
-              </div>
-              <div className='row py-3'>
-                  <div class="col-md-6">
-                      <label for="" class="form-label">{" "}Material{" "}</label>
+                  </div>
+                  <div className='row py-3'>
+                    <div class="col-md-6">
+                      <label for="" class="form-label">Material</label>
                       <input type="textarea"
                         class="form-control"
                         id="exampleFormControlTextarea3"
                         readOnly={true}
                         value={Material}
                       />
-                  </div>
-                  <div class="col-md-6">
-                      <label for="" class="form-label">{" "} Deadline {" "}</label>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="" class="form-label"> Deadline </label>
                       <input type="text"
                         class="form-control"
                         id="exampleFormControlTextarea3"
                         readOnly={true}
                         value={Deadline}
                       />
+                    </div>
                   </div>
-
-                
-              </div>
-             </div>
-             <Link to="/DisplayApprovedOrderList">
-                    <button
-                      type="submit"
-                 
-                      className="btn btn-success"
-                    >
-                      Back {" "}
-                    </button>
-                  </Link>
-             </form>
-             </div>
-             </div>
+                </div>
+                <Link to="/DisplayApprovedOrderList">
+                  <button
+                    type="submit"
+                    className="btn btn-success">
+                    Back
+                  </button>
+                </Link>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-</div>
-
-
-
-
-
-    
-     
     </div>
   );
 };

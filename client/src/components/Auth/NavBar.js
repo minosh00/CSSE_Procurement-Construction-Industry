@@ -55,12 +55,13 @@ const NavBar = () => {
                 <li class="nav-item">
                   <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/RequestOrder" aria-current="page">Request Order    </a>
                 </li>
-
-                
-
                 <li class="nav-item">
                   <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayApprovedOrderList" aria-current="page">Approved Orders  </a>
                 </li>
+                <li class="nav-item">
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayRejectOrderList" aria-current="page">Rejected Orders  </a>
+                </li>
+         
          
                 
 
