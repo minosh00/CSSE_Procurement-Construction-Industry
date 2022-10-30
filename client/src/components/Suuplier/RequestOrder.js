@@ -18,6 +18,7 @@ import {
 } from "reactstrap";
 import { createorder } from "../../Services/SupplierServices";
 import Swal from 'sweetalert2';
+import SideNavbar from "../Auth/SideNavbar";
 
 const RequestSupervisor = () => {
 
@@ -198,7 +199,7 @@ const RequestSupervisor = () => {
 
 	return (
 		<div className="py-5">
-
+			<SideNavbar />
 			<div className="container shadow py-5">
 				<h3 className=" fw-bolder"><center><b>All Suppliers</b></center></h3>
 				<hr />

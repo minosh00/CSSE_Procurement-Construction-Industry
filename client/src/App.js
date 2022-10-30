@@ -22,11 +22,11 @@ import DisplayRejectOrderList from "./components/procurementStaff/DisplayRejectO
 import SendEmail from "./components/procurementStaff/SendEmail";
 import DashboardSupply from "./components/Suuplier/DashboradSupply";
 import CreateDeliveryNote from "./components/Suuplier/CreateDeliveryNote";
+import SideNavbar from "./components/Auth/SideNavbar";
 
 let isauth = localStorage.getItem('user');
 
 function App() {
-
   const [user, setUser] = useState("");
 
   useEffect(() => {
@@ -58,6 +58,7 @@ function App() {
             <Route path="/sendmail/:id" element={<SendEmail />} />
             <Route path="/DashboardSupply" element={<DashboardSupply />} />
             <Route path="/CreateDeliveryNote" element={<CreateDeliveryNote />} />
+            <Route path="/SideNavbar" element={<SideNavbar />} />
           </Routes>
         </Router>
       </div>

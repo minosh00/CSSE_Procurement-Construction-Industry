@@ -3,6 +3,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
+import SideNavbar from "../Auth/SideNavbar";
 
 function DisplayPendingOrderList() {
   const [users, setusers] = useState();
@@ -31,6 +32,7 @@ function DisplayPendingOrderList() {
 
   return (
     <div> <br />
+      <SideNavbar />
       <div className="container shadow py-5">
         <h3 className=" fw-bolder"><center><b>All Pending Orders</b></center></h3>
         <br />

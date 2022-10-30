@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import Swal from "sweetalert2";
 import emailjs from "emailjs-com";
 import { OrderByID } from "../../Services/SupplierServices";
+import SideNavbar from '../Auth/SideNavbar';
 
 const SendEmail = (props) => {
 
@@ -48,31 +49,29 @@ const SendEmail = (props) => {
 
     return (
         <div>
-            <div>
-                <div className="container shadow my-5 mx-auto w-50">
-                    <div className="">
-                    </div>
-                    <div className="col p-5 mx-auto">
-                        <h3 className=" fw-bolder mb-5"><center>Send Status</center></h3>
-                        <form onSubmit={sendEmail}>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">E-mail</label>
-                                <input name="lead_no" value='chethanaprasadi2000@gmail.com' type="text" class="form-control" readOnly />
-                            </div>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Order ID</label>
-                                <input name="lead_no" value={OrderID} type="text" class="form-control" required />
-                            </div>
+            <SideNavbar />
+            <div className="container shadow my-5 mx-auto w-50">
+                <div className="">
+                </div>
+                <div className="col p-5 mx-auto">
+                    <h3 className=" fw-bolder mb-5"><center>Send Status</center></h3>
+                    <form onSubmit={sendEmail}>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">E-mail</label>
+                            <input name="lead_no" value='chethanaprasadi2000@gmail.com' type="text" class="form-control" readOnly />
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Order ID</label>
+                            <input name="lead_no" value={OrderID} type="text" class="form-control" required />
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="interest" class="form-label">Order Status</label>
-                                <input name="status_sup" value={status} type="text" class="form-control" id="interest" required />
-                            </div>
-                            <br />
-                            <button type="submit" value="Send" class="btn btn-success w-100 rounded-pill"> Send E-mail </button>
-                        </form>
-                    </div>
-
+                        <div class="mb-3">
+                            <label for="interest" class="form-label">Order Status</label>
+                            <input name="status_sup" value={status} type="text" class="form-control" id="interest" required />
+                        </div>
+                        <br />
+                        <button type="submit" value="Send" class="btn btn-success w-100 rounded-pill"> Send E-mail </button>
+                    </form>
                 </div>
             </div>
         </div>

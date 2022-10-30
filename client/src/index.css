@@ -12,6 +12,15 @@ html{
   overflow-x: hidden;
 }
 
+:root {
+  /* Colors */
+  --black: #09090c;
+  --grey: #a4b2bc;
+  --white: #fff;
+  --background: rgba(137, 171, 245, 0.37);
+}
+
+
 h1{
   font-size: 20px !important;
 }

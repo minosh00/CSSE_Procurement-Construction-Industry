@@ -4,6 +4,7 @@ import { RegisterSupplier } from '../../Services/AuthServices';
 import Swal from "sweetalert2";
 import logo from '../images/test.png'
 import '../Auth/ClientLogin.css'
+import SideNavbar from '../Auth/SideNavbar';
 
 const AddSupplier = () => {
 
@@ -63,6 +64,7 @@ const AddSupplier = () => {
 
     return (
         <div>
+            <SideNavbar />
             <div class="container my-5 py-5 mx-auto">
                 <div class="row">
                     <div class="col-md-4">

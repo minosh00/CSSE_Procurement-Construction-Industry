@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { OrderByID, UpdateOrderById } from "../../Services/SupplierServices";
+import SideNavbar from "../Auth/SideNavbar";
 
 const EvaluateOrder = () => {
   const navigate = useNavigate();
@@ -65,6 +66,7 @@ const EvaluateOrder = () => {
 
   return (
     <div>
+      <SideNavbar />
       <div className="container my-5 py-5 mx-auto w-50 orderr">
         <form>
           <div class="card mx-auto" style={{ width: '40rem' }}>

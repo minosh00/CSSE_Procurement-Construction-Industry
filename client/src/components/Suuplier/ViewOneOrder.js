@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { OrderByID, ViewOrderssById } from "../../Services/SupplierServices";
+import SideNavbar from "../Auth/SideNavbar";
 
 const ViewOneOrder = () => {
 
@@ -99,105 +100,102 @@ const ViewOneOrder = () => {
 
   return (
     <div>
-      <div>
-        <div>
-          <div className="container shadow my-5 mx-auto w-50" id="cusdet">
-            <div className="col p-3">
-              <h3 className=" fw-bolder mb-4"><center>{OrderID} Order Details  </center></h3> <hr />
-              <form>
-                <div className='row py-3'>
-                  <div class="col-md-6">
-                    <label for="" class="form-label">Order ID</label>
-                    <input type="text"
-                      class="form-control"
-                      id="floatingInput"
-                      readOnly={true}
-                      value={OrderID}
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label for="" class="form-label">Quantity</label>
-                    <input type="text"
-                      class="form-control"
-                      id="floatingPassword"
-                      readOnly={true}
-                      value={QTY}
-                    />
-                  </div>
+      <SideNavbar />
+      <div className="container shadow my-5 mx-auto w-50" id="cusdet">
+        <div className="col p-3">
+          <h3 className=" fw-bolder mb-4"><center>{OrderID} Order Details  </center></h3> <hr />
+          <form>
+            <div className='row py-3'>
+              <div class="col-md-6">
+                <label for="" class="form-label">Order ID</label>
+                <input type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  readOnly={true}
+                  value={OrderID}
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Quantity</label>
+                <input type="text"
+                  class="form-control"
+                  id="floatingPassword"
+                  readOnly={true}
+                  value={QTY}
+                />
+              </div>
 
-                  <div className='row py-3'>
-                    <div class="col-md-6">
-                      <label for="" class="form-label">Total Price</label>
-                      <input type="text"
-                        class="form-control"
-                        id="exampleFormControlTextarea3"
-                        readOnly={true}
-                        value={Price}
-                      />
-                    </div>
-                    <div class="col-md-6">
-                      <label for="" class="form-label">Description</label>
-                      <input type="text"
-                        class="form-control"
-                        id="exampleFormControlTextarea3"
-                        readOnly={true}
-                        value={Description}
-                      />
-                    </div>
-                  </div>
-
-                  <div className='row py-3'>
-                    <div class="col-md-6">
-                      <label for="" class="form-label">Delivery Address</label>
-                      <input type="text"
-                        class="form-control"
-                        id="exampleFormControlTextarea3"
-                        readOnly={true}
-                        value={DeliveryAddress}
-                      />
-                    </div>
-                    <div class="col-md-6">
-                      <label for="" class="form-label">Order Status </label>
-                      <input type="text"
-                        class="form-control"
-                        id="exampleFormControlTextarea3"
-                        readOnly={true}
-                        value={status}
-                      />
-                    </div>
-
-                  </div>
-                  <div className='row py-3'>
-                    <div class="col-md-6">
-                      <label for="" class="form-label">Material</label>
-                      <input type="textarea"
-                        class="form-control"
-                        id="exampleFormControlTextarea3"
-                        readOnly={true}
-                        value={Material}
-                      />
-                    </div>
-                    <div class="col-md-6">
-                      <label for="" class="form-label"> Deadline </label>
-                      <input type="text"
-                        class="form-control"
-                        id="exampleFormControlTextarea3"
-                        readOnly={true}
-                        value={Deadline}
-                      />
-                    </div>
-                  </div>
+              <div className='row py-3'>
+                <div class="col-md-6">
+                  <label for="" class="form-label">Total Price</label>
+                  <input type="text"
+                    class="form-control"
+                    id="exampleFormControlTextarea3"
+                    readOnly={true}
+                    value={Price}
+                  />
                 </div>
-                <Link to="/DisplayApprovedOrderList">
-                  <button
-                    type="submit"
-                    className="btn btn-success">
-                    Back
-                  </button>
-                </Link>
-              </form>
+                <div class="col-md-6">
+                  <label for="" class="form-label">Description</label>
+                  <input type="text"
+                    class="form-control"
+                    id="exampleFormControlTextarea3"
+                    readOnly={true}
+                    value={Description}
+                  />
+                </div>
+              </div>
+
+              <div className='row py-3'>
+                <div class="col-md-6">
+                  <label for="" class="form-label">Delivery Address</label>
+                  <input type="text"
+                    class="form-control"
+                    id="exampleFormControlTextarea3"
+                    readOnly={true}
+                    value={DeliveryAddress}
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="" class="form-label">Order Status </label>
+                  <input type="text"
+                    class="form-control"
+                    id="exampleFormControlTextarea3"
+                    readOnly={true}
+                    value={status}
+                  />
+                </div>
+
+              </div>
+              <div className='row py-3'>
+                <div class="col-md-6">
+                  <label for="" class="form-label">Material</label>
+                  <input type="textarea"
+                    class="form-control"
+                    id="exampleFormControlTextarea3"
+                    readOnly={true}
+                    value={Material}
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="" class="form-label"> Deadline </label>
+                  <input type="text"
+                    class="form-control"
+                    id="exampleFormControlTextarea3"
+                    readOnly={true}
+                    value={Deadline}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+            <Link to="/DisplayApprovedOrderList">
+              <button
+                type="submit"
+                className="btn btn-success">
+                Back
+              </button>
+            </Link>
+          </form>
         </div>
       </div>
     </div>
