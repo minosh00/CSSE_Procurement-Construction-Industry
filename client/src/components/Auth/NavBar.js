@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import Login from '../images/loginn.png';
 
 const NavBar = () => {
@@ -30,11 +30,11 @@ const NavBar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">            
-                <li class="nav-item">
-                  <a style={{ display: userRole == "" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/RequestOrder" aria-current="page">Request Order</a>
+              <li class="nav-item">
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page">Dashboard  </a>
                 </li>
                 <li class="nav-item">
-                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/AllOrderRequestView" aria-current="page"> All Order Request View</a>
+                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardSupply" aria-current="page"> Dashboard   </a>
                 </li>
                 <li class="nav-item">
                   <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayPendingOrderList" aria-current="page">Pending Orders </a>
@@ -42,9 +42,7 @@ const NavBar = () => {
                 <li class="nav-item">
                   <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/AddSupplier" aria-current="page">Add New Supplier  </a>
                 </li>
-                <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/RequestOrder" aria-current="page">Request Order    </a>
-                </li>
+            
                 <li class="nav-item">
                   <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayApprovedOrderList" aria-current="page">Approved Orders  </a>
                 </li>
@@ -53,7 +51,14 @@ const NavBar = () => {
                 </li>
               </div>
             </div>
+            <Link to="/Profile">
+<button   href=""  className="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false" type="submit" style={{ float: "right", marginRight: "10px",display: userRole ? "flex" : "none"  }}>
+  {"Profile"}
+</button>
+</Link>
           </div>
+     
+
           <button onClick={handleSubmit} className="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false" type="submit" style={{ float: "right", marginRight: "10px", display: userRole ? "flex" : "none" }}>
             {"Logout"}
           </button>
