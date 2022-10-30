@@ -27,7 +27,7 @@ const DashboardSupply = () => {
                 <div class="card-body">
                   <center>
                     <p class="card-text">View All Orders and arrange delivery </p>
-                    <Link to="/RequestOrder">
+                    <Link to="/AllOrderRequestView">
                       <button className="btn btn-outline-success" type="submit" >
                         Click Here
                       </button>
