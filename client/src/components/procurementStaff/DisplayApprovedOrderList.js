@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 
+
 function DisplayApprovedOrderList() {
   const [users, setusers] = useState();
   const [serachItem, setserachItem] = useState([]);
@@ -55,6 +56,7 @@ function DisplayApprovedOrderList() {
                 <th scope="col">Price</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
+                <th scope="col">E-mail</th>
               </tr>
             </thead>
 
@@ -85,6 +87,7 @@ function DisplayApprovedOrderList() {
                             View Order Details
                           </button>
                         </Link></td>
+                        <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send Status</button></Link></td>
                       </tr>
                     );
                   })}
