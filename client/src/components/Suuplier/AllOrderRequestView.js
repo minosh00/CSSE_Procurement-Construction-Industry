@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GetIDoRDER } from "../../Services/SupplierServices";
 import { AuthUser } from "../../Services/AuthServices"
-import { Badge } from "reactstrap";
 import SideNavbarSup from "../Auth/SideNavbarSup";
 
 function AllOrderRequestView() {

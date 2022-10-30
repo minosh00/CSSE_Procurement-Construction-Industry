@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { LoginSupplier } from "../../Services/AuthServices";
 import Swal from "sweetalert2";
 import logo from '../images/loginnn.webp'
@@ -45,62 +45,34 @@ const Login = () => {
 
     return (
         <div>
-            <center>
-                <div style={{ marginTop: "30px" }}>
-                    <center><h1 style={{ "font-family": 'Chilanka' }} ><b>Welcome to   Sankens Constructions Industry</b></h1></center>
-                </div>
-                <br />
-
-            </center>
-            <br />
-            <div className="container">
-                <div className="container mt-5">
-                    <div className="card card0 border-0">
-                        <div className="row d-flex">
-                            <div className="col-lg-6">
-                                <div className="card1 pb-5">
-
-                                    <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src={logo} style={{ height: "380px", width: "450px" }} className="image" /> </div>
-                                </div>
+            <div className="container shadow my-5">
+                <div className="row">
+                    <div className="col-md-5 d-flex flex-column align-items-center text-dark justify-content-center forml">
+                        <h3 className="display-4 fw-bolder"> Welcome Back</h3>
+                        <p className="lead text-center">Enter Your Credentials to Login</p>
+                        <h5 className="mb-4">OR</h5>
+                        <NavLink to="/register" className="btn btn-light rounded-pill pb-2 w-50">Register</NavLink>
+                    </div>
+                    <div className="col-md-6 p-5">
+                        <h1 className="display-6 fw-bolder mb-5">LOGIN</h1>
+                        <form className="form" onSubmit={(e) => onSubmit(e)}>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">E-mail</label>
+                                <input name="email" value={email} onChange={(e) => onChange(e)} type="text" class="form-control" required />
                             </div>
-                            <div className="col-lg-6">
-                                <form className="form" onSubmit={(e) => onSubmit(e)}>
-                                    <div className="card2 card border-0 px-4 py-5">
-                                        <h1> SIGN IN</h1>
-                                        <br></br>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" name="email" value={email} onChange={(e) => onChange(e)} required placeholder="Enter Email" />
-                                            <label for="floatingInput">Email </label>
-                                        </div>
-
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" type="password" placeholder="Password" name="password" minLength="6" value={password} onChange={(e) => onChange(e)} required />
-                                            <label for="floatingPassword">Password</label>
-                                        </div>
-
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck" />&nbsp;
-                                            <label class="form-check-label" for="rememberPasswordCheck">
-                                                Remember password
-                                            </label>
-                                        </div>
-                                        <div className="row mb-3 px-3">
-                                            <button type="submit" className="btn btn-danger ">Login</button>
-                                        </div>
-                                        <div>
-
-                                            <b><small>Dont Have an Account? <a href="/register" className="text-danger "><b>Register</b></a></small></b>
-
-                                        </div>
-                                    </div>
-                                </form>
-
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input name="password" minLength="6" value={password} onChange={(e) => onChange(e)} autoComplete="on" type="password" class="form-control" required />
                             </div>
-                        </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 rounded-pill">Login</button>
+                        </form>
                     </div>
                 </div>
             </div>
-
         </div>
 
     );

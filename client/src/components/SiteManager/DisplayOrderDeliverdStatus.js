@@ -38,10 +38,10 @@ function DisplayOrderDeliverdStatus() {
           <div className="row">
             <div class="input-group">
               <div className="col-md-6 mx-auto">
-                <input type="search" class="form-control rounded" placeholder="Search by OrderID" aria-label="Search" onChange={event => { setserachItem(event.target.value) }}
+                <input type="search" class="form-control rounded" placeholder="Search by Location" aria-label="Search" onChange={event => { setserachItem(event.target.value) }}
                   aria-describedby="search-addon" />
               </div>
-            </div> <br /> <br />
+            </div> <br /> <br /> <br />
 
             <table className="table table-bordered">
               <thead className="table-dark">
@@ -60,7 +60,7 @@ function DisplayOrderDeliverdStatus() {
                   users.filter((users) => {
                     if (serachItem == "") {
                       return users
-                    } else if (users.OrderID.toLowerCase().includes(serachItem.toLowerCase())) {
+                    } else if (users.location.toLowerCase().includes(serachItem.toLowerCase())) {
                       return users
                     }
                   })
