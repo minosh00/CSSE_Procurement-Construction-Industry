@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import Login from '../images/loginn.png';
 
 const NavBar = () => {
@@ -53,7 +53,14 @@ const NavBar = () => {
                 </li>
               </div>
             </div>
+            <Link to="/Profile">
+<button   href=""  className="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false" type="submit" style={{ float: "right", marginRight: "10px" }}>
+  {"Profile"}
+</button>
+</Link>
           </div>
+     
+
           <button onClick={handleSubmit} className="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false" type="submit" style={{ float: "right", marginRight: "10px", display: userRole ? "flex" : "none" }}>
             {"Logout"}
           </button>
