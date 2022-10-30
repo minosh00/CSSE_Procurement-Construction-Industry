@@ -31,23 +31,10 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">            
               <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page">Dashboard  </a>
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page">Site Manager's Dashboard  </a>
                 </li>
                 <li class="nav-item">
-                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardSupply" aria-current="page"> Dashboard   </a>
-                </li>
-                <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayPendingOrderList" aria-current="page">Pending Orders </a>
-                </li>
-                <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/AddSupplier" aria-current="page">Add New Supplier  </a>
-                </li>
-            
-                <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayApprovedOrderList" aria-current="page">Approved Orders  </a>
-                </li>
-                <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DisplayRejectOrderList" aria-current="page">Rejected Orders  </a>
+                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardSupply" aria-current="page"> Supplier Dashboard   </a>
                 </li>
               </div>
             </div>

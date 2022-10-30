@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Badge } from "reactstrap";
+import SideNavbar from "../Auth/SideNavbar";
 
 function DisplayOrderDeliverdStatus() {
   const [users, setusers] = useState();
@@ -28,57 +29,60 @@ function DisplayOrderDeliverdStatus() {
   }, []);
 
   return (
-    <div className="container shadow my-5 mx-auto">
-      <h3 className=" fw-bolder py-5"><center><b>All Transport Status </b></center></h3>
-      <div className="row">
-        {loading}
+    <>
+      <SideNavbar />
+      <div className="container shadow my-5 mx-auto">
+        <h3 className=" fw-bolder py-5"><center><b>All Transport Status </b></center></h3>
         <div className="row">
-          <div class="input-group">
-            <div className="col-md-6 mx-auto">
-              <input type="search" class="form-control rounded" placeholder="Search by OrderID" aria-label="Search" onChange={event => { setserachItem(event.target.value) }}
-                aria-describedby="search-addon" />
-            </div>
-          </div> <br /> <br />
+          {loading}
+          <div className="row">
+            <div class="input-group">
+              <div className="col-md-6 mx-auto">
+                <input type="search" class="form-control rounded" placeholder="Search by OrderID" aria-label="Search" onChange={event => { setserachItem(event.target.value) }}
+                  aria-describedby="search-addon" />
+              </div>
+            </div> <br /> <br />
 
-          <table className="table table-bordered">
-            <thead className="table-dark">
-              <tr>
-                <th scope="col">ID </th>
-                <th scope="col">Order ID </th>
-                <th scope="col">Transport ID</th>
-                <th scope="col">Send location   </th>
-                <th scope="col">Vehicle Number</th>
-                <th scope="col">Transport Status</th>
-              </tr>
-            </thead>
+            <table className="table table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th scope="col">ID </th>
+                  <th scope="col">Order ID </th>
+                  <th scope="col">Transport ID</th>
+                  <th scope="col">Send location   </th>
+                  <th scope="col">Vehicle Number</th>
+                  <th scope="col">Transport Status</th>
+                </tr>
+              </thead>
 
-            <tbody className="table-border-divided">
-              {users &&
-                users.filter((users) => {
-                  if (serachItem == "") {
-                    return users
-                  } else if (users.OrderID.toLowerCase().includes(serachItem.toLowerCase())) {
-                    return users
-                  }
-                })
-                  .map((users, id) => {
-                    return (
-                      <tr>
-                        <td>{id + 1}</td>
-                        <td>{users.OrderID}</td>
-                        <td>{users.TransportID}</td>
-                        <td>{users.location}</td>
-                        <td>{users.VehicleNumber}</td>
-                        <td>
-                          <Badge color="success" style={{ fontSize: "15px" }} >{users.TransportStatus} </Badge></td>
-                      </tr>
-                    );
-                  })}
-            </tbody>
-          </table>
+              <tbody className="table-border-divided">
+                {users &&
+                  users.filter((users) => {
+                    if (serachItem == "") {
+                      return users
+                    } else if (users.OrderID.toLowerCase().includes(serachItem.toLowerCase())) {
+                      return users
+                    }
+                  })
+                    .map((users, id) => {
+                      return (
+                        <tr>
+                          <td>{id + 1}</td>
+                          <td>{users.OrderID}</td>
+                          <td>{users.TransportID}</td>
+                          <td>{users.location}</td>
+                          <td>{users.VehicleNumber}</td>
+                          <td>
+                            <Badge color="success" style={{ fontSize: "15px" }} >{users.TransportStatus} </Badge></td>
+                        </tr>
+                      );
+                    })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

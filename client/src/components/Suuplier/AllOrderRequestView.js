@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { GetIDoRDER } from "../../Services/SupplierServices";
 import { AuthUser } from "../../Services/AuthServices"
 import { Badge } from "reactstrap";
+import SideNavbarSup from "../Auth/SideNavbarSup";
 
 function AllOrderRequestView() {
 
@@ -50,6 +51,7 @@ function AllOrderRequestView() {
 
   return (
     <div className="py-2">
+      <SideNavbarSup />
       <div className="container shadow border py-5 my-5 mx-auto">
         <h3 className=" fw-bolder"><center><b>Site Manager Request Orders</b></center></h3>
         <hr />
