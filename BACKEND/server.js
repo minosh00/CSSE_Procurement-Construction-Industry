@@ -8,14 +8,14 @@ const cors = require("cors");
 const user = require("./Routes/userRoutes");
 const order = require("./Routes/Order.Routes");
 const Transport = require("./Routes/Transport.routes");
+const Invoices = require("./Routes/Invoices.Routes");
 
 
 
 dotenv.config();
 
+
 app.use(cors({
-
-
   origin: "*",
 }));
 
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use("/user",user);
 app.use("/order",order);
 app.use("/Transport",Transport);
-
+app.use("/Invoices",Invoices);
 
 
 

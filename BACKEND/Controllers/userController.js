@@ -22,16 +22,6 @@ var jwtSecret = "mysecrettoken";
     .status(400)
     .json({errorMessage : "plz all fill"});
 
-    if(name.length<9)
-    return res.status(400).json({
-        errorMessage: "Please enter a first name of at least 3 characters.",
-    });
-
-
-    if(password.length<10)
-    return res.status(400).json({
-        errorMessage: "Please enter a first name of at least 3 characters.",
-    });
 
 
 
