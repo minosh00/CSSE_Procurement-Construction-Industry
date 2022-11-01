@@ -26,6 +26,13 @@ import DashboardSupply from "./components/Suuplier/DashboradSupply";
 import CreateDeliveryNote from "./components/Suuplier/CreateDeliveryNote";
 import SideNavbar from "./components/Auth/SideNavbar";
 import AllOrders from "./components/procurementStaff/AllOrders";
+import DisplayPendingOrderAdmin from "./components/admin/DisplayPendingOrderAdmin";
+import DisplayRejectOrderAdmin from "./components/admin/DisplayRejectOrderAdmin";
+import DisplayApprovedOrderAdmin from "./components/admin/DisplayApprovedOrderAdmin"
+import DashboardAdmin from "./components/admin/DashboardAdmin";
+import AllOrdersAdmin from "./components/admin/AllOrdersAdmin";
+import TransportOrderSup from "./components/SiteManager/TransportOrderSup";
+import AllOrdersSite from "./components/SiteManager/AllOrdersSite";
 
 let isauth = localStorage.getItem('user');
 
@@ -63,6 +70,13 @@ function App() {
             <Route path="/CreateDeliveryNote" element={<CreateDeliveryNote />} />
             <Route path="/SideNavbar" element={<SideNavbar />} />
             <Route path="/AllOrders" element={<AllOrders />} />
+            <Route path="/DisplayPendingOrderAdmin" element={<DisplayPendingOrderAdmin />} />
+            <Route path="/DisplayRejectOrderAdmin" element={<DisplayRejectOrderAdmin />} />
+            <Route path="/DisplayApprovedOrderAdmin" element={<DisplayApprovedOrderAdmin />} />
+            <Route path="/DashboardAdmin" element={<DashboardAdmin />} />
+            <Route path="/AllOrdersAdmin" element={<AllOrdersAdmin />} />
+            <Route path="/TransportOrderSup" element={<TransportOrderSup />} />
+            <Route path="/AllOrdersSite" element={<AllOrdersSite />} />
           </Routes>
         </Router>
       </div>

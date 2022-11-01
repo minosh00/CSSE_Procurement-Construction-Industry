@@ -169,15 +169,7 @@ const TransportOrder = () => {
 
                     </div>
                   </div>
-                  <Link to="">
-                    <button
-                      type="submit"
-                      style={{ fontSize: "10px" }}
-                      className="btn btn-success"
-                    >
-                      transpot{" "}
-                    </button>
-                  </Link>
+                  
                 </div>
               </div>
             </div>
