@@ -24,14 +24,14 @@ const Dashborad = () => {
           <div>
             <div class="row">
               <div class="col mb-4 mx-auto">
-                <MDBCard shadow='15' border='dark' background='white' className='mb-4'> <br/>
-                  <h5 class="card-title py-2"><center><b>View Transport Status</b></center></h5>
+                <MDBCard shadow='15' border='dark' background='white' className='mb-4'> <br />
+                  <h5 class="card-title py-2"><center><b>Request Order</b></center></h5>
                   <center><img src={delivery} alt="build" className="dash_i" /></center>
                   <div class="card-body">
                     <center>
-                      <Link to="/DisplayOrderDeliverdStatus">
+                      <Link to="/RequestOrder">
                         <button className="btn btn-dark w-25" type="submit" >
-                          View
+                          Request
                         </button>
                       </Link>
                     </center>
