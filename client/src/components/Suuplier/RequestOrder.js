@@ -5,8 +5,6 @@ import DataTable from "react-data-table-component";
 import {
 	Badge,
 	Card,
-	CardHeader,
-	CardTitle,
 	CardBody,
 	Form,
 	Input,
@@ -18,7 +16,7 @@ import {
 } from "reactstrap";
 import { createorder } from "../../Services/SupplierServices";
 import Swal from 'sweetalert2';
-import SideNavbar from "../Auth/SideNavbar";
+import SideNavbarSite from "../Auth/SideNavbarSite";
 
 const RequestSupervisor = () => {
 
@@ -199,7 +197,7 @@ const RequestSupervisor = () => {
 
 	return (
 		<div className="py-5">
-			<SideNavbar />
+			<SideNavbarSite />
 			<div className="container shadow py-5">
 				<h3 className=" fw-bolder"><center><b>All Suppliers</b></center></h3>
 				<hr />
@@ -212,7 +210,7 @@ const RequestSupervisor = () => {
 									data={staffDetails}
 									columns={columns}
 									progressPending={loading}
-								/>
+									 />
 							</CardBody>
 						</Card>
 					</div>
