@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Login from '../images/loginn.png';
 
 const NavBar = () => {
@@ -22,29 +22,32 @@ const NavBar = () => {
             <img src={Login} alt="" width="150" height="80" />
           </a>
           <a class="navbar-brand" href="/">
-          Sankens Constructions Industry
+            Sankens Constructions Industry
           </a>
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div className="navbar-nav">            
-              <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page">Site Manager's Dashboard  </a>
+              <div className="navbar-nav">
+                <li class="nav-item">
+                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardAdmin" aria-current="page">Admin Dashboard  </a>
                 </li>
                 <li class="nav-item">
                   <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardSupply" aria-current="page"> Supplier Dashboard   </a>
                 </li>
+                <li class="nav-item">
+                  <a style={{ display: userRole == "sitemanager" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page"> Site Manager Dashboard   </a>
+                </li>
               </div>
             </div>
             <Link to="/Profile">
-<button   href=""  className="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false" type="submit" style={{ float: "right", marginRight: "10px",display: userRole ? "flex" : "none"  }}>
-  {"Profile"}
-</button>
-</Link>
+              <button href="" className="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false" type="submit" style={{ float: "right", marginRight: "10px", display: userRole ? "flex" : "none" }}>
+                {"Profile"}
+              </button>
+            </Link>
           </div>
-     
+
 
           <button onClick={handleSubmit} className="btn btn-secondary toggle" aria-haspopup="true" aria-expanded="false" type="submit" style={{ float: "right", marginRight: "10px", display: userRole ? "flex" : "none" }}>
             {"Logout"}

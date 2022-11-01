@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Loader from "./Loader";
+import Loader from "../procurementStaff/Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
+import SideNavbar from "../Auth/SideNavbar";
 import Swal from "sweetalert2";
+import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Button } from 'react-bootstrap'
-import ApprovedPdf from '../Common/ApprovedPdf';
-import SideNavbarSup from "../Auth/SideNavbarSup";
+import PendingPdf from "../Common/PendingPdf";
 
-function DisplayApprovedOrderList() {
+function DisplayPendingOrderAdmin() {
   const [users, setusers] = useState();
   const [serachItem, setserachItem] = useState([]);
   const [loading, setloading] = useState(true);
@@ -21,7 +22,7 @@ function DisplayApprovedOrderList() {
       console.log("all data", data)
       var array = []
       data?.map((users) => {
-        if (users?.status == "OK") {
+        if (users?.status == "Pending") {
           array.push(users);
         }
       });
@@ -33,19 +34,21 @@ function DisplayApprovedOrderList() {
     }
   }, []);
 
-  const deleteApprovedOrder = id => {
+  const deletePendingOrder = id => {
     axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
       .then(res => {
-        Swal.fire('Congrats', 'Remove Approved Order Details Successfully ', 'success')
+        Swal.fire('Congrats', 'Remove Pending Order Details Successfully ', 'success')
       })
     setusers(users.filter(elem => elem._id !== id))
   }
 
   return (
-    <>
-      <SideNavbarSup />
-      <div className="container shadow my-5 mx-auto">
-        <h3 className=" fw-bolder py-5"><center><b>Approved Orders</b></center></h3>
+    <div> <br />
+      <SideNavbar />
+      <div className="container shadow py-5">
+        <h3 className=" fw-bolder"><center><b>All Pending Orders</b></center></h3>
+        <br />
+
         <div className="row">
           {loading && <Loader />}
           <div className="row">
@@ -56,24 +59,25 @@ function DisplayApprovedOrderList() {
               </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
-              <Button className='btn btn-danger' onClick={() => ApprovedPdf(users)}>Generate Pdf</Button>
+              <Button className='btn btn-danger' onClick={() => PendingPdf(users)}>Generate Pdf</Button>
             </div>
 
-            <table className="table table-bordered mb-3" Id="FundsTrans">
-              <thead className="table-dark">
+            <table class="table" Id="FundsTrans">
+              <thead className='table-dark'>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Order ID</th>
+                  <th scope="col">Order ID </th>
                   <th scope="col">Delivery Address</th>
-                  <th scope="col">Date Created</th>
+                  <th scope="col">Deadline</th>
+                  <th scope="col">Material</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Price</th>
                   <th scope="col">Status</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Check Order</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
-
-              <tbody id="table-group-divider">
+              <tbody class="table-group-divider">
                 {users &&
                   users.filter((users) => {
                     if (serachItem == "") {
@@ -82,35 +86,32 @@ function DisplayApprovedOrderList() {
                       return users
                     }
                   })
-                    .map((users, id) => {
+                    .map((topic, id) => {
                       return (
                         <tr>
                           <td>{id + 1}</td>
-                          <td>{users.OrderID}</td>
-                          <td>{users.DeliveryAddress}</td>
-                          <td>{users.createdAt}</td>
-                          <td>{users.QTY}</td>
-                          <td>LKR: {users.Price}</td>
-                          <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {users.status} </Badge>  </td>
-                          <td><Link to="">
-                            <button
-                              type="submit"
-                              className="btn btn-success"
-                              onClick={() => window.location.href = `/ViewOrderssById/${users?._id}`}>
-                              View Order
-                            </button>
-                          </Link></td>
+                          <td>{topic.OrderID}</td>
+                          <td>{topic.DeliveryAddress}</td>
+                          <td>{topic.Deadline}</td>
+                          <td>{topic.Material}</td>
+                          <td>{topic.QTY}</td>
+                          <td>LKR: {topic.Price} /=</td>
+                          <td>  <Badge color="success" style={{ fontSize: "15px" }} disabled >{topic.status}</Badge>    </td>
+                          <td>  <Link to={{ pathname: `/UpdateOrderById/${topic?._id}` }}>
+                            <Badge color="primary" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
+                          </Link>&nbsp;</td>
+                          <td><button className='btn btn-danger' onClick={() => deletePendingOrder(topic._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
                       );
                     })}
               </tbody>
             </table>
+
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default DisplayApprovedOrderList;
-
+export default DisplayPendingOrderAdmin;

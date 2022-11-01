@@ -6,9 +6,9 @@ import Swal from "sweetalert2";
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import SideNavbarSup from '../Auth/SideNavbarSup';
+import SideNavbar from '../Auth/SideNavbar';
 
-function AllOrders() {
+function AllOrdersAdmin() {
 
     const [users, setusers] = useState();
     const [serachItem, setserachItem] = useState([]);
@@ -34,7 +34,7 @@ function AllOrders() {
     return (
         <div>
             <div className="">
-                <SideNavbarSup />
+                <SideNavbar />
                 <div className="container shadow my-5 mx-auto"> <br />
                     <h3 className=" fw-bolder mb-4">
                         <center>All Orders</center>
@@ -72,6 +72,8 @@ function AllOrders() {
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
 
@@ -102,6 +104,8 @@ function AllOrders() {
                                                             View Order
                                                         </button>
                                                     </Link></td>
+                                                    <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
+                                                    <td><button className='btn btn-danger' onClick={() => deleteOrders(users._id)}><RiDeleteBin6Fill /></button></td>
                                                 </tr>
                                             );
                                         })}
@@ -114,4 +118,5 @@ function AllOrders() {
     )
 }
 
-export default AllOrders
+
+export default AllOrdersAdmin

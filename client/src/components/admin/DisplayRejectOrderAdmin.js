@@ -1,44 +1,55 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-import AllOrdersPdf from '../Common/AllOrdersPdf';
-import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
+import Loader from "../procurementStaff/Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import SideNavbarSup from '../Auth/SideNavbarSup';
+import SideNavbar from '../Auth/SideNavbar';
+import Swal from "sweetalert2";
+import { RiDeleteBin6Fill } from 'react-icons/ri'
+import { Button } from 'react-bootstrap'
+import RejectedPdf from '../Common/RejectedPdf';
 
-function AllOrders() {
-
+function DisplayRejectOrderAdmin() {
     const [users, setusers] = useState();
     const [serachItem, setserachItem] = useState([]);
+    const [loading, setloading] = useState(true);
 
     useEffect(async () => {
         try {
             const data = await (
-                await axios.get("http://localhost:5000/order/GetAllOrders")).data;
-            setusers(data);
+                await axios.get("http://localhost:5000/order/RejectOrder")
+            ).data;
+            console.log("all data", data)
+            var array = []
+            data?.map((users) => {
+                if (users?.status == "decline") {
+                    array.push(users);
+                }
+            });
+            setusers(array);
+            setloading(false);
         } catch (error) {
             console.log(error);
+            setloading(false);
         }
     }, []);
 
-    const deleteOrders = id => {
+    const deleteRejectedOrder = id => {
         axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
             .then(res => {
-                Swal.fire('Congrats', 'Remove Order Details Successfully ', 'success')
+                Swal.fire('Congrats', 'Remove Rejected Order Details Successfully ', 'success')
             })
         setusers(users.filter(elem => elem._id !== id))
     }
 
     return (
-        <div>
-            <div className="">
-                <SideNavbarSup />
-                <div className="container shadow my-5 mx-auto"> <br />
-                    <h3 className=" fw-bolder mb-4">
-                        <center>All Orders</center>
-                    </h3>
+        <>
+            <SideNavbar />
+            <div className="container shadow my-5 mx-auto">
+                <h3 className=" fw-bolder py-5"><center><b>Rejected Orders</b></center></h3>
+
+                <div className="row">
+                    {loading && <Loader />}
                     <div className="row">
                         <div class="input-group">
                             <div className="col-md-6 mx-auto">
@@ -46,32 +57,22 @@ function AllOrders() {
                                     aria-describedby="search-addon" /> <br /> <br />
                             </div>
                         </div>
-                        <div class=" gap-2 py-3">
-                            <button className='btn btn-danger' onClick={() => AllOrdersPdf(users)}>
-                                Generate Pdf
-                            </button> &nbsp;
-                            <ReactHTMLTableToExcel
-                                id="test-table-xls-button"
-                                className="btn btn-danger"
-                                table="FundsTrans"
-                                filename="AllOrders"
-                                sheet="tablexls"
-                                buttonText="Export As Excel" />
-                            <br /> <br />
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
+                            <Button className='btn btn-danger' onClick={() => RejectedPdf(users)}>Generate Pdf</Button>
                         </div>
 
-
-                        <table className="table table-bordered mb-3" Id="FundsTrans">
+                        <table className="table table-bordered" Id="FundsTrans">
                             <thead className="table-dark">
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Order ID</th>
                                     <th scope="col">Delivery Address</th>
-                                    <th scope="col">Date Created</th>
+                                    <th scope="col">Creator</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
 
@@ -92,16 +93,17 @@ function AllOrders() {
                                                     <td>{users.DeliveryAddress}</td>
                                                     <td>{users.createdAt}</td>
                                                     <td>{users.QTY}</td>
-                                                    <td>LKR: {users.Price}</td>
+                                                    <td>{users.Price}</td>
                                                     <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {users.status} </Badge>  </td>
                                                     <td><Link to="">
                                                         <button
                                                             type="submit"
                                                             className="btn btn-success"
                                                             onClick={() => window.location.href = `/ViewOrderssById/${users?._id}`}>
-                                                            View Order
+                                                            View Order Details
                                                         </button>
                                                     </Link></td>
+                                                    <td><button className='btn btn-danger' onClick={() => deleteRejectedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                                                 </tr>
                                             );
                                         })}
@@ -110,8 +112,8 @@ function AllOrders() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
-export default AllOrders
+export default DisplayRejectOrderAdmin

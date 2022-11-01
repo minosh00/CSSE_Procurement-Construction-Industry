@@ -3,12 +3,11 @@ import axios from "axios";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import AllOrdersPdf from '../Common/AllOrdersPdf';
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import SideNavbarSup from '../Auth/SideNavbarSup';
+import SideNavbarSite from '../Auth/SideNavbarSite';
 
-function AllOrders() {
+function AllOrdersSite() {
 
     const [users, setusers] = useState();
     const [serachItem, setserachItem] = useState([]);
@@ -34,7 +33,7 @@ function AllOrders() {
     return (
         <div>
             <div className="">
-                <SideNavbarSup />
+                <SideNavbarSite />
                 <div className="container shadow my-5 mx-auto"> <br />
                     <h3 className=" fw-bolder mb-4">
                         <center>All Orders</center>
@@ -114,4 +113,5 @@ function AllOrders() {
     )
 }
 
-export default AllOrders
+
+export default AllOrdersSite

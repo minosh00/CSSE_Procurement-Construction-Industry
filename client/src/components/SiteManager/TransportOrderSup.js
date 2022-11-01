@@ -5,8 +5,9 @@ import Swal from "sweetalert2";
 import { OrderByID, ViewOrderTransportById } from "../../Services/SupplierServices";
 import axios from "axios";
 import SideNavbarSup from "../Auth/SideNavbarSup";
+import SideNavbarSite from "../Auth/SideNavbarSite";
 
-const TransportOrder = () => {
+const TransportOrderSup = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -90,7 +91,7 @@ const TransportOrder = () => {
 
   return (
     <div>
-      <SideNavbarSup />
+      <SideNavbarSite/>
       <div class="container my-5 py-5 mx-auto">
         <div class="row">
           <div class="col-md-7">
@@ -254,6 +255,4 @@ const TransportOrder = () => {
   );
 };
 
-export default TransportOrder;
-
-{/*  */ }
+export default TransportOrderSup;

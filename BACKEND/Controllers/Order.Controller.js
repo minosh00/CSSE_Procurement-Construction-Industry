@@ -26,7 +26,6 @@ const getOneOrder = async (req, res) => {
 const AllOrderStatus = async (req, res) => {
     try {
         const Supervisors = await Orders.find();
-
         res.status(200).json(Supervisors);
     } catch (error) {
         res.status(404).json({ message: error.message });
