@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import React from 'react'
-import delivery from "../images/delivery.gif"
-import build from "../images/build.gif"
+import person from "../images/person.gif"
 import { MDBCard } from 'mdb-react-ui-kit'
 import SideNavbar from "../Auth/SideNavbar";
 
@@ -24,13 +23,13 @@ const DashboardAdmin = () => {
           <div>
             <div class="row">
               <div class="col mb-4 mx-auto">
-                <MDBCard shadow='15' border='dark' background='white' className='mb-4'>
+                <MDBCard shadow='15' border='dark' background='white' className='mb-4'> <br />
                   <h5 class="card-title py-2"><center><b>View Suppliers</b></center></h5>
-                  <center><img src={build} alt="build" className="dash_i" /></center>
+                  <center><img src={person} alt="build" className="dash_i" /></center>
                   <div class="card-body">
                     <center>
                       <Link to="/AllSuppliers">
-                        <button className="btn btn-success" type="submit" >
+                        <button className="btn btn-dark w-25" type="submit" >
                           View
                         </button>
                       </Link>
