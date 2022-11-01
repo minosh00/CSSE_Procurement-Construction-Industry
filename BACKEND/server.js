@@ -9,7 +9,7 @@ const user = require("./Routes/userRoutes");
 const order = require("./Routes/Order.Routes");
 const Transport = require("./Routes/Transport.routes");
 const Invoices = require("./Routes/Invoices.Routes");
-
+const Payment = require("./Routes/Payment.routes");
 
 
 dotenv.config();
@@ -32,8 +32,7 @@ app.use("/user",user);
 app.use("/order",order);
 app.use("/Transport",Transport);
 app.use("/Invoices",Invoices);
-
-
+app.use("/payment", Payment);
 
 //DB connection
 
