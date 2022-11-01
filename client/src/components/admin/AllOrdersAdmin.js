@@ -4,6 +4,7 @@ import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import AllOrdersPdf from '../Common/AllOrdersPdf';
 import Swal from "sweetalert2";
 import { RiDeleteBin6Fill } from 'react-icons/ri'
+import { FaEdit } from 'react-icons/fa'
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from '../Auth/SideNavbar';
@@ -33,10 +34,10 @@ function AllOrdersAdmin() {
 
     return (
         <div>
-            <div className="">
+            <div>
                 <SideNavbar />
                 <div className="container shadow my-5 mx-auto"> <br />
-                    <h3 className=" fw-bolder mb-4">
+                    <h3 className="fw-bolder mb-4">
                         <center>All Orders</center>
                     </h3>
                     <div className="row">
@@ -46,7 +47,7 @@ function AllOrdersAdmin() {
                                     aria-describedby="search-addon" /> <br /> <br />
                             </div>
                         </div>
-                        <div class=" gap-2 py-3">
+                        <div class="gap-2 py-3">
                             <button className='btn btn-danger' onClick={() => AllOrdersPdf(users)}>
                                 Generate Pdf
                             </button> &nbsp;
@@ -73,6 +74,7 @@ function AllOrdersAdmin() {
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                     <th scope="col">E-mail</th>
+                                    <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
@@ -104,7 +106,12 @@ function AllOrdersAdmin() {
                                                             View Order
                                                         </button>
                                                     </Link></td>
-                                                    <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
+                                                    <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-success'>Send Mail</button></Link></td>
+                                                    <td>
+                                                        <Link to={`/UpdateOrder/${users?._id}`}>
+                                                            <button className='btn btn-primary'><FaEdit /></button>
+                                                        </Link>
+                                                    </td>
                                                     <td><button className='btn btn-danger' onClick={() => deleteOrders(users._id)}><RiDeleteBin6Fill /></button></td>
                                                 </tr>
                                             );

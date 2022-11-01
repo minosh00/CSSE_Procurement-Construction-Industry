@@ -32,7 +32,7 @@ function DisplayOrderDeliverdStatus() {
     <>
       <SideNavbarSite />
       <div className="container shadow my-5 mx-auto">
-        <h3 className=" fw-bolder py-5"><center><b>All Transport Status </b></center></h3>
+        <h3 className=" fw-bolder py-5"><center><b>Transport Status </b></center></h3>
         <div className="row">
           {loading}
           <div className="row">

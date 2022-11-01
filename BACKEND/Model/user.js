@@ -10,16 +10,16 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 		unique: true,
 	},
-    companyName: {
+	companyName: {
 		type: String,
 		required: true,
-		default:null
+		default: null
 	},
 
-supplierAddress: {
+	supplierAddress: {
 		type: String,
 		required: true,
-		default:null
+		default: null
 	},
 
 	password: {

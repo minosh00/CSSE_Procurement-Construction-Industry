@@ -37,7 +37,7 @@ const NavBar = () => {
                   <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardSupply" aria-current="page"> Supplier Dashboard   </a>
                 </li>
                 <li class="nav-item">
-                  <a style={{ display: userRole == "sitemanager" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page"> Site Manager Dashboard   </a>
+                  <a style={{ display: userRole == "siteManager" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page"> Site Manager Dashboard   </a>
                 </li>
               </div>
             </div>

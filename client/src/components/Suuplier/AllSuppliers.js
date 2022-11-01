@@ -14,7 +14,7 @@ function AllSuppliers() {
     useEffect(async () => {
         try {
             const data = await (
-                await axios.get("http://localhost:5000/user/getAllUsers")).data;
+                await axios.get("http://localhost:5000/user/SupplierUser")).data;
             setUsers(data);
         } catch (error) {
             console.log(error);
@@ -36,8 +36,20 @@ function AllSuppliers() {
                 <div className="container shadow my-5 mx-auto"> <br />
                     <h3 className=" fw-bolder mb-4">
                         <center>All Suppliers</center>
-                        <hr />
                     </h3>
+
+                    <div class="gap-2 py-3">
+                        <Button className='btn btn-danger' onClick={() => AllSuppliersPdf(users)}>Generate Pdf</Button> &nbsp;
+
+                        <ReactHTMLTableToExcel
+                            id="test-table-xls-button"
+                            className="btn btn-danger"
+                            table="FundsTrans"
+                            filename="AllBooking"
+                            sheet="tablexls"
+                            buttonText="Export As Excel" /> <br /> <br />
+                    </div>
+
                     <table class="table" Id="FundsTrans">
                         <thead className='table-dark'>
                             <tr>
@@ -67,16 +79,6 @@ function AllSuppliers() {
                             }
                         </tbody>
                     </table>
-
-                    <Button className='btn btn-danger' onClick={() => AllSuppliersPdf(users)}>Generate Pdf</Button> &nbsp;
-
-                    <ReactHTMLTableToExcel
-                        id="test-table-xls-button"
-                        className="btn btn-danger"
-                        table="FundsTrans"
-                        filename="AllBooking"
-                        sheet="tablexls"
-                        buttonText="Export As Excel" /> <br /> <br />
                 </div>
             </div>
         </div>
