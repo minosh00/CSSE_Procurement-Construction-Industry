@@ -139,16 +139,16 @@ const SideNavbarSup = () => {
                     <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"
-                        to="/AddSupplier">
+                        to="/RequestOrder">
                         <img src={Team} alt="Team" />
-                        <Text clicked={click}>Add New Supplier</Text>
+                        <Text clicked={click}>All Supplies</Text>
                     </Item>
                     <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"
-                        to="/DisplayPendingOrderList">
+                        to="//ViewOrderTransportById/:id">
                         <img src={Calender} alt="Calender" />
-                        <Text clicked={click}>All Orders</Text>
+                        <Text clicked={click}>T</Text>
                     </Item>
                     <Item
                         onClick={() => setClick(false)}

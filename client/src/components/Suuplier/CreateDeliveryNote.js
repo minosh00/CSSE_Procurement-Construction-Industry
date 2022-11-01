@@ -21,7 +21,7 @@ function CreateDeliveryNote() {
 
                 </div>
                 <div class="col-md-4">
-                    <label for="" class="form-label">Delivery ID</label>
+                    <label for="" class="form-label">Transport ID</label>
                     <input type="text"
                         class="form-control"
                         id="exampleFormControlTextarea3"
@@ -36,7 +36,7 @@ function CreateDeliveryNote() {
                         id="exampleFormControlTextarea3" />
                 </div>
                 <div class="col-md-6">
-                    <label for="" class="form-label">Total AMount</label>
+                    <label for="" class="form-label">Total Amount</label>
                     <input type="email"
                         class="form-control"
                         id="exampleFormControlTextarea3"

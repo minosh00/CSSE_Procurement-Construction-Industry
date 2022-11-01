@@ -4,6 +4,10 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from '../Auth/SideNavbar';
+import Swal from "sweetalert2";
+import { RiDeleteBin6Fill } from 'react-icons/ri'
+import { Button } from 'react-bootstrap'
+import RejectedPdf from '../Common/RejectedPdf';
 
 function DisplayRejectOrderList() {
     const [users, setusers] = useState();
@@ -30,6 +34,14 @@ function DisplayRejectOrderList() {
         }
     }, []);
 
+    const deleteRejectedOrder = id => {
+        axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
+            .then(res => {
+                Swal.fire('Congrats', 'Remove Rejected Order Details Successfully ', 'success')
+            })
+        setusers(users.filter(elem => elem._id !== id))
+    }
+
     return (
         <>
             <SideNavbar />
@@ -45,8 +57,11 @@ function DisplayRejectOrderList() {
                                     aria-describedby="search-addon" /> <br /> <br />
                             </div>
                         </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
+                            <Button className='btn btn-danger' onClick={() => RejectedPdf(users)}>Generate Pdf</Button>
+                        </div>
 
-                        <table className="table table-bordered">
+                        <table className="table table-bordered" Id="FundsTrans">
                             <thead className="table-dark">
                                 <tr>
                                     <th scope="col">ID</th>
@@ -57,6 +72,7 @@ function DisplayRejectOrderList() {
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
 
@@ -87,6 +103,7 @@ function DisplayRejectOrderList() {
                                                             View Order Details
                                                         </button>
                                                     </Link></td>
+                                                    <td><button className='btn btn-danger' onClick={() => deleteRejectedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                                                 </tr>
                                             );
                                         })}

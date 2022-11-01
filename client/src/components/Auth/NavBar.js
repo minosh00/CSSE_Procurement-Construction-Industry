@@ -19,7 +19,7 @@ const NavBar = () => {
       <div>
         <nav class="navbar  navbar-expand-lg">
           <a class="navbar-brand" href="#">
-            <img src={Login} alt="" width="160" height="100" />
+            <img src={Login} alt="" width="150" height="80" />
           </a>
           <a class="navbar-brand" href="/">
           Sankens Constructions Industry

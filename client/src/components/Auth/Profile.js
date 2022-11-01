@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { AuthUser } from "../../Services/AuthServices";
 import { Tabs } from "antd";
-import axios from "axios";
 import logo from '../images/loginn.png'
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 const { TabPane } = Tabs;
@@ -21,7 +20,6 @@ const Profile = () => {
   const [Fullname, setUserName] = useState("");
   const [email, setUserEmail] = useState("");
   const [currentUserID, setcurrentUserID] = useState("");
-  const [room, setRooms] = useState([]);
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
@@ -48,19 +46,19 @@ const Profile = () => {
 
   return (
     <div>
-      <div className='container shadow border border-5 my-5 mx-auto w-100'>
-
-        <div className="mt-5 ml-3">
+      <div className='container shadow border my-5 mx-auto w-50'>
+        <div className="">
           <Tabs defaultActiveKey="1">
-            <TabPane tab="My Profile" key="1">
-              <MDBContainer className="container py-5 h-100">
+            <TabPane tab="" key="1">
+              <MDBContainer className="container h-100">
                 <MDBRow className="justify-content-center align-items-center h-100">
-                  <MDBCol md="12" xl="4">
-                    <MDBCard style={{ borderRadius: '25px', backgroundColor: '#f7e34a', width: '500px' }}>
+                  <MDBCol md="22" xl="6">
+                    <h3 className=" fw-bolder"><center><b>My Profile</b></center></h3> <hr />
+                    <MDBCard style={{ borderRadius: '25px', backgroundColor: '#f7e34a', width: '100%' }}>
                       <MDBCardBody className="text-center">
                         <div className="mt-3 mb-4">
                           <MDBCardImage src={logo}
-                            className="rounded-circle" fluid style={{ width: '100px' }} />
+                            className="rounded-circle" fluid style={{ width: '50%' }} />
                         </div>
                         <MDBTypography tag="h4" onChange={handleUserName} value={Fullname} type="text" readOnly={true} >{Fullname}</MDBTypography>
                         <MDBCardText className="text-muted mb-4" onChange={handleUserEmail} value={email} type="email" readOnly  >
@@ -76,15 +74,15 @@ const Profile = () => {
                           <MDBBtn outline floating>
                             <MDBIcon fab icon="skype" size="lg" />
                           </MDBBtn>
-                        </div>
+                        </div> <br />
                       </MDBCardBody>
-                    </MDBCard>
+                    </MDBCard> <br /><br />
                   </MDBCol>
                 </MDBRow>
               </MDBContainer>
             </TabPane>
 
-           
+
           </Tabs>
         </div>
       </div>

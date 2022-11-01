@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { OrderByID, ViewOrderTransportById } from "../../Services/SupplierServices";
 import axios from "axios";
+import SideNavbarSup from "../Auth/SideNavbarSup";
 
 const TransportOrder = () => {
 
@@ -89,6 +90,7 @@ const TransportOrder = () => {
 
   return (
     <div>
+      <SideNavbarSup />
       <div class="container my-5 py-5 mx-auto">
         <div class="row">
           <div class="col-md-7">
@@ -130,7 +132,7 @@ const TransportOrder = () => {
                           class="form-control"
                           id="exampleFormControlTextarea3"
                           readOnly={true}
-                          value={Price}/>
+                          value={Price} />
                       </div>
                       <div class="col-md-4">
                         <label for="" class="form-label">Delivery Address</label>
