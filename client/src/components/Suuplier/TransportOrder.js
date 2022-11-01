@@ -101,7 +101,7 @@ const TransportOrder = () => {
                   </div> <br />
                   <div class="col">
                     <center>
-                      <h3 className=" fw-bolder mb-4">{OrderID} Order Delivery Status </h3>
+                      <h3 className=" fw-bolder mb-4"><b className="text-danger">{OrderID}</b> - Order Delivery Status </h3>
                     </center>
 
                     <div className='row py-3'>
@@ -162,7 +162,7 @@ const TransportOrder = () => {
                           class="form-control"
                           id="exampleFormControlTextarea3"
                           readOnly={true}
-                          value={Description} rows="4"
+                          value={Description} rows="5"
                         />
                       </div>
 
@@ -190,7 +190,7 @@ const TransportOrder = () => {
                     <div class="col">
                       <form >
                         <div>
-                          <div class="col-md-12 py-2">
+                          <div class="col-md-12">
                             <label for="" class="form-label">{" "}Transport ID{" "}</label>
                             <input type="text"
                               class="form-control"

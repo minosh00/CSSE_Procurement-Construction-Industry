@@ -2,18 +2,15 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../Middleware/auth");
 const { check } = require("express-validator");
-const {getUsers,getUser ,deleteUser , createUser , updateUser , registerUser ,authUser , loginUser} = require("../Controllers/userController");
-
+const {getUsers,getUser ,deleteUser , createUser , updateUser , registerUser ,authUser , loginUser, SupplierUser} = require("../Controllers/userController");
 
 var jwtSecret = "mysecrettoken";
-
 
 router.post("/createUser",createUser);
 router.get("/getAllUsers",getUsers);
 router.get("/getUserById/:id",getUser);
 router.delete("/deleteUser/:id",deleteUser);
 router.patch("/updateUserById/:id",updateUser);
-
 
 router.post("/signup",
 	[
@@ -33,5 +30,6 @@ router.post(
 	],
 	loginUser);
 
+router.get("/SupplierUser", SupplierUser);
 
 module.exports = router;

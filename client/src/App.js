@@ -36,6 +36,7 @@ import AllOrdersSite from "./components/SiteManager/AllOrdersSite";
 import DisplayApprovedOrderSite from "./components/SiteManager/DisplayApprovedOrderSite";
 import DisplayRejectOrderSite from "./components/SiteManager/DisplayRejectOrderSite";
 import AllSuppliers from "./components/Suuplier/AllSuppliers";
+import UpdateOrder from "./components/admin/UpdateOrder";
 
 let isauth = localStorage.getItem('user');
 
@@ -83,6 +84,7 @@ function App() {
             <Route path="/DisplayApprovedOrderSite" element={<DisplayApprovedOrderSite />} />
             <Route path="/DisplayRejectOrderSite" element={<DisplayRejectOrderSite />} />
             <Route path="/AllSuppliers" element={<AllSuppliers />} />
+            <Route path="/UpdateOrder/:id" element={<UpdateOrder />} />
           </Routes>
         </Router>
       </div>
