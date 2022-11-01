@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GetIDoRDER } from "../../Services/SupplierServices";
 import { AuthUser } from "../../Services/AuthServices"
-import SideNavbarSite from "../Auth/SideNavbarSite";
+import SideNavbarSup from "../Auth/SideNavbarSup";
 
 function AllOrderRequestView() {
 
@@ -50,9 +50,9 @@ function AllOrderRequestView() {
 
   return (
     <div className="py-2">
-      <SideNavbarSite />
+      <SideNavbarSup />
       <div className="container shadow border py-5 my-5 mx-auto">
-        <h3 className=" fw-bolder"><center><b>Site Manager Request Orders</b></center></h3>
+        <h3 className=" fw-bolder"><center><b>Supplier Request Orders</b></center></h3>
         <hr />
         <table className="table table-bordered">
           <thead className="table-dark">
@@ -76,7 +76,7 @@ function AllOrderRequestView() {
                     <td>{users.OrderID}</td>
                     <td>{users.DeliveryAddress}</td>
                     <td>{users.QTY}</td>
-                    <td> LKR: {users.Price} /=</td>
+                    <td>LKR: {users.Price} /=</td>
                     <td>{users.Deadline}</td>
                     <td>{users.Material}</td>
                     <td>{users.status === "OK" ? <button onClick={() => window.location.href = `/ViewOrderTransportById/${users?._id}`} className="btn btn-success">Order Approved  </button> : "Pending"}</td>

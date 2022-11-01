@@ -45,7 +45,7 @@ const DashboardSupply = () => {
                   <div class="card-body">
                     <center>
                       <p class="card-text">View all Supplier Delivered Status</p>
-                      <Link to="/DisplayOrderDeliverdStatus">
+                      <Link to="/AllOrderRequestView">
                         <button className="btn btn-outline-success mx-auto" type="submit" >
                           Click Here
                         </button>
