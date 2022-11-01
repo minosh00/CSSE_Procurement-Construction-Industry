@@ -92,7 +92,7 @@ function DisplayRejectOrderSite() {
                                                     <td>{id + 1}</td>
                                                     <td>{users.OrderID}</td>
                                                     <td>{users.DeliveryAddress}</td>
-                                                    <td>{users.createdAt}</td>
+                                                    <td>{new Date(users.createdAt).toDateString()}</td>
                                                     <td>{users.QTY}</td>
                                                     <td>{users.Price}</td>
                                                     <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {users.status} </Badge>  </td>

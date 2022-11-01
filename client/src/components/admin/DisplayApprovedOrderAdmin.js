@@ -72,6 +72,7 @@ function DisplayApprovedOrderAdmin() {
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
                   <th scope="col">E-mail</th>
+                  <th scope="col">Pay Now</th>
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
@@ -91,7 +92,7 @@ function DisplayApprovedOrderAdmin() {
                           <td>{id + 1}</td>
                           <td>{users.OrderID}</td>
                           <td>{users.DeliveryAddress}</td>
-                          <td>{users.createdAt}</td>
+                          <td>{new Date(users.createdAt).toDateString()}</td>
                           <td>{users.QTY}</td>
                           <td>LKR: {users.Price}</td>
                           <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {users.status} </Badge>  </td>
@@ -104,6 +105,7 @@ function DisplayApprovedOrderAdmin() {
                             </button>
                           </Link></td>
                           <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
+                          <td><button onClick={() => window.location.href = `/payment/${users.OrderID}`}>paynow</button></td>
                           <td><button className='btn btn-danger' onClick={() => deleteApprovedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
                       );
