@@ -25,6 +25,7 @@ import SendEmail from "./components/procurementStaff/SendEmail";
 import DashboardSupply from "./components/Suuplier/DashboradSupply";
 import CreateDeliveryNote from "./components/Suuplier/CreateDeliveryNote";
 import SideNavbar from "./components/Auth/SideNavbar";
+import AllOrders from "./components/procurementStaff/AllOrders";
 
 let isauth = localStorage.getItem('user');
 
@@ -61,6 +62,7 @@ function App() {
             <Route path="/DashboardSupply" element={<DashboardSupply />} />
             <Route path="/CreateDeliveryNote" element={<CreateDeliveryNote />} />
             <Route path="/SideNavbar" element={<SideNavbar />} />
+            <Route path="/AllOrders" element={<AllOrders />} />
           </Routes>
         </Router>
       </div>

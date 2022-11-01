@@ -58,7 +58,7 @@ function DisplayApprovedOrderList() {
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
               <Button className='btn btn-danger' onClick={() => ApprovedPdf(users)}>Generate Pdf</Button>
-            </div>  
+            </div>
 
             <table className="table table-bordered mb-3" Id="FundsTrans">
               <thead className="table-dark">

@@ -6,6 +6,7 @@ import Team from "../../assets/social.svg";
 import Calender from "../../assets/sceduled.svg";
 import Documents from "../../assets/inbox.svg"
 import Cancel from "../../assets/trash.svg"
+import Orders from "../../assets/important.svg"
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -89,7 +90,7 @@ const Item = styled(NavLink)`
   text-decoration: none;
   color: var(--white);
   width: 100%;
-  padding: 1rem 0;
+  padding: 0rem 0;
   cursor: pointer;
   display: flex;
   padding-left: 1rem;
@@ -146,9 +147,16 @@ const SideNavbar = () => {
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"
-            to="/DisplayPendingOrderList">
+            to="/AllOrders">
             <img src={Calender} alt="Calender" />
             <Text clicked={click}>All Orders</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/DisplayPendingOrderList">
+            <img src={Orders} alt="Documents" />
+            <Text clicked={click}>Pending Orders</Text>
           </Item>
           <Item
             onClick={() => setClick(false)}

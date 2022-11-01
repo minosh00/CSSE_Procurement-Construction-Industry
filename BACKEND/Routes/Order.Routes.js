@@ -6,7 +6,7 @@ const {CreateOrder ,UpdateOrderById ,GetAllOrders ,ViewOrderssById, AllOrderStat
 
 
 router.post("/CreateOrder",CreateOrder);
-router.get("/GetAllOrders/:id",GetAllOrders);
+router.get("/GetAllOrders",GetAllOrders);
 router.get("/GetOrder/:id",getOneOrder);
 router.patch("/UpdateOrderById/:id",UpdateOrderById);
 router.get("/AllOrderStatus",AllOrderStatus);
