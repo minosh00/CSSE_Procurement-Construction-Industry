@@ -47,12 +47,10 @@ function AllOrders() {
                                     aria-describedby="search-addon" /> <br /> <br />
                             </div>
                         </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
-
-                            <MDBBtn className='mx-2' color='danger' onClick={() => AllOrdersPdf(users)}>
+                        <div class=" gap-2 py-3">
+                            <button className='btn btn-danger' onClick={() => AllOrdersPdf(users)}>
                                 Generate Pdf
-                            </MDBBtn>
-
+                            </button> &nbsp;
                             <ReactHTMLTableToExcel
                                 id="test-table-xls-button"
                                 className="btn btn-danger"
