@@ -3,7 +3,7 @@ import React from 'react'
 import delivery from "../images/delivery.gif"
 import build from "../images/build.gif"
 import { MDBCard } from 'mdb-react-ui-kit'
-import SideNavbar from "../Auth/SideNavbar";
+import SideNavbarSite from "../Auth/SideNavbarSite";
 
 const Dashborad = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Dashborad = () => {
   return (
 
     <div>
-      <SideNavbar />
+      <SideNavbarSite />
       <div className="container shadow my-5 py-5 w-50 hform mx-auto">
         <h3 className=" fw-bolder"><center><b>Welcome to the Site Manager Home </b></center></h3>
         <hr /> <br />
