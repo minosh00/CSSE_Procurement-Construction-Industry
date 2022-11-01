@@ -3,7 +3,6 @@ import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import SideNavbar from '../Auth/SideNavbar';
 import Swal from "sweetalert2";
 import { Button } from 'react-bootstrap'
 import RejectedPdf from '../Common/RejectedPdf';
@@ -67,7 +66,7 @@ function DisplayRejectOrderList() {
                                     <th scope="col">ID</th>
                                     <th scope="col">Order ID</th>
                                     <th scope="col">Delivery Address</th>
-                                    <th scope="col">Creator</th>
+                                    <td>{new Date(users.createdAt).toDateString()}</td>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
