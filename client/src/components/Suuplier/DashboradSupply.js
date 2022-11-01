@@ -27,7 +27,7 @@ const DashboardSupply = () => {
                   <center><img src={supply} alt="build" className="dash_i" /></center>
                   <div class="card-body">
                     <center>
-                      <Link to="/DisplayOrderDeliverdStatus">
+                      <Link to="/RequestOrder">
                         <button className="btn btn-dark w-25" type="submit" >
                           View
                         </button>
