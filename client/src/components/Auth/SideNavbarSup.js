@@ -136,13 +136,13 @@ const SideNavbarSup = () => {
                         <img src={Home} alt="Home" />
                         <Text clicked={click}>Dashboard</Text>
                     </Item>
-                    {/* <Item
+                    <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"
-                        to="/RequestOrder">
+                        to="/AllOrderRequestView">
                         <img src={Team} alt="Team" />
                         <Text clicked={click}>All Supplies</Text>
-                    </Item> */}
+                    </Item>
                     <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"

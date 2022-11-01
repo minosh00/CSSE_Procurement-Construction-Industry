@@ -10,7 +10,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const Container = styled.div`
-  position: fixed;
+    position: fixed;
   .active {
     border-right: 4px solid var(--white);
     img {
@@ -80,7 +80,7 @@ const SlickBar = styled.ul`
   justify-content: space-between;
   top: 1rem;
   left: 0;
-  width: ${(props) => (props.clicked ? "15rem" : "3.5rem")};
+  width: ${(props) => (props.clicked ? "16rem" : "3.5rem")};
   transition: all 0.5s ease;
   border-radius: 0 30px 30px 0;
 `;
@@ -139,31 +139,31 @@ const SideNavbarSite = () => {
                     <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"
-                        to="/AllOrderRequestView">
+                        to="/DisplayOrderDeliverdStatus">
                         <img src={Team} alt="Team" />
                         <Text clicked={click}>Order Request View</Text>
                     </Item>
                     <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"
-                        to="/DisplayOrderDeliverdStatus">
+                        to="/AllOrdersSite">
                         <img src={Calender} alt="Calender" />
-                        <Text clicked={click}>Display Order Delivered Status</Text>
+                        <Text clicked={click}>Order Delivered Status</Text>
                     </Item>
                     <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"
-                        to="/AllOrdersSite">
+                        to="/DisplayApprovedOrderSite">
                         <img src={Documents} alt="Documents" />
                         <Text clicked={click}>All Orders</Text>
                     </Item>
-                    {/* <Item
+                    <Item
                         onClick={() => setClick(false)}
                         activeClassName="active"
-                        to="/RequestOrder">
+                        to="/DisplayRejectOrderSite">
                         <img src={Projects} alt="Projects" />
                         <Text clicked={click}>Request Orders</Text>
-                    </Item> */}
+                    </Item>
                 </SlickBar>
             </SidebarContainer>
         </Container>

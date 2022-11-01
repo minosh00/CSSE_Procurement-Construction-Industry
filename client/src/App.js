@@ -33,6 +33,9 @@ import DashboardAdmin from "./components/admin/DashboardAdmin";
 import AllOrdersAdmin from "./components/admin/AllOrdersAdmin";
 import TransportOrderSup from "./components/SiteManager/TransportOrderSup";
 import AllOrdersSite from "./components/SiteManager/AllOrdersSite";
+import DisplayApprovedOrderSite from "./components/SiteManager/DisplayApprovedOrderSite";
+import DisplayRejectOrderSite from "./components/SiteManager/DisplayRejectOrderSite";
+import AllSuppliers from "./components/Suuplier/AllSuppliers";
 
 let isauth = localStorage.getItem('user');
 
@@ -77,6 +80,9 @@ function App() {
             <Route path="/AllOrdersAdmin" element={<AllOrdersAdmin />} />
             <Route path="/TransportOrderSup" element={<TransportOrderSup />} />
             <Route path="/AllOrdersSite" element={<AllOrdersSite />} />
+            <Route path="/DisplayApprovedOrderSite" element={<DisplayApprovedOrderSite />} />
+            <Route path="/DisplayRejectOrderSite" element={<DisplayRejectOrderSite />} />
+            <Route path="/AllSuppliers" element={<AllSuppliers />} />
           </Routes>
         </Router>
       </div>
