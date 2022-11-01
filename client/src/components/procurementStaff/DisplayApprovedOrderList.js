@@ -3,11 +3,10 @@ import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import SideNavbar from "../Auth/SideNavbar";
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Button } from 'react-bootstrap'
 import ApprovedPdf from '../Common/ApprovedPdf';
+import SideNavbarSup from "../Auth/SideNavbarSup";
 
 function DisplayApprovedOrderList() {
   const [users, setusers] = useState();
@@ -44,7 +43,7 @@ function DisplayApprovedOrderList() {
 
   return (
     <>
-      <SideNavbar />
+      <SideNavbarSup />
       <div className="container shadow my-5 mx-auto">
         <h3 className=" fw-bolder py-5"><center><b>Approved Orders</b></center></h3>
         <div className="row">
@@ -71,8 +70,6 @@ function DisplayApprovedOrderList() {
                   <th scope="col">Price</th>
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
-                  <th scope="col">E-mail</th>
-                  <th scope="col">Delete</th>
                 </tr>
               </thead>
 
@@ -103,8 +100,6 @@ function DisplayApprovedOrderList() {
                               View Order
                             </button>
                           </Link></td>
-                          <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
-                          <td><button className='btn btn-danger' onClick={() => deleteApprovedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
                       );
                     })}

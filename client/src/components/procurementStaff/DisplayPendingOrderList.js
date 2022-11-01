@@ -3,11 +3,10 @@ import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import SideNavbar from "../Auth/SideNavbar";
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Button } from 'react-bootstrap'
 import PendingPdf from "../Common/PendingPdf";
+import SideNavbarSup from "../Auth/SideNavbarSup";
 
 function DisplayPendingOrderList() {
   const [users, setusers] = useState();
@@ -44,7 +43,7 @@ function DisplayPendingOrderList() {
 
   return (
     <div> <br />
-      <SideNavbar />
+      <SideNavbarSup />
       <div className="container shadow py-5">
         <h3 className=" fw-bolder"><center><b>All Pending Orders</b></center></h3>
         <br />
@@ -74,7 +73,6 @@ function DisplayPendingOrderList() {
                   <th scope="col">Price</th>
                   <th scope="col">Status</th>
                   <th scope="col">Check Order</th>
-                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody class="table-group-divider">
@@ -99,8 +97,7 @@ function DisplayPendingOrderList() {
                           <td>  <Badge color="success" style={{ fontSize: "15px" }} disabled >{topic.status}</Badge>    </td>
                           <td>  <Link to={{ pathname: `/UpdateOrderById/${topic?._id}` }}>
                             <Badge color="primary" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
-                          </Link>&nbsp;</td>
-                          <td><button className='btn btn-danger' onClick={() => deletePendingOrder(topic._id)}><RiDeleteBin6Fill /></button></td>
+                          </Link></td>
                         </tr>
                       );
                     })}

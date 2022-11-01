@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from '../Auth/SideNavbar';
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Button } from 'react-bootstrap'
 import RejectedPdf from '../Common/RejectedPdf';
+import SideNavbarSup from '../Auth/SideNavbarSup';
 
 function DisplayRejectOrderList() {
     const [users, setusers] = useState();
@@ -44,7 +44,7 @@ function DisplayRejectOrderList() {
 
     return (
         <>
-            <SideNavbar />
+            <SideNavbarSup />
             <div className="container shadow my-5 mx-auto">
                 <h3 className=" fw-bolder py-5"><center><b>Rejected Orders</b></center></h3>
 
@@ -71,8 +71,7 @@ function DisplayRejectOrderList() {
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">View Order</th>
                                 </tr>
                             </thead>
 
@@ -103,7 +102,6 @@ function DisplayRejectOrderList() {
                                                             View Order Details
                                                         </button>
                                                     </Link></td>
-                                                    <td><button className='btn btn-danger' onClick={() => deleteRejectedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                                                 </tr>
                                             );
                                         })}
