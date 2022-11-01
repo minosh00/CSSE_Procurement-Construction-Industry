@@ -4,6 +4,10 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from "../Auth/SideNavbar";
+import Swal from "sweetalert2";
+import { RiDeleteBin6Fill } from 'react-icons/ri'
+import { Button } from 'react-bootstrap'
+import PendingPdf from "../Common/PendingPdf";
 
 function DisplayPendingOrderList() {
   const [users, setusers] = useState();
@@ -30,6 +34,14 @@ function DisplayPendingOrderList() {
     }
   }, []);
 
+  const deletePendingOrder = id => {
+    axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
+      .then(res => {
+        Swal.fire('Congrats', 'Remove Pending Order Details Successfully ', 'success')
+      })
+    setusers(users.filter(elem => elem._id !== id))
+  }
+
   return (
     <div> <br />
       <SideNavbar />
@@ -46,9 +58,11 @@ function DisplayPendingOrderList() {
                   aria-describedby="search-addon" /> <br /> <br />
               </div>
             </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
+              <Button className='btn btn-danger' onClick={() => PendingPdf(users)}>Generate Pdf</Button>
+            </div>
 
-
-            <table class="table">
+            <table class="table" Id="FundsTrans">
               <thead className='table-dark'>
                 <tr>
                   <th scope="col">ID</th>
@@ -60,6 +74,7 @@ function DisplayPendingOrderList() {
                   <th scope="col">Price</th>
                   <th scope="col">Status</th>
                   <th scope="col">Check Order</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody class="table-group-divider">
@@ -83,8 +98,9 @@ function DisplayPendingOrderList() {
                           <td>LKR: {topic.Price} /=</td>
                           <td>  <Badge color="success" style={{ fontSize: "15px" }} disabled >{topic.status}</Badge>    </td>
                           <td>  <Link to={{ pathname: `/UpdateOrderById/${topic?._id}` }}>
-                            <Badge color="danger" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
+                            <Badge color="primary" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
                           </Link>&nbsp;</td>
+                          <td><button className='btn btn-danger' onClick={() => deletePendingOrder(topic._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
                       );
                     })}

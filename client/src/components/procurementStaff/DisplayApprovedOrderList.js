@@ -4,7 +4,10 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from "../Auth/SideNavbar";
-
+import Swal from "sweetalert2";
+import { RiDeleteBin6Fill } from 'react-icons/ri'
+import { Button } from 'react-bootstrap'
+import ApprovedPdf from '../Common/ApprovedPdf';
 
 function DisplayApprovedOrderList() {
   const [users, setusers] = useState();
@@ -31,6 +34,13 @@ function DisplayApprovedOrderList() {
     }
   }, []);
 
+  const deleteApprovedOrder = id => {
+    axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
+      .then(res => {
+        Swal.fire('Congrats', 'Remove Approved Order Details Successfully ', 'success')
+      })
+    setusers(users.filter(elem => elem._id !== id))
+  }
 
   return (
     <>
@@ -46,19 +56,23 @@ function DisplayApprovedOrderList() {
                   aria-describedby="search-addon" /> <br /> <br />
               </div>
             </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
+              <Button className='btn btn-danger' onClick={() => ApprovedPdf(users)}>Generate Pdf</Button>
+            </div>  
 
-            <table className="table table-bordered">
+            <table className="table table-bordered mb-3" Id="FundsTrans">
               <thead className="table-dark">
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Order ID</th>
                   <th scope="col">Delivery Address</th>
-                  <th scope="col">Creator</th>
+                  <th scope="col">Date Created</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Price</th>
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
                   <th scope="col">E-mail</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
 
@@ -79,17 +93,18 @@ function DisplayApprovedOrderList() {
                           <td>{users.DeliveryAddress}</td>
                           <td>{users.createdAt}</td>
                           <td>{users.QTY}</td>
-                          <td>{users.Price}</td>
+                          <td>LKR: {users.Price}</td>
                           <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {users.status} </Badge>  </td>
                           <td><Link to="">
                             <button
                               type="submit"
                               className="btn btn-success"
                               onClick={() => window.location.href = `/ViewOrderssById/${users?._id}`}>
-                              View Order Details
+                              View Order
                             </button>
                           </Link></td>
-                          <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send Status</button></Link></td>
+                          <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
+                          <td><button className='btn btn-danger' onClick={() => deleteApprovedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
                       );
                     })}

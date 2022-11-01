@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import Home from "../../assets/home-solid.svg";
 import Team from "../../assets/social.svg";
 import Calender from "../../assets/sceduled.svg";
-import Projects from "../../assets/starred.svg";
-import Documents from "../../assets/draft.svg"
+import Documents from "../../assets/inbox.svg"
+import Cancel from "../../assets/trash.svg"
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -116,58 +116,58 @@ const Text = styled.span`
 `;
 
 const SideNavbar = () => {
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
 
-    const [profileClick, setprofileClick] = useState(false);
-    const handleProfileClick = () => setprofileClick(!profileClick);
+  const [profileClick, setprofileClick] = useState(false);
+  const handleProfileClick = () => setprofileClick(!profileClick);
 
-    return (
-        <Container>
-            <Button clicked={click} onClick={() => handleClick()}>
-                Click
-            </Button>
-            <SidebarContainer>
-                <SlickBar clicked={click}>
-                    <Item
-                        onClick={() => setClick(false)}
-                        exact activeClassName="active"
-                        to="/Dashborad">
-                        <img src={Home} alt="Home" />
-                        <Text clicked={click}>Dashboard</Text>
-                    </Item>
-                    <Item
-                        onClick={() => setClick(false)}
-                        activeClassName="active"
-                        to="/AddSupplier">
-                        <img src={Team} alt="Team" />
-                        <Text clicked={click}>Add New Supplier</Text>
-                    </Item>
-                    <Item
-                        onClick={() => setClick(false)}
-                        activeClassName="active"
-                        to="/DisplayPendingOrderList">
-                        <img src={Calender} alt="Calender" />
-                        <Text clicked={click}>All Orders</Text>
-                    </Item>
-                    <Item
-                        onClick={() => setClick(false)}
-                        activeClassName="active"
-                        to="/DisplayApprovedOrderList">
-                        <img src={Documents} alt="Documents" />
-                        <Text clicked={click}>Approved Orders</Text>
-                    </Item>
-                    <Item
-                        onClick={() => setClick(false)}
-                        activeClassName="active"
-                        to="/DisplayRejectOrderList">
-                        <img src={Projects} alt="Projects" />
-                        <Text clicked={click}>Rejected Orders</Text>
-                    </Item>
-                </SlickBar>
-            </SidebarContainer>
-        </Container>
-    );
+  return (
+    <Container>
+      <Button clicked={click} onClick={() => handleClick()}>
+        Click
+      </Button>
+      <SidebarContainer>
+        <SlickBar clicked={click}>
+          <Item
+            onClick={() => setClick(false)}
+            exact activeClassName="active"
+            to="/Dashborad">
+            <img src={Home} alt="Home" />
+            <Text clicked={click}>Dashboard</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/AddSupplier">
+            <img src={Team} alt="Team" />
+            <Text clicked={click}>Add New Supplier</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/DisplayPendingOrderList">
+            <img src={Calender} alt="Calender" />
+            <Text clicked={click}>All Orders</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/DisplayApprovedOrderList">
+            <img src={Documents} alt="Documents" />
+            <Text clicked={click}>Approved Orders</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/DisplayRejectOrderList">
+            <img src={Cancel} alt="Documents" />
+            <Text clicked={click}>Rejected Orders</Text>
+          </Item>
+        </SlickBar>
+      </SidebarContainer>
+    </Container>
+  );
 };
 
 export default SideNavbar
