@@ -23,11 +23,11 @@ const DashboardSupply = () => {
             <div class="row">
               <div class="col mb-6">
                 <MDBCard shadow='15' border='dark' background='white' className='mb-4'> <br/>
-                  <h5 class="card-title py-2"><center><b>View Supplier Request</b></center></h5>
+                  <h5 class="card-title py-2"><center><b>View Transport Status</b></center></h5>
                   <center><img src={supply} alt="build" className="dash_i" /></center>
                   <div class="card-body">
                     <center>
-                      <Link to="/RequestOrder">
+                      <Link to="/DisplayOrderDeliverdStatus">
                         <button className="btn btn-dark w-25" type="submit" >
                           View
                         </button>
