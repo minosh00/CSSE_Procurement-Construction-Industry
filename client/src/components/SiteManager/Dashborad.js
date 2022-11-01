@@ -20,7 +20,7 @@ const Dashborad = () => {
       <div className="container shadow my-5 py-5 w-50 hform mx-auto">
         <h3 className=" fw-bolder"><center><b>Welcome to the Site Manager Home </b></center></h3>
         <hr /> <br />
-        <div className="container">
+        {/* <div className="container">
           <div>
             <div class="row">
               <div class="col mb-6">
@@ -57,7 +57,7 @@ const Dashborad = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
