@@ -12,7 +12,7 @@ export default function Footer() {
             <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 2022 Copyright © 
                 <a className='text-white' href='https://github.com/minosh00/CSSE_Procurement-Construction-Industry'>
-                    &nbsp;SE3070_WE_60
+                    &nbsp;SE3070_WE_59
                 </a>
             </div>
         </MDBFooter>
