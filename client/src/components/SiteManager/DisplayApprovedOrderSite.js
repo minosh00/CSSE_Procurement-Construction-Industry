@@ -72,8 +72,6 @@ function DisplayApprovedOrderSite() {
                   <th scope="col">Price</th>
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
-                  <th scope="col">E-mail</th>
-                  <th scope="col">Delete</th>
                 </tr>
               </thead>
 
@@ -104,8 +102,6 @@ function DisplayApprovedOrderSite() {
                               View Order
                             </button>
                           </Link></td>
-                          <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
-                          <td><button className='btn btn-danger' onClick={() => deleteApprovedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
                       );
                     })}
