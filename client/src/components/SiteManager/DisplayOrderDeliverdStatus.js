@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Badge } from "reactstrap";
-import SideNavbarSite from "../Auth/SideNavbarSite";
 
 function DisplayOrderDeliverdStatus() {
   const [users, setusers] = useState();
@@ -30,7 +29,7 @@ function DisplayOrderDeliverdStatus() {
 
   return (
     <>
-      <SideNavbarSite />
+      
       <div className="container shadow my-5 mx-auto">
         <h3 className=" fw-bolder py-5"><center><b>Transport Status </b></center></h3>
         <div className="row">

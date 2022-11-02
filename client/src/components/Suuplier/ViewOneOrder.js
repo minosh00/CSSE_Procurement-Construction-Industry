@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { OrderByID, ViewOrderssById } from "../../Services/SupplierServices";
-import SideNavbar from "../Auth/SideNavbar";
 
 const ViewOneOrder = () => {
 
@@ -100,7 +99,6 @@ const ViewOneOrder = () => {
 
   return (
     <div>
-      <SideNavbar />
       <div className="container shadow my-5 mx-auto w-50" id="cusdet">
         <div className="col p-3">
           <h3 className=" fw-bolder mb-4"><center>{OrderID} Order Details  </center></h3> <hr />
