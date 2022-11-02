@@ -28,16 +28,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //use Routes
-//app.use("/user",user);
+app.use("/user",user);
 app.use("/order",order);
-//app.use("/Transport",Transport);
-//app.use("/Invoices",Invoices);
-//app.use("/payment", Payment);
+app.use("/Transport",Transport);
+app.use("/Invoices",Invoices);
+app.use("/payment", Payment);
 
-
+//DB connection
 
 mongoose.connect(
   process.env.MDB_CONNECT_STRING, {
+    //type warnings
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

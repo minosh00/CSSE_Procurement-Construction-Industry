@@ -38,6 +38,7 @@ import DisplayRejectOrderSite from "./components/SiteManager/DisplayRejectOrderS
 import AllSuppliers from "./components/Suuplier/AllSuppliers";
 import UpdateOrder from "./components/admin/UpdateOrder";
 import Payment from "./components/admin/Payment";
+import ViewPayment from "./components/SiteManager/ViewPayment";
 
 let isauth = localStorage.getItem('user');
 
@@ -87,6 +88,8 @@ function App() {
             <Route path="/AllSuppliers" element={<AllSuppliers />} />
             <Route path="/UpdateOrder/:id" element={<UpdateOrder />} />
             <Route path="/payment/:id" element = {<Payment/>} />
+            <Route path="/ViewPayment" element = {<ViewPayment/>} />
+            <Route path="/deliverynote/:OrderID/:transportID" element = {<CreateDeliveryNote/>} />
           </Routes>
         </Router>
       </div>

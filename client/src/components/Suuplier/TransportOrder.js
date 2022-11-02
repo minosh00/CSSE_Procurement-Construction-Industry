@@ -110,8 +110,6 @@ const TransportOrder = () => {
                         <input type="text"
                           class="form-control"
                           id="floatingInput"
-                          placeholder="OrderID"
-                            required
                           readOnly={true}
                           value={OrderID}
                         />
@@ -121,8 +119,6 @@ const TransportOrder = () => {
                         <input type="text"
                           class="form-control"
                           id="floatingPassword"
-                         required
-                         placeholder="QTY"
                           readOnly={true}
                           value={QTY}
                         />
@@ -136,8 +132,6 @@ const TransportOrder = () => {
                           class="form-control"
                           id="exampleFormControlTextarea3"
                           readOnly={true}
-                          placeholder="Price"
-                          required
                           value={Price} />
                       </div>
                       <div class="col-md-4">
@@ -175,7 +169,7 @@ const TransportOrder = () => {
 
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
             </div>
@@ -200,8 +194,6 @@ const TransportOrder = () => {
                             <label for="" class="form-label">{" "}Transport ID{" "}</label>
                             <input type="text"
                               class="form-control"
-                              placeholder="transportID"
-                              required
                               id="floatingInput"
                               value={transportID} onChange={(e) => setTransportID(e.target.value)}
                             />
@@ -210,8 +202,6 @@ const TransportOrder = () => {
                             <label for="" class="form-label">{" "}Location   {" "}</label>
                             <input type="text"
                               class="form-control"
-                              placeholder="location"
-                              required
                               id="floatingPassword"
                               value={location} onChange={(e) => setLocationD(e.target.value)}
                             />
@@ -223,8 +213,6 @@ const TransportOrder = () => {
                               <label for="" class="form-label">{" "}Vehicle Number  {" "}</label>
                               <input type="text"
                                 class="form-control"
-                                placeholder="vehiNo"
-                                required
                                 id="exampleFormControlTextarea3"
                                 value={vehiNo} onChange={(e) => setVehiNo(e.target.value)}
                               />
@@ -245,12 +233,11 @@ const TransportOrder = () => {
                           </div>
                         </div>
                       </form>
-                      <Link to="">
+                      <Link to={`/deliverynote/${OrderID}/${transportID}`}>
                         <button
                           type="submit"
                           onClick={() => createTransport()}
-                          className="btn btn-success"
-                        >
+                          className="btn btn-success">
                           Transport Order
                         </button>
                       </Link>

@@ -196,7 +196,6 @@ const TransportOrderSup = () => {
                             <input type="text"
                               class="form-control"
                               id="floatingInput"
-                              
                               value={transportID} onChange={(e) => setTransportID(e.target.value)}
                             />
                           </div>

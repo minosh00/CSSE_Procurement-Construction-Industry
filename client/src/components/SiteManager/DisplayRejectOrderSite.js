@@ -73,7 +73,6 @@ function DisplayRejectOrderSite() {
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
-                                    <th scope="col">Update</th>
                                 </tr>
                             </thead>
 
@@ -104,7 +103,6 @@ function DisplayRejectOrderSite() {
                                                             View Order Details
                                                         </button>
                                                     </Link></td>
-                                                    <td><button className='btn btn-danger' onClick={() => deleteRejectedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                                                 </tr>
                                             );
                                         })}

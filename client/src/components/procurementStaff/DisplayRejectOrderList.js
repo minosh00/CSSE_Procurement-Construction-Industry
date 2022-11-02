@@ -66,7 +66,7 @@ function DisplayRejectOrderList() {
                                     <th scope="col">ID</th>
                                     <th scope="col">Order ID</th>
                                     <th scope="col">Delivery Address</th>
-                                    <td>{new Date(users.createdAt).toDateString()}</td>
+                                    <th scope='col'>Date Created</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
@@ -89,7 +89,7 @@ function DisplayRejectOrderList() {
                                                     <td>{id + 1}</td>
                                                     <td>{users.OrderID}</td>
                                                     <td>{users.DeliveryAddress}</td>
-                                                    <td>{users.createdAt}</td>
+                                                    <td>{new Date(users.createdAt).toDateString()}</td>
                                                     <td>{users.QTY}</td>
                                                     <td>{users.Price}</td>
                                                     <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {users.status} </Badge>  </td>

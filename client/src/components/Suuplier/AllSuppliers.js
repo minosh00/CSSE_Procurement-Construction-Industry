@@ -74,8 +74,7 @@ function AllSuppliers() {
                                         <td>{topic.userRole}</td>
                                         <td><button className='btn btn-danger' onClick={() => deleteSupplier(topic._id)}><RiDeleteBin6Fill /></button></td>
                                     </tr>
-                                )
-                                )
+                                ))
                             }
                         </tbody>
                     </table>
