@@ -119,7 +119,7 @@ function AllOrdersAdmin() {
                                                     </td>
 
                                                     <td>
-                                                        <IconButton aria-label="delete" onClick={() => deleteOrders(users._id)} size="large">
+                                                        <IconButton aria-label="deletea" onClick={() => deleteOrders(users._id)} size="large">
                                                             <DeleteIcon fontSize="inherit" />
                                                         </IconButton>
                                                     </td>
