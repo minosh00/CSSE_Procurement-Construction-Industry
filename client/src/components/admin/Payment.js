@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import SideNavbar from '../Auth/SideNavbar';
 import Swal from "sweetalert2";
-import pay from "../images/paym.webp"
 
 const Payment = () => {
   const [orderID, setorderID] = useState("");
@@ -50,7 +49,7 @@ const Payment = () => {
             <form onSubmit={changeOnClick}>
               <div className='row py-3'>
                 <div class="col-md-6">
-                  <label for="gid" class="form-label">Order ID</label>
+                  <label for="gid" class="form-label">Order ID - </label> &nbsp;<b>{id}</b>
                   <input name="orderID" onChange={(f) => setorderID(f.target.value)} type="text" class="form-control" id="gid" placeholder='Enter Order ID' required />
                 </div>
                 <div class="col-md-6">

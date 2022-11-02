@@ -89,6 +89,7 @@ function App() {
             <Route path="/UpdateOrder/:id" element={<UpdateOrder />} />
             <Route path="/payment/:id" element = {<Payment/>} />
             <Route path="/ViewPayment" element = {<ViewPayment/>} />
+            <Route path="/deliverynote/:OrderID/:transportID" element = {<CreateDeliveryNote/>} />
           </Routes>
         </Router>
       </div>

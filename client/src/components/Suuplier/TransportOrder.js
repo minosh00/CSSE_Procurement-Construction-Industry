@@ -169,7 +169,7 @@ const TransportOrder = () => {
 
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
             </div>
@@ -233,12 +233,11 @@ const TransportOrder = () => {
                           </div>
                         </div>
                       </form>
-                      <Link to="">
+                      <Link to={`/deliverynote/${OrderID}/${transportID}`}>
                         <button
                           type="submit"
                           onClick={() => createTransport()}
-                          className="btn btn-success"
-                        >
+                          className="btn btn-success">
                           Transport Order
                         </button>
                       </Link>

@@ -1,6 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from "axios";
+import SideNavbar from '../Auth/SideNavbar';
+import Swal from "sweetalert2";
 
-function CreateDeliveryNote() {
+const CreateDeliveryNote = () => {
+    const [orderID, setorderID] = useState("");
+    const [amount, setAmount] = useState("");
+    const [paymentMethod, setPaymentMethod] = useState();
+    const [phoneNumber, setPhoneNumber] = useState("");
+
+    const navigate = useNavigate();
+
+    const changeOnClick = (f) => {
+        const payment = {
+            orderID,
+            amount,
+            paymentMethod,
+            phoneNumber
+        };
+
+        try {
+            axios.post("http://localhost:5000/payment/", payment);
+            Swal.fire("Congrats", "Payment successfull", "success")
+            navigate("/DisplayApprovedOrderAdmin");
+        } catch (err) {
+            Swal.fire("error", "Error", "error")
+        }
+    }
+
+    const { id } = useParams();
+
+    useEffect(() => {
+        console.log(id);
+    })
+
     return (
         <div class="container shadow my-5 py-5 mx-auto w-50">
             <h3 className=" fw-bolder"><center><b>Delivery Note</b></center></h3>
@@ -43,7 +77,7 @@ function CreateDeliveryNote() {
                     />
                 </div>
             </div>
-            <div class="d-grid gap-2 col-6 mx-auto"> <br/>
+            <div class="d-grid gap-2 col-6 mx-auto"> <br />
                 <button class="btn btn-danger" type="button">Submit Delivery Note</button>
             </div>
         </div>

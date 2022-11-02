@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import Loader from "./Loader";
+import { useParams, useNavigate } from 'react-router-dom'
+import { AuthUser } from "../../Services/AuthServices";
 import Swal from "sweetalert2";
 import emailjs from "emailjs-com";
 import { OrderByID } from "../../Services/SupplierServices";
@@ -10,6 +9,41 @@ import SideNavbar from '../Auth/SideNavbar';
 const SendEmail = (props) => {
 
     const { id } = useParams("");
+
+    const navigate = useNavigate();
+
+    const handleSubmit = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userRole");
+        navigate("/Login");
+    }
+
+    const [Fullname, setUserName] = useState("");
+    const [email, setUserEmail] = useState("");
+    const [currentUserID, setcurrentUserID] = useState("");
+
+    const handleUserName = (e) => {
+        setUserName(e.target.value);
+    };
+
+    const handleUserEmail = (e) => {
+        setUserEmail(e.target.value);
+    };
+
+    const details = async () => {
+        let token = localStorage.getItem('token');
+        let data = await AuthUser(token);
+        console.log("current User", data?.data);
+        setcurrentUserID(data?.data?._id);
+        setUserName(data?.data?.userRole);
+        setUserEmail(data?.data?.email);
+    }
+
+
+    useEffect(() => {
+        details();
+    }, [])
+
 
     const [OrderID, setOrderID] = useState("");
     const [status, setstatus] = useState("");
@@ -51,14 +85,12 @@ const SendEmail = (props) => {
         <div>
             <SideNavbar />
             <div className="container shadow my-5 mx-auto w-50">
-                <div className="">
-                </div>
                 <div className="col p-5 mx-auto">
                     <h3 className=" fw-bolder mb-5"><center>Send Status</center></h3>
                     <form onSubmit={sendEmail}>
                         <div class="mb-3">
-                            <label for="name" class="form-label">E-mail</label>
-                            <input name="lead_no" value='chethanaprasadi2000@gmail.com' type="text" class="form-control" readOnly />
+                            <label for="name" class="form-label">E-mail - </label>
+                            &nbsp;<b><span className="" onChange={handleUserEmail} readOnly>{email}</span></b>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Order ID</label>
