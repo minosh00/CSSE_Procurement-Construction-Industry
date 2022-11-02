@@ -210,6 +210,7 @@ const RequestSupervisor = () => {
 									data={staffDetails}
 									columns={columns}
 									progressPending={loading}
+									
 								/>
 							</CardBody>
 						</Card>

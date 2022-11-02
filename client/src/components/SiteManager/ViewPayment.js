@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import Loader from "../procurementStaff/Loader";
-import { Link } from "react-router-dom";
-import { Badge } from "reactstrap";
-import Swal from "sweetalert2";
+import PaymentPdf from '../Common/PaymentPdf';
 import { Button } from 'react-bootstrap'
 import SideNavbarSup from '../Auth/SideNavbarSup';
 
@@ -39,9 +37,9 @@ function ViewPayment() {
                                     aria-describedby="search-addon" /> <br /> <br />
                             </div>
                         </div>
-                        {/* <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
-                            <Button className='btn btn-danger' onClick={() => RejectedPdf(users)}>Generate Pdf</Button>
-                        </div> */}
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
+                            <Button className='btn btn-danger' onClick={() => PaymentPdf(users)}>Generate Pdf</Button>
+                        </div>
 
                         <table className="table table-bordered" Id="FundsTrans">
                             <thead className="table-dark">

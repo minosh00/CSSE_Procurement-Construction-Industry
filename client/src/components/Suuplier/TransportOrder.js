@@ -40,8 +40,8 @@ const TransportOrder = () => {
 
     console.log(payload)
     axios.post("http://localhost:5000/Transport/CreateTransport/", payload).then((res) => {
-      Swal.fire("success", " success ", "success"); {
-        navigate("");
+      Swal.fire("success", "Successfully Transport Order", "success"); {
+        navigate(`/deliverynote/${OrderID}/${transportID}`);
       }
       console.log(res.data)
     }).catch(
