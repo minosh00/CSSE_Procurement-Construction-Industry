@@ -3,8 +3,6 @@ import axios from "axios";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import AllOrdersPdf from '../Common/AllOrdersPdf';
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
-import { FaEdit } from 'react-icons/fa'
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from '../Auth/SideNavbar';
@@ -76,7 +74,6 @@ function AllOrdersAdmin() {
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
-                                    <th scope="col">E-mail</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Remove</th>
                                 </tr>
@@ -109,7 +106,7 @@ function AllOrdersAdmin() {
                                                             View Order
                                                         </button>
                                                     </Link></td>
-                                                    <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-success'>Send Mail</button></Link></td>
+                                            
                                                     <td>
                                                         <Link to={`/UpdateOrder/${users?._id}`}>
                                                             <IconButton aria-label="update" size="large">

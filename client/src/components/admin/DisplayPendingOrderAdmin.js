@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from "../Auth/SideNavbar";
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { Button } from 'react-bootstrap'
 import PendingPdf from "../Common/PendingPdf";
 
@@ -74,6 +76,7 @@ function DisplayPendingOrderAdmin() {
                   <th scope="col">Price</th>
                   <th scope="col">Status</th>
                   <th scope="col">Check Order</th>
+                  <th scope="col">Update</th>
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
@@ -100,7 +103,19 @@ function DisplayPendingOrderAdmin() {
                           <td>  <Link to={{ pathname: `/UpdateOrderById/${topic?._id}` }}>
                             <Badge color="primary" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
                           </Link>&nbsp;</td>
-                          <td><button className='btn btn-danger' onClick={() => deletePendingOrder(topic._id)}><RiDeleteBin6Fill /></button></td>
+                          
+                          <td>
+                            <Link to={`/UpdateOrder/${users?._id}`}>
+                              <IconButton aria-label="update" size="large">
+                                <EditIcon fontSize="inherit" />
+                              </IconButton>
+                            </Link>
+                          </td>
+                          <td>
+                            <IconButton aria-label="delete" onClick={() => deletePendingOrder(users._id)} size="large">
+                              <DeleteIcon fontSize="inherit" />
+                            </IconButton>
+                          </td>
                         </tr>
                       );
                     })}

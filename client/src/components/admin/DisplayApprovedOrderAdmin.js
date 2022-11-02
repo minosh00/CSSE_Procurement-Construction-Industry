@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from "../Auth/SideNavbar";
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from 'react-bootstrap'
 import ApprovedPdf from '../Common/ApprovedPdf';
+import { MDBBtn } from 'mdb-react-ui-kit'
 
 function DisplayApprovedOrderAdmin() {
   const [users, setusers] = useState();
@@ -101,12 +103,20 @@ function DisplayApprovedOrderAdmin() {
                               type="submit"
                               className="btn btn-success"
                               onClick={() => window.location.href = `/ViewOrderssById/${users?._id}`}>
-                              View Order
+                              View
                             </button>
                           </Link></td>
-                          <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
-                          <td><button className='btn btn-primary' onClick={() => window.location.href = `/payment/${users.OrderID}`}>paynow</button></td>
-                          <td><button className='btn btn-danger' onClick={() => deleteApprovedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
+                          <td>
+                            <Link to={`/sendmail/${users._id}`}>
+                              <MDBBtn classame='btn btn-success'>Send</MDBBtn>
+                            </Link>
+                          </td>
+                          <td><button className="btn btn-success">Pay</button></td>
+                          <td>
+                            <IconButton aria-label="delete" onClick={() => deleteApprovedOrder(users._id)} size="large">
+                              <DeleteIcon fontSize="inherit" />
+                            </IconButton>
+                          </td>
                         </tr>
                       );
                     })}
@@ -120,4 +130,3 @@ function DisplayApprovedOrderAdmin() {
 }
 
 export default DisplayApprovedOrderAdmin;
-
