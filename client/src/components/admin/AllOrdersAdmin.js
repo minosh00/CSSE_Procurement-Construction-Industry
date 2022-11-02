@@ -8,6 +8,9 @@ import { FaEdit } from 'react-icons/fa'
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from '../Auth/SideNavbar';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 function AllOrdersAdmin() {
 
@@ -74,8 +77,8 @@ function AllOrdersAdmin() {
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                     <th scope="col">E-mail</th>
-                                    <th scope="col">Update</th>
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Remove</th>
                                 </tr>
                             </thead>
 
@@ -109,10 +112,20 @@ function AllOrdersAdmin() {
                                                     <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-success'>Send Mail</button></Link></td>
                                                     <td>
                                                         <Link to={`/UpdateOrder/${users?._id}`}>
-                                                            <button className='btn btn-primary'><FaEdit /></button>
+                                                            <IconButton aria-label="update" size="large">
+                                                                <EditIcon fontSize="inherit" />
+                                                            </IconButton>
                                                         </Link>
                                                     </td>
-                                                    <td><button className='btn btn-danger' onClick={() => deleteOrders(users._id)}><RiDeleteBin6Fill /></button></td>
+
+                                                    <td>
+                                                        <IconButton aria-label="delete" onClick={() => deleteOrders(users._id)} size="large">
+                                                            <DeleteIcon fontSize="inherit" />
+                                                        </IconButton>
+                                                    </td>
+
+
+
                                                 </tr>
                                             );
                                         })}

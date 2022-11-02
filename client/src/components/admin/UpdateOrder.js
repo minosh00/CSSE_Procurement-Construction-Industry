@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams ,useNavigate} from 'react-router-dom';
 import SideNavbar from '../Auth/SideNavbar';
+import Swal from "sweetalert2";
+
 
 function UpdateOrder(props) {
+
+    const navigate = useNavigate();
+
     const [order, setOrder] = useState({
         OrderID: "",
         DeliveryAddress: "",
@@ -18,11 +23,16 @@ function UpdateOrder(props) {
     const { id } = useParams("");
 
     function sendUpadateUser(e) {
+
         e.preventDefault();
         axios.patch(`http://localhost:5000/order/UpdateOrderById/${id}`, order)
             .then(res => {
                 console.log(res.data)
-                alert("Order Updated Sucessfully")
+                Swal.fire("success", "Order Updated Success   ", "success"); {
+                    navigate("/AllOrdersAdmin");
+                  }
+
+
             }).catch((err) => {
                 alert(err)
                 console.error(err)
