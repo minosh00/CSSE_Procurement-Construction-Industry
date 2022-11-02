@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import Home from "../../assets/home-solid.svg";
 import Team from "../../assets/social.svg";
 import Calender from "../../assets/sceduled.svg";
-import Projects from "../../assets/starred.svg";
-import Documents from "../../assets/draft.svg"
+import Projects from "../../assets/trash.svg";
+import Documents from "../../assets/inbox.svg"
+import Payment from "../../assets/pay.svg"
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -75,10 +76,10 @@ const SlickBar = styled.ul`
   flex-direction: column;
   align-items: center;
   background-color: var(--black);
-  padding: 0.5rem 0;
+  padding: 0rem 0;
   position: absolute;
   justify-content: space-between;
-  top: 1rem;
+  top: 0.2rem;
   left: 0;
   width: ${(props) => (props.clicked ? "15rem" : "3.5rem")};
   transition: all 0.5s ease;
@@ -163,6 +164,13 @@ const SideNavbarSup = () => {
                         to="/DisplayRejectOrderList">
                         <img src={Projects} alt="Projects" />
                         <Text clicked={click}>Rejected Orders</Text>
+                    </Item>
+                    <Item
+                        onClick={() => setClick(false)}
+                        activeClassName="active"
+                        to="/ViewPayment">
+                        <img src={Payment} alt="Projects" />
+                        <Text clicked={click}>View Payment</Text>
                     </Item>
                 </SlickBar>
             </SidebarContainer>

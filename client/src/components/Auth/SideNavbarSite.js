@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import Home from "../../assets/home-solid.svg";
 import Team from "../../assets/social.svg";
 import Calender from "../../assets/sceduled.svg";
-import Projects from "../../assets/starred.svg";
-import Documents from "../../assets/draft.svg"
+import Projects from "../../assets/trash.svg";
+import Documents from "../../assets/inbox.svg"
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
