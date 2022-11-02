@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbar from '../Auth/SideNavbar';
 import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from 'react-bootstrap'
 import RejectedPdf from '../Common/RejectedPdf';
+import { MDBBtn } from 'mdb-react-ui-kit';
+import EditIcon from '@mui/icons-material/Edit';
 
 function DisplayRejectOrderAdmin() {
     const [users, setusers] = useState();
@@ -72,6 +75,8 @@ function DisplayRejectOrderAdmin() {
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
@@ -100,10 +105,26 @@ function DisplayRejectOrderAdmin() {
                                                             type="submit"
                                                             className="btn btn-success"
                                                             onClick={() => window.location.href = `/ViewOrderssById/${users?._id}`}>
-                                                            View Order Details
+                                                            View
                                                         </button>
                                                     </Link></td>
-                                                    <td><button className='btn btn-danger' onClick={() => deleteRejectedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
+                                                    <td>
+                                                        <Link to={`/sendmail/${users._id}`}>
+                                                            <MDBBtn classame='btn btn-success'>Send</MDBBtn>
+                                                        </Link>
+                                                    </td>
+                                                    <td>
+                                                        <Link to={`/UpdateOrder/${users?._id}`}>
+                                                            <IconButton aria-label="update" size="large">
+                                                                <EditIcon fontSize="inherit" />
+                                                            </IconButton>
+                                                        </Link>
+                                                    </td>
+                                                    <td>
+                                                        <IconButton aria-label="deletea" onClick={() => deleteRejectedOrder(users._id)} size="large">
+                                                            <DeleteIcon fontSize="inherit" />
+                                                        </IconButton>
+                                                    </td>
                                                 </tr>
                                             );
                                         })}
