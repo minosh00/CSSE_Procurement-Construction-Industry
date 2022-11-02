@@ -105,7 +105,7 @@ function DisplayApprovedOrderAdmin() {
                             </button>
                           </Link></td>
                           <td><Link to={`/sendmail/${users._id}`}><button className='btn btn-warning'>Send E-mail</button></Link></td>
-                          <td><button onClick={() => window.location.href = `/payment/${users.OrderID}`}>paynow</button></td>
+                          <td><button className='btn btn-primary' onClick={() => window.location.href = `/payment/${users.OrderID}`}>paynow</button></td>
                           <td><button className='btn btn-danger' onClick={() => deleteApprovedOrder(users._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
                       );

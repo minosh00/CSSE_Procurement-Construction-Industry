@@ -39,8 +39,8 @@ const Payment = () => {
   return (
     <div>
       <SideNavbar />
-      <div className="container shadow my-4">
-        <div className="row justify-content-end">
+      <div className="container shadow my-5 py-3">
+        <div className="row justify-content-end"> 
           <div className="col-md-5 d-flex flex-column align-items-center text-dark justify-content-center order">
             <img src='https://img.freepik.com/premium-vector/tiny-characters-huge-transaction-history-payment-recipe-man-buyer-holding-credit-card-online-payment-woman-with-glass-cashless-paying-shopping-store-cartoon-people-vector-illustration_87771-11353.jpg?w=2000' alt="logo" style={{ width: '100%', height: '90%' }} />
           </div>
@@ -63,12 +63,11 @@ const Payment = () => {
                   <label for="name" class="form-label">Payment Method</label>
                   <input name="paymentMethod" onChange={(f) => setPaymentMethod(f.target.value)} type="text" class="form-control" placeholder='Enter Payment Method' required />
                 </div>
-              </div>
-              <div class="mb-3">
-                <label for="name" class="form-label">Phone Number</label>
-                <input name="phoneNumber" onChange={(f) => setPhoneNumber(f.target.value)} type="number" class="form-control" placeholder='Enter Phone Number' required />
-              </div>
-
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Phone Number</label>
+                  <input name="phoneNumber" onChange={(f) => setPhoneNumber(f.target.value)} type="number" class="form-control" placeholder='Enter Phone Number' required />
+                </div>
+              </div> <br />
               <button type="submit" class="btn btn-danger w-100 rounded-pill">Pay Now</button>
               <br />
             </form>
