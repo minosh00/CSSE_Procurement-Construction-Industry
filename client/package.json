@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
-    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
     "antd": "^4.22.8",
@@ -17,6 +17,7 @@
     "font-awesome": "^4.7.0",
     "formik": "^2.2.9",
     "html2canvas": "^1.4.1",
+    "jest": "^26.6.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.25",
     "material-paper": "^0.0.8",
