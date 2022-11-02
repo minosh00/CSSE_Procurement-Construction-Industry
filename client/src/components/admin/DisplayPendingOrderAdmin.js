@@ -8,6 +8,9 @@ import Swal from "sweetalert2";
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Button } from 'react-bootstrap'
 import PendingPdf from "../Common/PendingPdf";
+import IconButton from '@mui/material/IconButton';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function DisplayPendingOrderAdmin() {
   const [users, setusers] = useState();
@@ -59,7 +62,11 @@ function DisplayPendingOrderAdmin() {
               </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
-              <Button className='btn btn-danger' onClick={() => PendingPdf(users)}>Generate Pdf</Button>
+            
+              <IconButton aria-label="deletea"  onClick={() => PendingPdf(users)}  size="large"> 
+                                                            <PictureAsPdfIcon fontSize="inherit" /><p>Generate Pdf</p> 
+                                                        </IconButton>
+       
             </div>
 
             <table class="table" Id="FundsTrans">
@@ -98,7 +105,7 @@ function DisplayPendingOrderAdmin() {
                           <td>LKR: {topic.Price} /=</td>
                           <td>  <Badge color="success" style={{ fontSize: "15px" }} disabled >{topic.status}</Badge>    </td>
                           <td>  <Link to={{ pathname: `/UpdateOrderById/${topic?._id}` }}>
-                            <Badge color="primary" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
+                            <Badge color="primary" style={{ fontSize: "15px" }} disabled >   <ShoppingCartIcon fontSize="inherit" />  Order Evaluate </Badge>
                           </Link>&nbsp;</td>
                           <td><button className='btn btn-danger' onClick={() => deletePendingOrder(topic._id)}><RiDeleteBin6Fill /></button></td>
                         </tr>
