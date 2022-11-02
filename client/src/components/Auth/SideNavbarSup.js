@@ -79,7 +79,7 @@ const SlickBar = styled.ul`
   padding: 0rem 0;
   position: absolute;
   justify-content: space-between;
-  top: 0.2rem;
+  top: 1rem;
   left: 0;
   width: ${(props) => (props.clicked ? "15rem" : "3.5rem")};
   transition: all 0.5s ease;
