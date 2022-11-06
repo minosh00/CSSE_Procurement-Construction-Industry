@@ -2,37 +2,29 @@ const mongoose = require('mongoose');
 const Transport = require("../Model/Transport");
 
 
-
-
-const TransportALL = async (req, res) => { 
+//get all Transports
+const TransportALL = async (req, res) => {
     try {
         const Supervisors = await Transport.find();
-                 
         res.status(200).json(Supervisors);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 }
 
-
-
-
-const CreateTransport= async (req, res) => {
-
+//create Transports
+const CreateTransport = async (req, res) => {
     const groups = req.body;
-
     const newGroups = new Transport({ ...groups, creator: req.userId })
-
     try {
         await newGroups.save();
-
-        res.status(201).json(newGroups );
+        res.status(201).json(newGroups);
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
 }
 
-
+//get transport by ID
 const GetTransportID = async (req, res) => {
     const { id } = req.params;
     try {
@@ -43,17 +35,4 @@ const GetTransportID = async (req, res) => {
     }
 }
 
-
-
-
-
-
-module.exports ={CreateTransport, TransportALL,GetTransportID};
-
-
-
-
-
-
-
-
+module.exports = { CreateTransport, TransportALL, GetTransportID };

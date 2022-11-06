@@ -1,5 +1,7 @@
 const NotesModel = require("../Model/Note");
 
+
+//create Notes
 const createNote = async (req, res) => {
   const note = req.body;
   const newNote = new NotesModel(note);
@@ -11,6 +13,8 @@ const createNote = async (req, res) => {
   }
 };
 
+
+//get all Notes
 const getallnote = async (req, res) => {
   const note = await NotesModel.find({});
   try {
@@ -20,6 +24,8 @@ const getallnote = async (req, res) => {
   }
 };
 
+
+//get one note by ID
 const getonenote = async (req, res) => {
   const note = await NotesModel.findById(req.params.id);
   try {
@@ -28,5 +34,6 @@ const getonenote = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 };
+
 
 module.exports = { createNote, getallnote, getonenote };

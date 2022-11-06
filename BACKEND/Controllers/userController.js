@@ -6,7 +6,7 @@ const User = require('../Model/user');
 
 var jwtSecret = "mysecrettoken";
 
-
+//Register User
 const registerUser = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -18,7 +18,7 @@ const registerUser = async (req, res) => {
             .status(400)
             .json({ errorMessage: "plz all fill" });
     try {
-        // See if user exists
+        // See if User exists
         let user = await User.findOne({ email });
         if (user) {
             res.status(400).json({ errors: [{ msg: "User already exists" }] });
@@ -42,7 +42,6 @@ const registerUser = async (req, res) => {
                 id: user.id,
             },
         };
-
         jwt.sign(payload, jwtSecret, { expiresIn: 360000 }, (err, token) => {
             if (err) throw err;
             res.json({ token, userRole: user.userRole });
@@ -54,7 +53,7 @@ const registerUser = async (req, res) => {
 };
 
 
-
+//Authentication the user
 const authUser = async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select("-password");
@@ -66,6 +65,7 @@ const authUser = async (req, res) => {
 }
 
 
+//Login User
 const loginUser = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -102,6 +102,7 @@ const loginUser = async (req, res) => {
     }
 };
 
+//get all Users
 const getUsers = async (req, res) => {
     try {
         //const users = await User.find();
@@ -112,6 +113,7 @@ const getUsers = async (req, res) => {
     }
 }
 
+//get one User
 const getUser = async (req, res) => {
     const { id } = req.params;
     try {
@@ -122,6 +124,7 @@ const getUser = async (req, res) => {
     }
 }
 
+//create User
 const createUser = async (req, res) => {
     const users = req.body;
     const newuser = new User({ ...users, creator: req.userId })
@@ -133,6 +136,7 @@ const createUser = async (req, res) => {
     }
 }
 
+//Update User
 const updateUser = async (req, res) => {
     const { id } = req.params;
     const { name, email, password, userRole } = req.body;
@@ -142,7 +146,7 @@ const updateUser = async (req, res) => {
     res.json(updatedUser);
 }
 
-
+//Delete User
 const deleteUser = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
@@ -150,6 +154,7 @@ const deleteUser = async (req, res) => {
     res.json({ message: "User deleted successfully." });
 }
 
+//get all Supplier User
 const SupplierUser = async (req, res) => {
     try {
         const supplier = await User.find({ userRole: 'supplier' });
@@ -158,7 +163,5 @@ const SupplierUser = async (req, res) => {
         res.json(err);
     }
 }
-
-
 
 module.exports = { getUsers, getUser, createUser, deleteUser, updateUser, registerUser, authUser, loginUser, SupplierUser };
