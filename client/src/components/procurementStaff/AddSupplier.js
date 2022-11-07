@@ -75,11 +75,11 @@ const AddSupplier = () => {
                             <div className='row py-3'>
                                 <div class="col-md-6">
                                     <label for="name">Full Name</label>
-                                    <input type="name"
+                                    <input type="text"
                                         name="name"
                                         onChange={handleName} value={name}
                                         className="form-control"
-                                        placeholder="Enter Your Name" />
+                                        placeholder="Enter full Name" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="name">Supplier Address</label>
@@ -87,7 +87,7 @@ const AddSupplier = () => {
                                         name="supplierAddress"
                                         onChange={handlesetsupplierAddress} value={supplierAddress}
                                         className="form-control"
-                                        placeholder="Enter Supplier Address" />
+                                        placeholder="supplierAddress" />
                                 </div>
                             </div>
                             <div className='row py-3'>
@@ -97,7 +97,7 @@ const AddSupplier = () => {
                                         name="companyName"
                                         onChange={handlecompanyname} value={companyName}
                                         className="form-control"
-                                        placeholder="Enter Company Name" />
+                                        placeholder="companyName" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="name">E-mail Address</label>
@@ -115,7 +115,7 @@ const AddSupplier = () => {
                                         name="password"
                                         onChange={handlePassword} value={password}
                                         className="form-control"
-                                        placeholder="Enter Your Password" />
+                                        placeholder="Password" />
                                 </div>
                             </div>
                             <button type="submit" onClick={handleSubmit} class="btn btn-primary w-100 mt-4 rounded-pill">Register Supplier</button>

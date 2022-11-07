@@ -232,7 +232,7 @@ const RequestSupervisor = () => {
 								<div style={{ width: "400px" }}>
 									<Form>
 										<Label>Order ID    </Label>
-										<Input type="text" className="input" placeholder="Enter OrderID   " value={OrderID} onChange={(e) => handleGroupID(e)} />
+										<Input type="text" className="input" placeholder="Enter OrderID" value={OrderID} onChange={(e) => handleGroupID(e)} />
 										<br />
 										<Label>Delivery Address   </Label>
 										<Input type="text" className="input" placeholder="Enter Delivery Address" value={DeliveryAddress} onChange={(e) => handleGruopLeaderEmail(e)} />

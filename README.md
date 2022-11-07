@@ -10,3 +10,7 @@ unit test in bakcend :
 unit test in frontend:
 <br><br>
    ![1](https://user-images.githubusercontent.com/86770967/199428409-a7744ef2-d903-4a64-bd88-644b258d64a5.png)
+
+Client -  npm i --force
+Backend-  npm  i 
+

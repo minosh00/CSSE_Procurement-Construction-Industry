@@ -212,6 +212,7 @@ const TransportOrder = () => {
                             <div class="col-md-12">
                               <label for="" class="form-label">{" "}Vehicle Number  {" "}</label>
                               <input type="text"
+                              placeholder="vehiNo"
                                 class="form-control"
                                 id="exampleFormControlTextarea3"
                                 value={vehiNo} onChange={(e) => setVehiNo(e.target.value)}
@@ -222,6 +223,7 @@ const TransportOrder = () => {
                               <select
                                 class="form-control"
                                 id="floatingInput"
+                                placeholder="TransportStatus"
                                 value={TransportStatus}
                                 onChange={(e) => setTransportStatus(e.target.value)}
                               >
