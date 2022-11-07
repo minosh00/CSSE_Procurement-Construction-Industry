@@ -1,14 +1,6 @@
 const Joi = require("joi");
 const passwordComplexity = require("joi-password-complexity");
 
-/* This is a schema for validating the create transport form. */
-const TransportSchema = Joi.object({
-  OrderID: Joi.string().min(3).required().label("OrderID"),
-  TransportID: Joi.string().min(3).required().label("TransportID"),
-  location: Joi.string().min(3).required().label("location"),
-  VehicleNumber: Joi.string().min(3).required().label("VehicleNumber"),
-}).unknown(true);
-
 /* This is a schema for validating the create invoices form. */
 const InvoicesSchema = Joi.object({
   InvoicesID: Joi.string().min(3).required().label("InvoicesID"),
@@ -61,3 +53,10 @@ module.exports = {
   OrderSchema,
   PaymentSchema
 };
+/* This is a schema for validating the create transport form. */
+const TransportSchema = Joi.object({
+  OrderID: Joi.string().min(3).required().label("OrderID"),
+  TransportID: Joi.string().min(3).required().label("TransportID"),
+  location: Joi.string().min(3).required().label("location"),
+  VehicleNumber: Joi.string().min(3).required().label("VehicleNumber"),
+}).unknown(true);

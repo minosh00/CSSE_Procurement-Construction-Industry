@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
-import TransportOrder from "../components/Suuplier/TransportOrder";
+import TransportOrder from "../components/Supplier/TransportOrder";
 
 
 test("renders the Trans portOrder  page", () => {

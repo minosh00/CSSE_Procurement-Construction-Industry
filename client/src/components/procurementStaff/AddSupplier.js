@@ -71,7 +71,7 @@ const AddSupplier = () => {
                             <div className='row py-3'>
                                 <div class="col-md-6">
                                     <label for="name">Full Name</label>
-                                    <input type="name"
+                                    <input type="text"
                                         name="name"
                                         onChange={handleName} value={name}
                                         className="form-control"
