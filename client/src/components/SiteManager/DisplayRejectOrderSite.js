@@ -3,9 +3,6 @@ import axios from "axios";
 import Loader from "../procurementStaff/Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import SideNavbar from '../Auth/SideNavbar';
-import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Button } from 'react-bootstrap'
 import RejectedPdf from '../Common/RejectedPdf';
 import SideNavbarSite from '../Auth/SideNavbarSite';
@@ -23,7 +20,7 @@ function DisplayRejectOrderSite() {
             console.log("all data", data)
             var array = []
             data?.map((users) => {
-                if (users?.status == "decline") {
+                if (users?.status === "decline") {
                     array.push(users);
                 }
             });
@@ -35,20 +32,11 @@ function DisplayRejectOrderSite() {
         }
     }, []);
 
-    const deleteRejectedOrder = id => {
-        axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
-            .then(res => {
-                Swal.fire('Congrats', 'Remove Rejected Order Details Successfully ', 'success')
-            })
-        setusers(users.filter(elem => elem._id !== id))
-    }
-
     return (
         <>
             <SideNavbarSite />
             <div className="container shadow my-5 mx-auto">
                 <h3 className=" fw-bolder py-5"><center><b>Rejected Orders</b></center></h3>
-
                 <div className="row">
                     {loading && <Loader />}
                     <div className="row">

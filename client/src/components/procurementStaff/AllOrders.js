@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import AllOrdersPdf from '../Common/AllOrdersPdf';
-import Swal from "sweetalert2";
-import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbarSup from '../Auth/SideNavbarSup';
@@ -22,14 +20,6 @@ function AllOrders() {
             console.log(error);
         }
     }, []);
-
-    const deleteOrders = id => {
-        axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
-            .then(res => {
-                Swal.fire('Congrats', 'Remove Order Details Successfully ', 'success')
-            })
-        setusers(users.filter(elem => elem._id !== id))
-    }
 
     return (
         <div>
@@ -78,7 +68,7 @@ function AllOrders() {
                             <tbody id="table-group-divider">
                                 {users &&
                                     users.filter((users) => {
-                                        if (serachItem == "") {
+                                        if (serachItem === "") {
                                             return users
                                         } else if (users.OrderID.toLowerCase().includes(serachItem.toLowerCase())) {
                                             return users

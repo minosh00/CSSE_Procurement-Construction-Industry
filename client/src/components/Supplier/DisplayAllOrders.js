@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const DisplayAllOrders = () => {
   const [serachItem, setserachItem] = useState([]);
   const [Order, setusers] = useState();
-  const [loading, setloading] = useState(true);
+  const [, setloading] = useState(true);
 
   useEffect(async () => {
     try {
@@ -54,7 +54,7 @@ const DisplayAllOrders = () => {
           <tbody class="table-group-divider">
             {Order &&
               Order.filter((users) => {
-                if (serachItem == "") {
+                if (serachItem === "") {
                   return users
                 } else if (users.OrderID.toLowerCase().includes(serachItem.toLowerCase())) {
                   return users

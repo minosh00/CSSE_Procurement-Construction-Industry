@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { getAllSupplier } from "../../Services/AuthServices";
 import DataTable from "react-data-table-component";
 import {
@@ -19,8 +18,6 @@ import Swal from 'sweetalert2';
 import SideNavbarSite from "../Auth/SideNavbarSite";
 
 const RequestSupervisor = () => {
-
-	const navigate = useNavigate();
 
 	const [OrderID, setGroupID] = useState("");
 	const [DeliveryAddress, setGruopLeaderEmail] = useState("");
@@ -87,7 +84,7 @@ const RequestSupervisor = () => {
 
 		let response = await createorder(data);
 		console.log("order reg ", response);
-		if (response?.status == 201) {
+		if (response?.status === 201) {
 			Swal.fire({
 				icon: 'success',
 				title: 'Congrats!',
@@ -112,7 +109,7 @@ const RequestSupervisor = () => {
 			console.log("all ", data);
 			let array = [];
 			data?.data?.map((item) => {
-				if (item?.userRole == "supplier") {
+				if (item?.userRole === "supplier") {
 					array.push(item);
 				}
 			})
@@ -140,7 +137,7 @@ const RequestSupervisor = () => {
 
 	useEffect(() => {
 		getAllsuperivsor();
-	}, [])
+	})
 
 	const assignStaff = (data) => {
 		setSupplierID(data?.supplierID);
@@ -249,11 +246,6 @@ const RequestSupervisor = () => {
 
 										<Label>Material </Label>
 										<Input type="textarea" className="input" placeholder="select Material " row-="6" value={Material} onChange={(e) => handleMaterial(e)} />
-
-
-
-
-
 
 										<Label>Deadline </Label>
 										<Input type="date" className="input" value={Deadline} onChange={(e) => handleDealine(e)} />

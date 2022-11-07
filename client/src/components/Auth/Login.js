@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { LoginSupplier } from "../../Services/AuthServices";
 import Swal from "sweetalert2";
-import logo from '../images/loginnn.webp'
 import './ClientLogin.css'
 
 const Login = () => {
@@ -29,16 +28,13 @@ const Login = () => {
             localStorage.setItem("userRole", data.data.userRole);
             localStorage.setItem("user", data.data.user);
             localStorage.setItem("userId", data.data.userId);
-            {
-                Swal.fire('Congrats', 'Successfully Login to your Account', 'success')
-                navigate("/Profile");
-            }
+            Swal.fire('Congrats', 'Successfully Login to your Account', 'success')
+            navigate("/Profile");
 
         }
         else {
-            Swal.fire('error', 'error login Your Account ', 'error')
-            navigate("/RequestOrder");
-
+            Swal.fire('error', 'Try Again!', 'error')
+            navigate("/Profile");
         }
     };
 
@@ -56,15 +52,15 @@ const Login = () => {
                     <div className="col-md-6 p-5">
                         <h1 className="display-6 fw-bolder mb-5">LOGIN</h1>
                         <form className="form" onSubmit={(e) => onSubmit(e)}>
-                            <div class="mb-3">
+                            <div class="mb-3 py-2">
                                 <label for="username" class="form-label">E-mail</label>
                                 <input name="email" value={email} onChange={(e) => onChange(e)} type="text" class="form-control" required />
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 py-2">
                                 <label for="password" class="form-label">Password</label>
                                 <input name="password" minLength="6" value={password} onChange={(e) => onChange(e)} autoComplete="on" type="password" class="form-control" required />
                             </div>
-                            <div class="mb-3 form-check">
+                            <div class="mb-3 form-check py-1">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" />
                                 <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                             </div>

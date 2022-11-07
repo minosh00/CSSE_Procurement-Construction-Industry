@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
 import { AuthUser } from "../../Services/AuthServices";
 import { Tabs } from "antd";
 import logo from '../images/loginn.png'
@@ -9,17 +8,8 @@ const { TabPane } = Tabs;
 
 const Profile = () => {
 
-  const navigate = useNavigate();
-
-  const handleSubmit = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userRole");
-    navigate("/Login");
-  }
-
   const [Fullname, setUserName] = useState("");
   const [email, setUserEmail] = useState("");
-  const [currentUserID, setcurrentUserID] = useState("");
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
@@ -33,16 +23,13 @@ const Profile = () => {
     let token = localStorage.getItem('token');
     let data = await AuthUser(token);
     console.log("current User", data?.data);
-    setcurrentUserID(data?.data?._id);
     setUserName(data?.data?.userRole);
     setUserEmail(data?.data?.email);
   }
 
-
   useEffect(() => {
     details();
-  }, [])
-
+  })
 
   return (
     <div>
@@ -62,7 +49,7 @@ const Profile = () => {
                         </div>
                         <MDBTypography tag="h4" onChange={handleUserName} value={Fullname} type="text" readOnly={true} >{Fullname}</MDBTypography>
                         <MDBCardText className="text-muted mb-4" onChange={handleUserEmail} value={email} type="email" readOnly  >
-                          <span className="mx-2" onChange={handleUserEmail} type="email" readOnly  ></span> {email}<a href="#!"></a>
+                          <span className="mx-2" onChange={handleUserEmail} type="email" readOnly>{email}</span>
                         </MDBCardText>
                         <div className="mb-4 pb-2">
                           <MDBBtn outline floating>
@@ -81,16 +68,11 @@ const Profile = () => {
                 </MDBRow>
               </MDBContainer>
             </TabPane>
-
-
           </Tabs>
         </div>
       </div>
     </div>
   )
 }
-
-
-
 
 export default Profile

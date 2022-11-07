@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import './App.css'
 
+//import components
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/RegisterUser";
 import Landingscreen from "./components/Auth/Landingscreen";
 import NavBar from "./components/Auth/NavBar";
 import Profile from "./components/Auth/Profile";
-import RequestOrder from "./components/Suuplier/RequestOrder";
-import AllOrderRequestView from "./components/Suuplier/AllOrderRequestView";
+import RequestOrder from "./components/Supplier/RequestOrder";
+import AllOrderRequestView from "./components/Supplier/AllOrderRequestView";
 import AddSupplier from "./components/procurementStaff/AddSupplier";
 import DisplayPendingOrderList from "./components/procurementStaff/DisplayPendingOrderList";
 import DisplayApprovedOrderList from "./components/procurementStaff/DisplayApprovedOrderList";
 import EvaluateOrder from "./components/procurementStaff/EvaluateOrder";
-import TransportOrder from "./components/Suuplier/TransportOrder";
+import TransportOrder from "./components/Supplier/TransportOrder";
 import Dashborad from "./components/SiteManager/Dashborad";
 import DisplayOrderDeliverdStatus from "./components/SiteManager/DisplayOrderDeliverdStatus";
-import DisplayAllOrders from "./components/Suuplier/DisplayAllOrders";
-import ViewOneOrder from "./components/Suuplier/ViewOneOrder";
+import DisplayAllOrders from "./components/Supplier/DisplayAllOrders";
+import ViewOneOrder from "./components/Supplier/ViewOneOrder";
 import DisplayRejectOrderList from "./components/procurementStaff/DisplayRejectOrderList";
 import SendEmail from "./components/procurementStaff/SendEmail";
-import DashboardSupply from "./components/Suuplier/DashboradSupply";
-import CreateDeliveryNote from "./components/Suuplier/CreateDeliveryNote";
+import DashboardSupply from "./components/Supplier/DashboradSupply";
+import CreateDeliveryNote from "./components/Supplier/CreateDeliveryNote";
 import SideNavbar from "./components/Auth/SideNavbar";
 import AllOrders from "./components/procurementStaff/AllOrders";
 import DisplayPendingOrderAdmin from "./components/admin/DisplayPendingOrderAdmin";
@@ -35,17 +34,15 @@ import TransportOrderSup from "./components/SiteManager/TransportOrderSup";
 import AllOrdersSite from "./components/SiteManager/AllOrdersSite";
 import DisplayApprovedOrderSite from "./components/SiteManager/DisplayApprovedOrderSite";
 import DisplayRejectOrderSite from "./components/SiteManager/DisplayRejectOrderSite";
-import AllSuppliers from "./components/Suuplier/AllSuppliers";
+import AllSuppliers from "./components/Supplier/AllSuppliers";
 import UpdateOrder from "./components/admin/UpdateOrder";
 import Payment from "./components/admin/Payment";
 import ViewPayment from "./components/SiteManager/ViewPayment";
 import Footer from "./components/Auth/Footer";
 
-let isauth = localStorage.getItem('user');
 
 function App() {
-  const [user, setUser] = useState("");
-
+  const [, setUser] = useState("");
   useEffect(() => {
     setUser(localStorage.getItem("userRole"));
   }, []);

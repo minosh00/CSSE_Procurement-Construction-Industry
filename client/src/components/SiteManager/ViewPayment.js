@@ -55,7 +55,7 @@ function ViewPayment() {
                             <tbody id="table-group-divider">
                                 {users &&
                                     users.filter((users) => {
-                                        if (serachItem == "") {
+                                        if (serachItem === "") {
                                             return users
                                         } else if (users.orderID.toLowerCase().includes(serachItem.toLowerCase())) {
                                             return users

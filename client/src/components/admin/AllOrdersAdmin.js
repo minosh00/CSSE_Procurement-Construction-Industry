@@ -11,7 +11,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
 function AllOrdersAdmin() {
-
     const [users, setusers] = useState();
     const [serachItem, setserachItem] = useState([]);
 
@@ -106,7 +105,7 @@ function AllOrdersAdmin() {
                                                             View Order
                                                         </button>
                                                     </Link></td>
-                                            
+
                                                     <td>
                                                         <Link to={`/UpdateOrder/${users?._id}`}>
                                                             <IconButton aria-label="update" size="large">
@@ -120,9 +119,6 @@ function AllOrdersAdmin() {
                                                             <DeleteIcon fontSize="inherit" />
                                                         </IconButton>
                                                     </td>
-
-
-
                                                 </tr>
                                             );
                                         })}

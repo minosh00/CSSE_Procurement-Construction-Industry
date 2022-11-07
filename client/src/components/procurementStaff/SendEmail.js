@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { AuthUser } from "../../Services/AuthServices";
 import Swal from "sweetalert2";
 import emailjs from "emailjs-com";
@@ -10,21 +10,7 @@ const SendEmail = (props) => {
 
     const { id } = useParams("");
 
-    const navigate = useNavigate();
-
-    const handleSubmit = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("userRole");
-        navigate("/Login");
-    }
-
-    const [Fullname, setUserName] = useState("");
     const [email, setUserEmail] = useState("");
-    const [currentUserID, setcurrentUserID] = useState("");
-
-    const handleUserName = (e) => {
-        setUserName(e.target.value);
-    };
 
     const handleUserEmail = (e) => {
         setUserEmail(e.target.value);
@@ -34,11 +20,8 @@ const SendEmail = (props) => {
         let token = localStorage.getItem('token');
         let data = await AuthUser(token);
         console.log("current User", data?.data);
-        setcurrentUserID(data?.data?._id);
-        setUserName(data?.data?.userRole);
         setUserEmail(data?.data?.email);
     }
-
 
     useEffect(() => {
         details();
@@ -47,14 +30,6 @@ const SendEmail = (props) => {
 
     const [OrderID, setOrderID] = useState("");
     const [status, setstatus] = useState("");
-
-    const handleOrderid = (e) => {
-        setOrderID(e.target.value);
-    };
-
-    const handlestatus = (e) => {
-        setstatus(e.target.value);
-    };
 
     const GetTopicData = async () => {
         let data = await OrderByID(id);
@@ -65,7 +40,7 @@ const SendEmail = (props) => {
 
     useEffect(() => {
         GetTopicData();
-    }, []);
+    });
 
     function sendEmail(e) {
         e.preventDefault();
@@ -75,8 +50,7 @@ const SendEmail = (props) => {
             e.target,
             "l5NUKPpbvRhbN3ZLl"
         ).then(res => {
-            Swal.fire("Congrats", "Successfully Send Email", "success"); {
-            }
+            Swal.fire("Congrats", "Successfully Send Email", "success")
             console.log(res);
         }).catch(err => console.log(err));
     }
@@ -96,7 +70,6 @@ const SendEmail = (props) => {
                             <label for="name" class="form-label">Order ID</label>
                             <input name="lead_no" value={OrderID} type="text" class="form-control" required />
                         </div>
-
                         <div class="mb-3">
                             <label for="interest" class="form-label">Order Status</label>
                             <input name="status_sup" value={status} type="text" class="form-control" id="interest" required />
