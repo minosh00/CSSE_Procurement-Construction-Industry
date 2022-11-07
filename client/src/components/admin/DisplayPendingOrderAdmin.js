@@ -24,7 +24,7 @@ function DisplayPendingOrderAdmin() {
       console.log("all data", data)
       var array = []
       data?.map((users) => {
-        if (users?.status === "Pending") {
+        if (users?.status == "Pending") {
           array.push(users);
         }
       });

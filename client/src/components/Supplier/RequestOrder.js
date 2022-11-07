@@ -84,7 +84,7 @@ const RequestSupervisor = () => {
 
 		let response = await createorder(data);
 		console.log("order reg ", response);
-		if (response?.status === 201) {
+		if (response?.status == 201) {
 			Swal.fire({
 				icon: 'success',
 				title: 'Congrats!',
@@ -109,7 +109,7 @@ const RequestSupervisor = () => {
 			console.log("all ", data);
 			let array = [];
 			data?.data?.map((item) => {
-				if (item?.userRole === "supplier") {
+				if (item?.userRole == "supplier") {
 					array.push(item);
 				}
 			})
@@ -137,7 +137,7 @@ const RequestSupervisor = () => {
 
 	useEffect(() => {
 		getAllsuperivsor();
-	})
+	}, [])
 
 	const assignStaff = (data) => {
 		setSupplierID(data?.supplierID);
@@ -207,7 +207,6 @@ const RequestSupervisor = () => {
 									data={staffDetails}
 									columns={columns}
 									progressPending={loading}
-									
 								/>
 							</CardBody>
 						</Card>
@@ -229,20 +228,16 @@ const RequestSupervisor = () => {
 								<div style={{ width: "400px" }}>
 									<Form>
 										<Label>Order ID    </Label>
-										<Input type="text" className="input" placeholder="Enter OrderID   " value={OrderID} onChange={(e) => handleGroupID(e)} />
+										<Input type="text" className="input" placeholder="Enter OrderID" value={OrderID} onChange={(e) => handleGroupID(e)} />
 										<br />
 										<Label>Delivery Address   </Label>
 										<Input type="text" className="input" placeholder="Enter Delivery Address" value={DeliveryAddress} onChange={(e) => handleGruopLeaderEmail(e)} />
 
-
 										<Label> Total Qty  </Label>
 										<Input type="text" className="input" placeholder="Enter Qty of Item " value={QTY} onChange={(e) => handleQTY(e)} />
 
-
-
 										<Label>Price </Label>
 										<Input type="text" className="input" placeholder="Enter price" value={Price} onChange={(e) => HANDLEPRICE(e)} />
-
 
 										<Label>Material </Label>
 										<Input type="textarea" className="input" placeholder="select Material " row-="6" value={Material} onChange={(e) => handleMaterial(e)} />
@@ -252,7 +247,6 @@ const RequestSupervisor = () => {
 
 										<Label>Note </Label>
 										<Input type="textarea" className="input" placeholder="Enter Note " value={Description} onChange={(e) => handledescription(e)} />
-
 
 										<br />
 										<Button className="btn btn-success" onClick={(e) => requestCoSupervisor(e)}>Request and Create</Button>

@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from 'react-bootstrap'
 import RejectedPdf from '../Common/RejectedPdf';
-import { MDBBtn } from 'mdb-react-ui-kit';
 import EditIcon from '@mui/icons-material/Edit';
 
 function DisplayRejectOrderAdmin() {
@@ -110,7 +109,9 @@ function DisplayRejectOrderAdmin() {
                                                     </Link></td>
                                                     <td>
                                                         <Link to={`/sendmail/${users._id}`}>
-                                                            <MDBBtn classame='btn btn-success'>Send</MDBBtn>
+                                                            <button className="btn btn-success">
+                                                                Send
+                                                            </button>
                                                         </Link>
                                                     </td>
                                                     <td>

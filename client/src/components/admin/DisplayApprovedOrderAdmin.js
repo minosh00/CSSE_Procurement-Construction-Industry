@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from 'react-bootstrap'
 import ApprovedPdf from '../Common/ApprovedPdf';
-import { MDBBtn } from 'mdb-react-ui-kit'
 
 function DisplayApprovedOrderAdmin() {
   const [users, setusers] = useState();
@@ -74,7 +73,7 @@ function DisplayApprovedOrderAdmin() {
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
                   <th scope="col">E-mail</th>
-                  <th scope="col">Pay Now</th>
+                  <th scope="col">Payment</th>
                   <th scope="col">Delete</th>
                 </tr>
               </thead>
@@ -108,10 +107,18 @@ function DisplayApprovedOrderAdmin() {
                           </Link></td>
                           <td>
                             <Link to={`/sendmail/${users._id}`}>
-                              <MDBBtn classame='btn btn-success'>Send</MDBBtn>
+                              <button className="btn btn-success">
+                                Send
+                              </button>
                             </Link>
                           </td>
-                          <td><button className="btn btn-success">Pay</button></td>
+                          <td>
+                            <Link to={`/payment/${users.OrderID}`}>
+                              <button className="btn btn-success">
+                                Pay
+                              </button>
+                            </Link>
+                          </td>
                           <td>
                             <IconButton aria-label="delete" onClick={() => deleteApprovedOrder(users._id)} size="large">
                               <DeleteIcon fontSize="inherit" />

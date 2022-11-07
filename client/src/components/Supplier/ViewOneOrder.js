@@ -37,7 +37,7 @@ const ViewOneOrder = () => {
     <div>
       <div className="container shadow my-5 mx-auto w-50" id="cusdet">
         <div className="col p-3">
-          <h3 className=" fw-bolder mb-4"><center>{OrderID} Order Details  </center></h3> <hr />
+          <h3 className=" fw-bolder mb-4"><center><b className="text-danger">{OrderID}</b> Order Details  </center></h3> <hr />
           <form>
             <div className='row py-3'>
               <div class="col-md-6">
@@ -122,13 +122,6 @@ const ViewOneOrder = () => {
                 </div>
               </div>
             </div>
-            <Link to="/DisplayApprovedOrderList">
-              <button
-                type="submit"
-                className="btn btn-success">
-                Back
-              </button>
-            </Link>
           </form>
         </div>
       </div>
