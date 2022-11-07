@@ -18,7 +18,7 @@ const NavBar = () => {
     <div>
       <div>
         <nav class="navbar  navbar-expand-lg">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src={Login} alt="" width="150" height="80" />
           </a>
           <a class="navbar-brand" href="/">
@@ -31,13 +31,13 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <li class="nav-item">
-                  <a style={{ display: userRole == "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardAdmin" aria-current="page">Admin Dashboard  </a>
+                  <a style={{ display: userRole === "admin" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardAdmin" aria-current="page">Admin Dashboard  </a>
                 </li>
                 <li class="nav-item">
-                  <a style={{ display: userRole == "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardSupply" aria-current="page"> Supplier Dashboard   </a>
+                  <a style={{ display: userRole === "supplier" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/DashboardSupply" aria-current="page"> Supplier Dashboard   </a>
                 </li>
                 <li class="nav-item">
-                  <a style={{ display: userRole == "siteManager" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page"> Site Manager Dashboard   </a>
+                  <a style={{ display: userRole === "siteManager" ? "flex" : "none", textDecoration: "none" }} class="nav-link" href="/Dashborad" aria-current="page"> Site Manager Dashboard   </a>
                 </li>
               </div>
             </div>

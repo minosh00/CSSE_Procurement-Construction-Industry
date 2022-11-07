@@ -24,7 +24,7 @@ function DisplayApprovedOrderAdmin() {
       console.log("all data", data)
       var array = []
       data?.map((users) => {
-        if (users?.status == "OK") {
+        if (users?.status === "OK") {
           array.push(users);
         }
       });

@@ -25,7 +25,7 @@ function DisplayRejectOrderAdmin() {
             console.log("all data", data)
             var array = []
             data?.map((users) => {
-                if (users?.status == "decline") {
+                if (users?.status === "decline") {
                     array.push(users);
                 }
             });

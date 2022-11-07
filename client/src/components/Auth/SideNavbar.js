@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 //All the svg files
-import Home from "../../assets/home-solid.svg";
-import Team from "../../assets/social.svg";
-import Calender from "../../assets/sceduled.svg";
-import Documents from "../../assets/inbox.svg"
-import Cancel from "../../assets/trash.svg"
-import Orders from "../../assets/important.svg"
+import Home from "../assets/home-solid.svg";
+import Team from "../assets/social.svg";
+import Calender from "../assets/sceduled.svg";
+import Documents from "../assets/inbox.svg"
+import Cancel from "../assets/trash.svg"
+import Orders from "../assets/important.svg"
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -119,9 +119,6 @@ const Text = styled.span`
 const SideNavbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-
-  const [profileClick, setprofileClick] = useState(false);
-  const handleProfileClick = () => setprofileClick(!profileClick);
 
   return (
     <Container>

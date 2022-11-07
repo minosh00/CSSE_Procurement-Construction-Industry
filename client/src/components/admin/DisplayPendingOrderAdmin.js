@@ -11,9 +11,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import { Button } from 'react-bootstrap'
 import PendingPdf from "../Common/PendingPdf";
 
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
 function DisplayPendingOrderAdmin() {
   const [users, setusers] = useState();
   const [serachItem, setserachItem] = useState([]);
@@ -27,7 +24,7 @@ function DisplayPendingOrderAdmin() {
       console.log("all data", data)
       var array = []
       data?.map((users) => {
-        if (users?.status == "Pending") {
+        if (users?.status === "Pending") {
           array.push(users);
         }
       });
@@ -64,11 +61,7 @@ function DisplayPendingOrderAdmin() {
               </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">
-            
-              <IconButton aria-label="deletea"  onClick={() => PendingPdf(users)}  size="large"> 
-                                                            <PictureAsPdfIcon fontSize="inherit" /><p>Generate Pdf</p> 
-                                                        </IconButton>
-       
+              <Button className='btn btn-danger' onClick={() => PendingPdf(users)}>Generate Pdf</Button>
             </div>
 
             <table class="table" Id="FundsTrans">
@@ -108,7 +101,7 @@ function DisplayPendingOrderAdmin() {
                           <td>LKR: {topic.Price} /=</td>
                           <td>  <Badge color="success" style={{ fontSize: "15px" }} disabled >{topic.status}</Badge>    </td>
                           <td>  <Link to={{ pathname: `/UpdateOrderById/${topic?._id}` }}>
-                            <Badge color="primary" style={{ fontSize: "15px" }} disabled >   <ShoppingCartIcon fontSize="inherit" />  Order Evaluate </Badge>
+                            <Badge color="primary" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
                           </Link>&nbsp;</td>
                           
                           <td>

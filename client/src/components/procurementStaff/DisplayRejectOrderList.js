@@ -3,7 +3,6 @@ import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import Swal from "sweetalert2";
 import { Button } from 'react-bootstrap'
 import RejectedPdf from '../Common/RejectedPdf';
 import SideNavbarSup from '../Auth/SideNavbarSup';
@@ -21,7 +20,7 @@ function DisplayRejectOrderList() {
             console.log("all data", data)
             var array = []
             data?.map((users) => {
-                if (users?.status == "decline") {
+                if (users?.status === "decline") {
                     array.push(users);
                 }
             });
@@ -32,14 +31,6 @@ function DisplayRejectOrderList() {
             setloading(false);
         }
     }, []);
-
-    const deleteRejectedOrder = id => {
-        axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
-            .then(res => {
-                Swal.fire('Congrats', 'Remove Rejected Order Details Successfully ', 'success')
-            })
-        setusers(users.filter(elem => elem._id !== id))
-    }
 
     return (
         <>

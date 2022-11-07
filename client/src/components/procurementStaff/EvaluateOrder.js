@@ -9,12 +9,6 @@ const EvaluateOrder = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const handleSubmit = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userRole");
-    navigate("/DisplayPendingOrderList");
-  };
-
   const [OrderID, setOrderID] = useState("");
   const [status, setstatus] = useState("");
   const [note, setMessage] = useState("");
@@ -41,7 +35,7 @@ const EvaluateOrder = () => {
 
   useEffect(() => {
     GetTopicData();
-  }, []);
+  });
 
   const updateorderData = async (e) => {
     e.preventDefault();
@@ -54,13 +48,12 @@ const EvaluateOrder = () => {
     let data = await UpdateOrderById(id, newdata);
     console.log("Update success ", data);
     if (!data?.data?.OrderID) {
-      Swal.fire("error", "Please Check Again", "error"); {
-        navigate("/DisplayPendingOrderList");
-      }
+      Swal.fire("error", "Please Check Again", "error")
+      navigate("/DisplayPendingOrderList");
+
     } else {
-      Swal.fire("success", "Order Status Successfully Updated", "success"); {
-        navigate("/DisplayPendingOrderList");
-      }
+      Swal.fire("success", "Order Status Successfully Updated", "success")
+      navigate("/DisplayPendingOrderList");
     }
   };
 

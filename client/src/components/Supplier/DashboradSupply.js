@@ -1,16 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from 'react'
 import supply from "../images/supply.gif"
 import { MDBCard } from 'mdb-react-ui-kit'
 import SideNavbarSup from '../Auth/SideNavbarSup'
 
 const DashboardSupply = () => {
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userRole");
-    navigate("/Login");
-  }
 
   return (
     <div>

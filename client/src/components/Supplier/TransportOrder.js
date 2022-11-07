@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { OrderByID, ViewOrderTransportById } from "../../Services/SupplierServices";
+import { OrderByID } from "../../Services/SupplierServices";
 import axios from "axios";
 import SideNavbarSup from "../Auth/SideNavbarSup";
 
@@ -10,12 +10,6 @@ const TransportOrder = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
-
-  const handleSubmit = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userRole");
-    navigate("/Login");
-  };
 
   const [OrderID, setOrderID] = useState("");
   const [DeliveryAddress, setDeliveryAddress] = useState("");
@@ -40,9 +34,8 @@ const TransportOrder = () => {
 
     console.log(payload)
     axios.post("http://localhost:5000/Transport/CreateTransport/", payload).then((res) => {
-      Swal.fire("success", "Successfully Transport Order", "success"); {
+      Swal.fire("success", "Successfully Transport Order", "success")
         navigate(`/deliverynote/${OrderID}/${transportID}`);
-      }
       console.log(res.data)
     }).catch(
       (error) => console.log(error)
@@ -63,30 +56,6 @@ const TransportOrder = () => {
   useEffect(() => {
     GetTopicData();
   }, []);
-
-  const updateorderData = async (e) => {
-    e.preventDefault();
-    let newdata = {
-      OrderID: OrderID,
-      QTY: QTY,
-      Price: Price,
-      Description: Description,
-      status: status,
-      DeliveryAddress: DeliveryAddress,
-    };
-
-    let data = await ViewOrderTransportById(id, newdata);
-    console.log("Update success ", data);
-    if (!data?.data?.GroupID) {
-      Swal.fire("error", " please  check again ", "error"); {
-        navigate("");
-      }
-    } else {
-      Swal.fire("success", " successfully  Evaluate  Topic", "success"); {
-        navigate("");
-      }
-    }
-  };
 
   return (
     <div>
@@ -165,11 +134,8 @@ const TransportOrder = () => {
                           value={Description} rows="5"
                         />
                       </div>
-
-
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -212,7 +178,6 @@ const TransportOrder = () => {
                             <div class="col-md-12">
                               <label for="" class="form-label">{" "}Vehicle Number  {" "}</label>
                               <input type="text"
-                              placeholder="vehiNo"
                                 class="form-control"
                                 id="exampleFormControlTextarea3"
                                 value={vehiNo} onChange={(e) => setVehiNo(e.target.value)}
@@ -223,7 +188,6 @@ const TransportOrder = () => {
                               <select
                                 class="form-control"
                                 id="floatingInput"
-                                placeholder="TransportStatus"
                                 value={TransportStatus}
                                 onChange={(e) => setTransportStatus(e.target.value)}
                               >

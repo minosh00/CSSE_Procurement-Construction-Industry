@@ -1,20 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from 'react'
 import delivery from "../images/delivery.gif"
-import build from "../images/build.gif"
 import { MDBCard } from 'mdb-react-ui-kit'
 import SideNavbarSite from "../Auth/SideNavbarSite";
 
 const Dashborad = () => {
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userRole");
-    navigate("/Login");
-  }
-
   return (
-
     <div>
       <SideNavbarSite />
       <div className="container shadow my-5 py-5 w-50 hform mx-auto">

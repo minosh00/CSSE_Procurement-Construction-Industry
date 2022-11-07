@@ -38,10 +38,8 @@ const AddSupplier = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (name === '' || email === '' || password === '') {
-            {
                 Swal.fire('error', 'Fill The All Data ', 'error')
                 navigate("/register");
-            }
         } else {
             let newdata = {
                 name: name,
@@ -54,10 +52,8 @@ const AddSupplier = () => {
             console.log("return data", studentdata);
             localStorage.setItem("token", studentdata.data.token);
             localStorage.setItem("userRole", studentdata.data.userRole);
-            {
                 Swal.fire('Congrats', 'Successfully create Your Account ', 'success')
                 navigate("/");
-            }
         }
     };
 
@@ -75,11 +71,11 @@ const AddSupplier = () => {
                             <div className='row py-3'>
                                 <div class="col-md-6">
                                     <label for="name">Full Name</label>
-                                    <input type="text"
+                                    <input type="name"
                                         name="name"
                                         onChange={handleName} value={name}
                                         className="form-control"
-                                        placeholder="Enter full Name" />
+                                        placeholder="Enter Your Name" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="name">Supplier Address</label>
@@ -87,7 +83,7 @@ const AddSupplier = () => {
                                         name="supplierAddress"
                                         onChange={handlesetsupplierAddress} value={supplierAddress}
                                         className="form-control"
-                                        placeholder="supplierAddress" />
+                                        placeholder="Enter Supplier Address" />
                                 </div>
                             </div>
                             <div className='row py-3'>
@@ -97,7 +93,7 @@ const AddSupplier = () => {
                                         name="companyName"
                                         onChange={handlecompanyname} value={companyName}
                                         className="form-control"
-                                        placeholder="companyName" />
+                                        placeholder="Enter Company Name" />
                                 </div>
                                 <div class="col-md-6">
                                     <label for="name">E-mail Address</label>
@@ -115,7 +111,7 @@ const AddSupplier = () => {
                                         name="password"
                                         onChange={handlePassword} value={password}
                                         className="form-control"
-                                        placeholder="Password" />
+                                        placeholder="Enter Your Password" />
                                 </div>
                             </div>
                             <button type="submit" onClick={handleSubmit} class="btn btn-primary w-100 mt-4 rounded-pill">Register Supplier</button>

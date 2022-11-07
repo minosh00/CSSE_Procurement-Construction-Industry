@@ -3,7 +3,6 @@ import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import Swal from "sweetalert2";
 import { Button } from 'react-bootstrap'
 import ApprovedPdf from '../Common/ApprovedPdf';
 import SideNavbarSup from "../Auth/SideNavbarSup";
@@ -21,7 +20,7 @@ function DisplayApprovedOrderList() {
       console.log("all data", data)
       var array = []
       data?.map((users) => {
-        if (users?.status == "OK") {
+        if (users?.status === "OK") {
           array.push(users);
         }
       });
@@ -33,13 +32,6 @@ function DisplayApprovedOrderList() {
     }
   }, []);
 
-  const deleteApprovedOrder = id => {
-    axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
-      .then(res => {
-        Swal.fire('Congrats', 'Remove Approved Order Details Successfully ', 'success')
-      })
-    setusers(users.filter(elem => elem._id !== id))
-  }
 
   return (
     <>

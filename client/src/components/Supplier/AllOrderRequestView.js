@@ -6,9 +6,9 @@ import SideNavbarSup from "../Auth/SideNavbarSup";
 function AllOrderRequestView() {
 
   const [users, setusers] = useState();
-  const [CurrentUser, setCurrentUser] = useState({});
-  const [UserRole, setUserRole] = useState(false);
-  const [loading, setLoading] = useState();
+  const [, setCurrentUser] = useState({});
+  const [, setUserRole] = useState(false);
+  const [, setLoading] = useState();
 
   const getAuthUser = async () => {
     try {
@@ -18,7 +18,7 @@ function AllOrderRequestView() {
       setUserRole(data?.data?.userRole);
       setCurrentUser(data?.data);
       console.log(data);
-      if (data?.data?.userRole == "supplier") {
+      if (data?.data?.userRole === "supplier") {
         GetRequests(data?.data?._id);
       }
       setLoading(false);
@@ -46,7 +46,7 @@ function AllOrderRequestView() {
 
   useEffect(() => {
     getAuthUser();
-  }, []);
+  });
 
   return (
     <div className="py-2">

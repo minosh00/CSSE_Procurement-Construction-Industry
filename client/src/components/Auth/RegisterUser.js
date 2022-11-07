@@ -37,10 +37,8 @@ const RegisterUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (name === '' || email === '') {
-      {
         Swal.fire('error', 'Fill The All Data ', 'error')
         navigate("/register");
-      }
     } else {
       let newdata = {
         name: name,
@@ -53,10 +51,8 @@ const RegisterUser = () => {
       console.log("return data", studentdata);
       localStorage.setItem("token", studentdata.data.token);
       localStorage.setItem("userRole", studentdata.data.userRole);
-      {
         Swal.fire('Congrats', 'Successfully create Your Account ', 'success')
         navigate("/");
-      }
     }
   };
 

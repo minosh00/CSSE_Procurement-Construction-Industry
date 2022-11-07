@@ -15,7 +15,7 @@ function DisplayOrderDeliverdStatus() {
       console.log("all data", data)
       var array = []
       data?.map((users) => {
-        if (users?.TransportStatus == "delivered") {
+        if (users?.TransportStatus === "delivered") {
           array.push(users);
         }
       });
@@ -29,7 +29,6 @@ function DisplayOrderDeliverdStatus() {
 
   return (
     <>
-      
       <div className="container shadow my-5 mx-auto">
         <h3 className=" fw-bolder py-5"><center><b>Transport Status </b></center></h3>
         <div className="row">
@@ -86,4 +85,3 @@ function DisplayOrderDeliverdStatus() {
 }
 
 export default DisplayOrderDeliverdStatus;
-

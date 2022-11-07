@@ -3,7 +3,6 @@ import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
-import Swal from "sweetalert2";
 import { Button } from 'react-bootstrap'
 import PendingPdf from "../Common/PendingPdf";
 import SideNavbarSup from "../Auth/SideNavbarSup";
@@ -21,7 +20,7 @@ function DisplayPendingOrderList() {
       console.log("all data", data)
       var array = []
       data?.map((users) => {
-        if (users?.status == "Pending") {
+        if (users?.status === "Pending") {
           array.push(users);
         }
       });
@@ -32,14 +31,6 @@ function DisplayPendingOrderList() {
       setloading(false);
     }
   }, []);
-
-  const deletePendingOrder = id => {
-    axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
-      .then(res => {
-        Swal.fire('Congrats', 'Remove Pending Order Details Successfully ', 'success')
-      })
-    setusers(users.filter(elem => elem._id !== id))
-  }
 
   return (
     <div> <br />
@@ -103,7 +94,6 @@ function DisplayPendingOrderList() {
                     })}
               </tbody>
             </table>
-
           </div>
         </div>
       </div>

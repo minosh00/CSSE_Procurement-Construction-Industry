@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import AllOrdersPdf from '../Common/AllOrdersPdf';
-import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Badge } from "reactstrap";
 import SideNavbarSite from '../Auth/SideNavbarSite';
@@ -12,23 +11,27 @@ function AllOrdersSite() {
     const [users, setusers] = useState();
     const [serachItem, setserachItem] = useState([]);
 
-    useEffect(async () => {
-        try {
-            const data = await (
-                await axios.get("http://localhost:5000/order/GetAllOrders")).data;
-            setusers(data);
-        } catch (error) {
-            console.log(error);
-        }
-    }, []);
+    // useEffect(async () => {
+    //     try {
+    //         const data = await (
+    //             await axios.get("http://localhost:5000/order/GetAllOrders")).data;
+    //         setusers(data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }, []);
 
-    const deleteOrders = id => {
-        axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
-            .then(res => {
-                Swal.fire('Congrats', 'Remove Order Details Successfully ', 'success')
-            })
-        setusers(users.filter(elem => elem._id !== id))
-    }
+    useEffect(() => {
+        const getUsers = async () => {
+          try {
+            const res = await axios.get("http://localhost:5000/order/GetAllOrders")
+            setusers(res.data);
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        getUsers()
+      }, []);
 
     return (
         <div>
@@ -58,7 +61,6 @@ function AllOrdersSite() {
                                 buttonText="Export As Excel" />
                             <br /> <br />
                         </div>
-
 
                         <table className="table table-bordered mb-3" Id="FundsTrans">
                             <thead className="table-dark">

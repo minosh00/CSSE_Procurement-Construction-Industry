@@ -2,21 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { OrderByID, ViewOrderTransportById } from "../../Services/SupplierServices";
+import { OrderByID } from "../../Services/SupplierServices";
 import axios from "axios";
-import SideNavbarSup from "../Auth/SideNavbarSup";
 import SideNavbarSite from "../Auth/SideNavbarSite";
 
 const TransportOrderSup = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
-
-  const handleSubmit = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userRole");
-    navigate("/Login");
-  };
 
   const [OrderID, setOrderID] = useState("");
   const [DeliveryAddress, setDeliveryAddress] = useState("");
@@ -41,9 +34,8 @@ const TransportOrderSup = () => {
 
     console.log(payload)
     axios.post("http://localhost:5000/Transport/CreateTransport/", payload).then((res) => {
-      Swal.fire("success", " success ", "success"); {
+      Swal.fire("success", " success ", "success")
         navigate("");
-      }
       console.log(res.data)
     }).catch(
       (error) => console.log(error)
@@ -63,31 +55,7 @@ const TransportOrderSup = () => {
 
   useEffect(() => {
     GetTopicData();
-  }, []);
-
-  const updateorderData = async (e) => {
-    e.preventDefault();
-    let newdata = {
-      OrderID: OrderID,
-      QTY: QTY,
-      Price: Price,
-      Description: Description,
-      status: status,
-      DeliveryAddress: DeliveryAddress,
-    };
-
-    let data = await ViewOrderTransportById(id, newdata);
-    console.log("Update success ", data);
-    if (!data?.data?.GroupID) {
-      Swal.fire("error", " please  check again ", "error"); {
-        navigate("");
-      }
-    } else {
-      Swal.fire("success", " successfully  Evaluate  Topic", "success"); {
-        navigate("");
-      }
-    }
-  };
+  });
 
   return (
     <div>
