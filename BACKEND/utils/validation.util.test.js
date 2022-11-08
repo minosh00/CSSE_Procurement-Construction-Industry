@@ -1,7 +1,7 @@
 const validate = require("./validation.util");
 
 //Validate transport data
-test("Validate  OrderID  With Correct Data", () => {
+test("Validate OrderID With Correct Data", () => {
   const data = {
     OrderID: "ord12344",
     TransportID: "Trp12344",
@@ -12,7 +12,7 @@ test("Validate  OrderID  With Correct Data", () => {
 });
 
 
-test("Validate invoices  With Correct Data", () => {
+test("Validate invoices With Correct Data", () => {
   const data = {
     OrderID: "ord12344",
     InvoicesID: "IN2395588",
@@ -35,7 +35,7 @@ test("Validate login With Correct Data", () => {
 });
 
 //Validate incomplete Transport  data (missing location and vehicle number )
-test("Validate Transport  data  With Incomplete Data (missing location and vehicle number )", () => {
+test("Validate Transport data With Incomplete Data (missing location and vehicle number )", () => {
   const data = {
     TransportID: "trp19238",
     OrderID: "ord122737"
