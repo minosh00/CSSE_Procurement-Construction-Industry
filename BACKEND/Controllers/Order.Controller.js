@@ -4,7 +4,7 @@ const Orders = require("../Model/Order");
 //get all Orders
 const GetAllOrders = async (req, res) => {
     let id = req.params;
-    console.log("orderID", id.id);
+    // console.log("orderID", id.id);
     try {
         const Supervisors = await Orders.find({ "orderID": id.id });
         res.status(200).json(Supervisors);
@@ -90,10 +90,10 @@ const ViewOrderssById = async (req, res) => {
 const CreateOrder = async (req, res) => {
     const Supervisors = req.body;
     const status = req.body.QTY > 100000 ? "Pending" : "OK";
-    console.log(status);
-    console.log("creator ", Supervisors.userId);
+    // console.log(status);
+    // console.log("creator ", Supervisors.userId);
     const newSupervisors = new Orders({ ...Supervisors, status: status, creator: Supervisors.userId == undefined ? "no creator" : Supervisors.userId })
-    console.log("created order", newSupervisors);
+    // console.log("created order", newSupervisors);
     try {
         await newSupervisors.save();
         res.status(201).json(newSupervisors);

@@ -47,13 +47,13 @@ test("supplier Address  input should have a type as text", () => {
     );
     const supplierAddress = screen.getByPlaceholderText("Enter Supplier Address");
     expect(supplierAddress).toHaveAttribute("type", "text");
-  });
+});
   
 
 
      // ────────────────────────────────────────────────────────────────────────────────
 
-test("full name   input should have a type as text ", () => {
+test("full name input should have a type as text ", () => {
     render(
       <BrowserRouter>
         <AddSupplier />
@@ -62,4 +62,3 @@ test("full name   input should have a type as text ", () => {
     const name = screen.getByPlaceholderText("Enter Your Name");
     expect(name).toHaveAttribute("type", "text");
   });
-  

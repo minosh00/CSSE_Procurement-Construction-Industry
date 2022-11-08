@@ -170,6 +170,7 @@ const TransportOrder = () => {
                               class="form-control"
                               id="floatingPassword"
                               value={location} onChange={(e) => setLocationD(e.target.value)}
+                              placeholder="Enter Transport Location"
                             />
                           </div>
 

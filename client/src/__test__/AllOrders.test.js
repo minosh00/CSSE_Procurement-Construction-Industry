@@ -1,25 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
-import TransportOrder from "../components/Supplier/TransportOrder";
+import Payment from "../components/admin/Payment"
 
-
-test("renders the Trans portOrder  page", () => {
+test("renders the Payment page", () => {
   render(
     <BrowserRouter>
-      <TransportOrder />
+      <Payment />
     </BrowserRouter>
   );
 });
 
 // ────────────────────────────────────────────────────────────────────────────────
 
-test("vehi No    should have a type as text", () => {
+test("Payment Method should be number", () => {
     render(
       <BrowserRouter>
-        <TransportOrder />
+        <Payment />
       </BrowserRouter>
     );
-    const location = screen.getByPlaceholderText("Enter Transport Location");
-    expect(location).toHaveAttribute("type", "text");
+    const amount = screen.getByPlaceholderText("Enter Payment Amount");
+    expect(amount).toHaveAttribute("type", "number");
   });
