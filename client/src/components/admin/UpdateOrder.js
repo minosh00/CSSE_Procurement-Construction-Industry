@@ -105,7 +105,7 @@ function UpdateOrder(props) {
                                 <label for="contact">Order Status</label>
                                 <input type="text" className="form-control" id="contact" placeholder="Enter Order Status"
                                     value={order.status}
-                                    onChange={(e) => { setOrder({ status: e.target.value }) }} readOnly></input>
+                                    onChange={(e) => { setOrder({ status: e.target.value }) }} ></input>
                             </div>
                         </div>
 
