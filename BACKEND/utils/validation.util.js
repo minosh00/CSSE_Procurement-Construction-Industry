@@ -46,13 +46,6 @@ const PaymentSchema = Joi.object({
 }).unknown(true);
 
 
-module.exports = {
-  TransportSchema,
-  InvoicesSchema,
-  loginSchema,
-  OrderSchema,
-  PaymentSchema
-};
 /* This is a schema for validating the create transport form. */
 const TransportSchema = Joi.object({
   OrderID: Joi.string().min(3).required().label("OrderID"),
@@ -60,3 +53,11 @@ const TransportSchema = Joi.object({
   location: Joi.string().min(3).required().label("location"),
   VehicleNumber: Joi.string().min(3).required().label("VehicleNumber"),
 }).unknown(true);
+
+module.exports = {
+  TransportSchema,
+  InvoicesSchema,
+  loginSchema,
+  OrderSchema,
+  PaymentSchema
+};

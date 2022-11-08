@@ -11,25 +11,27 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
 function AllOrdersAdmin() {
-    const [users, setusers] = useState();
-    const [serachItem, setserachItem] = useState([]);
+    const [orders, setOrders] = useState();
+    const [serachItem, setSearchItem] = useState([]);
 
+    //get all orders
     useEffect(async () => {
         try {
             const data = await (
                 await axios.get("http://localhost:5000/order/GetAllOrders")).data;
-            setusers(data);
+            setOrders(data);
         } catch (error) {
             console.log(error);
         }
     }, []);
 
+    //Delete order by ID
     const deleteOrders = id => {
         axios.delete(`http://localhost:5000/order/RemoveOrder/${id}`)
             .then(res => {
                 Swal.fire('Congrats', 'Remove Order Details Successfully ', 'success')
             })
-        setusers(users.filter(elem => elem._id !== id))
+        setOrders(orders.filter(elem => elem._id !== id))
     }
 
     return (
@@ -43,12 +45,12 @@ function AllOrdersAdmin() {
                     <div className="row">
                         <div class="input-group">
                             <div className="col-md-6 mx-auto">
-                                <input type="search" class="form-control rounded" placeholder="Search by Order ID" aria-label="Search" onChange={event => { setserachItem(event.target.value) }}
+                                <input type="search" class="form-control rounded" placeholder="Search by Order ID" aria-label="Search" onChange={event => { setSearchItem(event.target.value) }}
                                     aria-describedby="search-addon" /> <br /> <br />
                             </div>
                         </div>
                         <div class="gap-2 py-3">
-                            <button className='btn btn-danger' onClick={() => AllOrdersPdf(users)}>
+                            <button className='btn btn-danger' onClick={() => AllOrdersPdf(orders)}>
                                 Generate Pdf
                             </button> &nbsp;
                             <ReactHTMLTableToExcel
@@ -79,35 +81,35 @@ function AllOrdersAdmin() {
                             </thead>
 
                             <tbody id="table-group-divider">
-                                {users &&
-                                    users.filter((users) => {
+                                {orders &&
+                                    orders.filter((orders) => {
                                         if (serachItem == "") {
-                                            return users
-                                        } else if (users.OrderID.toLowerCase().includes(serachItem.toLowerCase())) {
-                                            return users
+                                            return orders
+                                        } else if (orders.OrderID.toLowerCase().includes(serachItem.toLowerCase())) {
+                                            return orders
                                         }
                                     })
-                                        .map((users, id) => {
+                                        .map((orders, id) => {
                                             return (
                                                 <tr>
                                                     <td>{id + 1}</td>
-                                                    <td>{users.OrderID}</td>
-                                                    <td>{users.DeliveryAddress}</td>
-                                                    <td>{new Date(users.createdAt).toDateString()}</td>
-                                                    <td>{users.QTY}</td>
-                                                    <td>LKR: {users.Price}</td>
-                                                    <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {users.status} </Badge>  </td>
+                                                    <td>{orders.OrderID}</td>
+                                                    <td>{orders.DeliveryAddress}</td>
+                                                    <td>{new Date(orders.createdAt).toDateString()}</td>
+                                                    <td>{orders.QTY}</td>
+                                                    <td>LKR: {orders.Price}</td>
+                                                    <td><Badge color="danger" style={{ fontSize: "15px" }} disabled> {orders.status} </Badge>  </td>
                                                     <td><Link to="">
                                                         <button
                                                             type="submit"
                                                             className="btn btn-success"
-                                                            onClick={() => window.location.href = `/ViewOrderssById/${users?._id}`}>
+                                                            onClick={() => window.location.href = `/ViewOrderssById/${orders?._id}`}>
                                                             View Order
                                                         </button>
                                                     </Link></td>
 
                                                     <td>
-                                                        <Link to={`/UpdateOrder/${users?._id}`}>
+                                                        <Link to={`/UpdateOrder/${orders?._id}`}>
                                                             <IconButton aria-label="update" size="large">
                                                                 <EditIcon fontSize="inherit" />
                                                             </IconButton>
@@ -115,7 +117,7 @@ function AllOrdersAdmin() {
                                                     </td>
 
                                                     <td>
-                                                        <IconButton aria-label="delete" onClick={() => deleteOrders(users._id)} size="large">
+                                                        <IconButton aria-label="delete" onClick={() => deleteOrders(orders._id)} size="large">
                                                             <DeleteIcon fontSize="inherit" />
                                                         </IconButton>
                                                     </td>

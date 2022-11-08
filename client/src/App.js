@@ -85,7 +85,7 @@ function App() {
             <Route path="/DisplayRejectOrderSite" element={<DisplayRejectOrderSite />} />
             <Route path="/AllSuppliers" element={<AllSuppliers />} />
             <Route path="/UpdateOrder/:id" element={<UpdateOrder />} />
-            <Route path="/payment/:id" element={<Payment />} />
+            <Route path="/payment/:id/:Price" element={<Payment />} />
             <Route path="/ViewPayment" element={<ViewPayment />} />
             <Route path="/deliverynote/:OrderID/:transportID" element={<CreateDeliveryNote />} />
           </Routes>

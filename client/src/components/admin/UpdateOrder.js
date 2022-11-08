@@ -66,21 +66,21 @@ function UpdateOrder(props) {
                         <div className="row py-3">
                             <div className="col-md-4">
                                 <label for="name">Order ID</label>
-                                <input type="text" className="form-control" id="name" placeholder="Enter Name"
+                                <input type="text" className="form-control" id="name" placeholder="Enter Order ID"
                                     value={order.OrderID}
                                     onChange={(e) => { setOrder({ OrderID: e.target.value }) }} readOnly></input>
                             </div>
 
                             <div className="col-md-4">
                                 <label for="email">Material</label>
-                                <input type="text" className="form-control" id="email" placeholder="Enter email "
+                                <input type="text" className="form-control" id="email" placeholder="Enter Material Name"
                                     value={order.Material}
                                     onChange={(e) => { setOrder({ Material: e.target.value }) }}></input>
                             </div>
 
                             <div className="col-md-4">
                                 <label for="contact">Deadline</label>
-                                <input type="text" className="form-control" id="contact" placeholder="Enter phone number "
+                                <input type="text" className="form-control" id="contact" placeholder="Enter Deadline"
                                     value={order.Deadline}
                                     onChange={(e) => { setOrder({ Deadline: e.target.value }) }}></input>
                             </div>
@@ -89,23 +89,23 @@ function UpdateOrder(props) {
                         <div className="row py-3">
                             <div className="col-md-4">
                                 <label for="contact">Quantity</label>
-                                <input type="text" className="form-control" id="contact" placeholder="Enter phone number "
+                                <input type="text" className="form-control" id="contact" placeholder="Enter Quantity"
                                     value={order.QTY}
                                     onChange={(e) => { setOrder({ QTY: e.target.value }) }}></input>
                             </div>
 
                             <div className="col-md-4">
                                 <label for="contact">Price (LKR)</label>
-                                <input type="text" className="form-control" id="contact" placeholder="Enter phone number "
+                                <input type="text" className="form-control" id="contact" placeholder="Enter Price"
                                     value={order.Price}
                                     onChange={(e) => { setOrder({ Price: e.target.value }) }}></input>
                             </div>
 
                             <div className="col-md-4">
                                 <label for="contact">Order Status</label>
-                                <input type="text" className="form-control" id="contact" placeholder="Enter phone number "
+                                <input type="text" className="form-control" id="contact" placeholder="Enter Order Status"
                                     value={order.status}
-                                    onChange={(e) => { setOrder({ status: e.target.value }) }}></input>
+                                    onChange={(e) => { setOrder({ status: e.target.value }) }} readOnly></input>
                             </div>
                         </div>
 

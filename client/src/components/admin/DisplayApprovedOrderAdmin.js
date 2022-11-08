@@ -113,7 +113,7 @@ function DisplayApprovedOrderAdmin() {
                             </Link>
                           </td>
                           <td>
-                            <Link to={`/payment/${users.OrderID}`}>
+                            <Link to={`/payment/${users.OrderID}/${users.Price}`}>
                               <button className="btn btn-success">
                                 Pay
                               </button>

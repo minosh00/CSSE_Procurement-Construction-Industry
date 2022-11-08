@@ -67,8 +67,8 @@ const CreateDeliveryNote = () => {
                             <label for="name" class="form-label">Total Amount</label>
                             <input name="TotalAmount" onChange={(f) => setTotalAmount(f.target.value)} type="number" class="form-control" placeholder='Enter Total Amount' required />
                         </div>
-                    </div> <br />
-                    <button type="submit" class="btn btn-danger w-100 rounded-pill">Pay Now</button>
+                    </div> <br /> <br />
+                    <button type="submit" class="btn btn-danger w-100 rounded-pill">Create Delivery Note</button>
                     <br />
                 </form>
             </div>

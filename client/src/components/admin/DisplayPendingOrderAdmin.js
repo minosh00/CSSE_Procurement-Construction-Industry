@@ -98,14 +98,14 @@ function DisplayPendingOrderAdmin() {
                           <td>{topic.Deadline}</td>
                           <td>{topic.Material}</td>
                           <td>{topic.QTY}</td>
-                          <td>LKR: {topic.Price} /=</td>
+                          <td>LKR: {topic.Price}</td>
                           <td>  <Badge color="success" style={{ fontSize: "15px" }} disabled >{topic.status}</Badge>    </td>
                           <td>  <Link to={{ pathname: `/UpdateOrderById/${topic?._id}` }}>
                             <Badge color="primary" style={{ fontSize: "15px" }} disabled > Order Evaluate </Badge>
                           </Link>&nbsp;</td>
-                          
+
                           <td>
-                            <Link to={`/UpdateOrder/${users?._id}`}>
+                            <Link to={`/UpdateOrder/${topic?._id}`}>
                               <IconButton aria-label="update" size="large">
                                 <EditIcon fontSize="inherit" />
                               </IconButton>
