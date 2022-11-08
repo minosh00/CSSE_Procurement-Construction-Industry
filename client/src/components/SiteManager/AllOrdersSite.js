@@ -11,16 +11,6 @@ function AllOrdersSite() {
     const [users, setusers] = useState();
     const [serachItem, setserachItem] = useState([]);
 
-    // useEffect(async () => {
-    //     try {
-    //         const data = await (
-    //             await axios.get("http://localhost:5000/order/GetAllOrders")).data;
-    //         setusers(data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }, []);
-
     useEffect(() => {
         const getUsers = async () => {
           try {

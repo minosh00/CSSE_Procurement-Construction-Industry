@@ -42,6 +42,7 @@ const TransportOrder = () => {
     )
   }
 
+  //get topic data
   const GetTopicData = async () => {
     let data = await OrderByID(id);
     console.log("Update topics", data);
@@ -162,6 +163,7 @@ const TransportOrder = () => {
                               class="form-control"
                               id="floatingInput"
                               value={transportID} onChange={(e) => setTransportID(e.target.value)}
+                              placeholder="Enter Transport ID"
                             />
                           </div>
                           <div class="col-md-12 py-2">
@@ -182,6 +184,7 @@ const TransportOrder = () => {
                                 class="form-control"
                                 id="exampleFormControlTextarea3"
                                 value={vehiNo} onChange={(e) => setVehiNo(e.target.value)}
+                                placeholder="Enter Vehicle Number"
                               />
                             </div>
                             <div class="py-3 col-md-12">
@@ -191,6 +194,7 @@ const TransportOrder = () => {
                                 id="floatingInput"
                                 value={TransportStatus}
                                 onChange={(e) => setTransportStatus(e.target.value)}
+                                placeholder="Enter Transport Status"
                               >
                                 <option value=""></option>
                                 <option value="delivered">Delivered</option>
